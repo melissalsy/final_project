@@ -1,33 +1,29 @@
-var http = require('http');
 var mongoose = require('mongoose');
-var url = 'mongodb://localhost:8080';
+var Schema = mongoose.Schema;
 
-var productsSchema = new mongoose.Schema({
-  name: { 
-    type: String, 
-    required: true, 
-  },
+//create a schema for product//
+var productSchema = new Schema({
+  name: String, 
   description: { 
     type: String, 
-    required: true, 
+    required: true
   },
-  image: { 
-    type: String, 
-    required: true, 
-  },
+  image:String, 
   category: { 
     type: String, 
-    required: true, 
+    required: true 
   },
   price: { 
     type: Number, 
-    required: true,  
+    required: true
   },
   quantity: { 
     type: Number, 
-    required: true,  
+    required: true
   });
 
-var Product = mongoose.model('Product', productsSchema);
+//Create a Model using the Schema//
+var Product = mongoose.model('Product', productSchema);
 
+// Make this available to our Node applications.
 module.exports = Product;
