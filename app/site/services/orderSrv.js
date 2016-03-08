@@ -1,1 +1,1 @@
-app.service('orderSrv', orderService);
+// app.service('orderSrv', orderService);
