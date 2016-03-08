@@ -1,3 +1,5 @@
 node_modules/
 bower_components/
-data/db/
+**/*/data/db/
+mongodb/
+mongodb-osx-x86_64-3.2.1/
