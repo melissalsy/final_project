@@ -1,0 +1,1 @@
+app.service('productSrv', productService);
