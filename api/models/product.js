@@ -9,10 +9,6 @@ var productSchema = new Schema({
     required: true
   },
   image:String, 
-  category: { 
-    type: String, 
-    required: true 
-  },
   price: { 
     type: Number, 
     required: true
