@@ -2,15 +2,14 @@ var app = angular.module('webApp', ['ui.router']);
 
 app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	
-	$urlRouterProvider.otherwise('landingPage');
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
 		.state('landing', {
-			url: '/',
-			templateUrl: 'site/partials/landing.html',
-			controller: ,
+			url: '/test',
+			templateUrl: 'site/partials/landing.html'
 		})
-
+		
 		// .state('product', {
 		// 	url: "/product",
 		// 	templateUrl: ,
@@ -43,8 +42,8 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 
 		.state ('login', {
 		    url:'/login',
-		    templateUrl: 'site/partials/login.html',
-		    controller: ,
+		    templateUrl: 'site/partials/login.html'
+		    // controller: ,
 		    // resolve:{
 		      
 		    // }
@@ -77,16 +76,16 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	 //      }
   //   	})
 
-	$httpProvider.interceptors.push(function() {
-    	return {
-      		'request': function(config) {
-        	config.headers = config.headers || {};
-        		if (localStorage.authToken) {
-          		config.headers.Authorization = localStorage.authToken;
-        		}
-        	return config;
-      		}
-    	};
-  	});
+	// $httpProvider.interceptors.push(function() {
+ //    	return {
+ //      		'request': function(config) {
+ //        	config.headers = config.headers || {};
+ //        		if (localStorage.authToken) {
+ //          		config.headers.Authorization = localStorage.authToken;
+ //        		}
+ //        	return config;
+ //      		}
+ //    	};
+ //  	});
 
 });
