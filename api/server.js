@@ -1,23 +1,40 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var app = express();
 var mongoose = require('mongoose');
+var app = express();
 
 app.use(bodyParser.json());
+app.use(express.static(__dirname + './../app/'));
 
-//var db = mongoose.connection;
+// Create instance of Mongoose and connect to our local
+// MongoDB database at the directory specified earlier.
 mongoose.connect('mongodb://localhost/db');
 
-app.get('/', function(req, res){
-	res.send('Hello, World!');
+// Log to console any errors or a successful connection.
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+	console.log("Connected to db at /data/db/")
 });
 
-var productRoutes = require('./routes/productRoutes');
-var orderRoutes = require('./routes/orderRoutes');
 
-app.use('/api/products',productRoutes);
-app.use('/api/orders',orderRoutes);
 
+// app.get('/', function(req, res){
+// 	res.send('Hello, World!');
+// });
+
+// var productRoutes = require('./routes/productRoutes');
+// var orderRoutes = require('./routes/orderRoutes');
+
+// app.use('/api/products',productRoutes);
+// app.use('/api/orders',orderRoutes);
+
+
+
+
+
+
+// start Express on port 8080 (leaves at the end of code)
 app.listen(8080,function(){
 	console.log('Listening on http://localhost:8080');
 	console.log('Stop Server With CTRL + C');
