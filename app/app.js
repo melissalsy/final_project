@@ -2,13 +2,13 @@ var app = angular.module('webApp', ['ui.router']);
 
 app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	
-	$urlRouterProvider.otherwise('landingPage');
+	$urlRouterProvider.otherwise('landing');
 
 	$stateProvider
 		.state('landing', {
-			url: '/',
-			templateUrl: 'site/partials/landing.html',
-			controller: ,
+			url: '/landing',
+			templateUrl: 'site/partials/landing.html'
+			//controller: ,
 		})
 
 		// .state('product', {
@@ -43,8 +43,8 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 
 		.state ('login', {
 		    url:'/login',
-		    templateUrl: 'site/partials/login.html',
-		    controller: ,
+		    templateUrl: 'site/partials/login.html'
+		    //controller: ,
 		    // resolve:{
 		      
 		    // }
@@ -59,14 +59,14 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	 //      }
 	 //    })
 
-	 //    .state ('admin.inventory', {
-	 //      url:'/inventory',
-	 //      templateUrl:,
-	 //      controller: ,
-	 //      resolve:{
+	    .state ('inventory', {
+	      url:'/inventory',
+	      templateUrl: 'site/partials/inventory.html'
+	      controller: productCtrl
+	      // resolve:{
 	
-	 //      }
-  //   	})
+	      // }
+    	})
 
   //   	 .state ('admin.orders', {
 	 //      url:'/orders',

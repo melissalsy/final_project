@@ -1,1 +1,1 @@
-app.service('api', apiService);
+//app.service('api', apiService);

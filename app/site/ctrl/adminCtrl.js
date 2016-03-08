@@ -1,1 +1,1 @@
-app.controller('adminCtrl', adminCtrl);
+//app.controller('adminCtrl', adminCtrl);

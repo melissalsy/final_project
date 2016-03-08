@@ -4,13 +4,15 @@ var app = express();
 var mongoose = require('mongoose');
 
 //app.use(bodyParser.json());
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static(__dirname + './../app/'));
 //var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/db');
+//mongoose.connect('mongodb://localhost/db');
 
-app.get('/', function(req, res){
-	res.send('Hello, World!');
-});
+// app.get('/', function(req, res){
+// 	res.sendfile('app/index.html');
+// });
 
 var productRoutes = require('./routes/productRoutes');
 var orderRoutes = require('./routes/orderRoutes');
