@@ -21,23 +21,25 @@ router.get('/orders', function(req, res){
 	});
 });
 
-router.get('/orders/:_id', function(req, res){
-	models.Orders.getOrderById(function(err, order){
-		// if (err){
-		// 	throw err;
-		// }
-		// res.json(order);
-	});
-});
+// router.get('/orders/:_id', function(req, res){
+// 	models.Orders.getOrderById(function(err, order){
+// 		// if (err){
+// 		// 	throw err;
+// 		// }
+// 		// res.json(order);
+// 	});
+// });
 
-router.post('/orders', function(req, res){
+// router.post('/orders', function(req, res){
 
-	models.Orders.addOrder(order, function(err, order){
-		// if (err){
-		// 	throw err;
-		// }
-		// res.json(order);
-	});
-});
+// 	models.Orders.addOrder(order, function(err, order){
+// 		// if (err){
+// 		// 	throw err;
+// 		// }
+// 		// res.json(order);
+// 	});
+// });
+
 
 module.exports = router;
+

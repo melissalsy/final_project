@@ -1,61 +1,61 @@
-var http = require('http');
+<<<<<<< HEAD
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var orderSchema = new mongoose.Schema({
+//This is the Order Schema/
+var orderSchema = new Schema({
 	order_status: {
-
+		type: String,
+		required: true
 	},
-	shipping_info: {
-		Address: {
-			type: String,
-			required: true
-		},
-		City: {
-			type: String,
-			required: true
-		},
-		Country: {
-			type: String,
-			required: true
-		},
-		Province: {
-			type: String,
-			required: true
-		},
-		Postal: {
-			type: String, 
-			minimum: 6, 
-			required: true}
+	Address: {
+		type: String,
+		required: true
 	},
-	cart: {
-
+	City: {
+		type: String,
+		required: true
 	},
-	tax: {
-		type: Number
+	Country: {
+		type: String,
+		required: true
 	},
-	price: {
-
+	Province: {
+		type: String,
+		required: true
 	},
-	total: {
-
-	}
+	Postal: {
+		type: String, 
+		minimum: 6, 
+		required: true
+	},
+	cart: Array,
+	tax: Number,
+	price: Number,
+	total: Number,
 });
 
-var Orders = module.exports = mongoose.model('Orders', orderSchema);
+//Create a Model using the Schema//
+var Order = mongoose.model('Order', orderSchema);
 
-module.exports.getOrders = function(callback, limit){
-	Orders.find(callback).limit(limit);
-}
+// Make this available to our Node applications.
+module.exports = Order;
 
-module.exports.getOrderById = function(id, callback){
-	Orders.findById(id, callback);
-}
+// module.exports.getOrders = function(callback, limit){
+// 	Orders.find(callback).limit(limit);
+// }
 
-module.exports.addOrder = function(book, callback){
-	Orders.create(order, callback);
-}
+// module.exports.getOrderbyId = function(id, callback){
+// 	Orders.findById(id, callback);
+// }
 
-module.exports.deleteOrder = function(id, callback){
-	var query = {_id: id};
-	Orders.remove(query, callback);
-}
+// module.exports.addOrder = function(book, callback){
+// 	Orders.create(order, callback);
+// }
+
+// module.exports.updateOrder = function(id, book, order, options, callback){
+// 	var query = {_id:id};
+// 	var update =  {
+		
+// 	}
+// }
