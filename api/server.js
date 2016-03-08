@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
 
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 //var db = mongoose.connection;
 mongoose.connect('mongodb://localhost/db');

@@ -1,6 +1,5 @@
 var http = require('http');
 var mongoose = require('mongoose');
-var url = 'mongodb://localhost:8080';
 
 var productsSchema = new mongoose.Schema({
   name: { 
