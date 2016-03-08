@@ -1,0 +1,1 @@
+app.controller('adminCtrl', adminCtrl);
