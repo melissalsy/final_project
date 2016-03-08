@@ -1,15 +1,6 @@
 var http = require('http');
 var mongoose = require('mongoose');
 
-var url = 'mongodb://localhost:8080';
-mongoose.connect(url, function(err, res){
-	if (err) {
-		console.log('error');
-	} else {
-		console.log('mongoose connection success!');
-	}
-});
-
 var orderSchema = new mongoose.Schema({
 	order_status: {
 
@@ -62,18 +53,6 @@ module.exports.getOrderById = function(id, callback){
 
 module.exports.addOrder = function(book, callback){
 	Orders.create(order, callback);
-}
-
-module.exports.updateOrder = function(id, book, order, options, callback){
-	var query = {_id:id};
-	var update =  {
-		Address: Orders.shipping_info.Address,
-		City: Orders.shipping_info.City,
-		Country: Orders.shipping_info.Country,
-		Province: Orders.shipping_info.Province,
-		Postal: Orders.shipping_info.Postal
-	}
-	Orders.findOneAndUpdate(query, update, options, callback)
 }
 
 module.exports.deleteOrder = function(id, callback){

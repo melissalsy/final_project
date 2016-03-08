@@ -2,14 +2,6 @@ var http = require('http');
 var mongoose = require('mongoose');
 var url = 'mongodb://localhost:8080';
 
-mongoose.connect(url, function(err, res){
-	if (err) {
-		console.log('error');
-	} else {
-		console.log('mongoose connection success!');
-	}
-});
-
 var productsSchema = new mongoose.Schema({
   name: { 
     type: String, 
