@@ -61,20 +61,18 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	    .state ('inventory', {
 	      url:'/inventory',
 	      templateUrl: 'site/partials/inventory.html',
-	      controller: 'productCtrl as ctrl',
+	      controller: 'productCtrl as ctrl'
 	      // resolve:{
 	
 	      // }
     	})
 
-  //   	 .state ('admin.orders', {
-	 //      url:'/orders',
-	 //      templateUrl:,
-	 //      controller: ,
-	 //      resolve:{
-	
-	 //      }
-  //   	})
+    	 .state ('orders', {
+	      url:'/orders',
+	      templateUrl: 'site/partials/orders.html',
+	      controller: 'orderCtrl as ctrl'
+	 //      resolve:{}
+    	})
 
 	// $httpProvider.interceptors.push(function() {
  //    	return {
