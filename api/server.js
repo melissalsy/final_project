@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var app = express();
+var Product = require('./models/product.js')
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + './../app/'));
@@ -18,6 +19,30 @@ db.once('open', function() {
 });
 
 
+app.post('/inventory', function(req, res){
+	console.log(req.body);
+    var newProduct = Product(req.body);
+    console.log(newProduct);
+    newProduct.save(function(err) {
+        if(err){
+            res.json(err);
+        }
+        else{
+            res.json(newProduct);
+        }
+    })
+
+})
+
+app.get('/inventory', function(req, res){
+	Product.find({}, function(err, Product){
+		if (err){
+			console.log(err)
+		}else{
+			res.json(Product);
+		}
+	})
+})
 
 // app.get('/', function(req, res){
 // 	res.send('Hello, World!');

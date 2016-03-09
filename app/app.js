@@ -2,7 +2,6 @@ var app = angular.module('webApp', ['ui.router']);
 
 app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	
-<<<<<<< HEAD
 	$urlRouterProvider.otherwise('landing');
 
 	$stateProvider
@@ -10,14 +9,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 			url: '/landing',
 			templateUrl: 'site/partials/landing.html'
 			//controller: ,
-=======
-	$urlRouterProvider.otherwise('/');
-
-	$stateProvider
-		.state('landing', {
-			url: '/test',
-			templateUrl: 'site/partials/landing.html'
->>>>>>> 2771b1d9ebac02b79e2bf47a8f76eebe1e948c11
 		})
 		
 		// .state('product', {
@@ -69,8 +60,8 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 
 	    .state ('inventory', {
 	      url:'/inventory',
-	      templateUrl: 'site/partials/inventory.html'
-	      controller: productCtrl
+	      templateUrl: 'site/partials/inventory.html',
+	      controller: 'productCtrl as ctrl',
 	      // resolve:{
 	
 	      // }
