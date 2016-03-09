@@ -4,6 +4,8 @@ function ProductCtrl($state,productSrv) {
 	var ctrl = this; 
 	ctrl.state = $state;
 	ctrl.productSrv = productSrv;
+	ctrl.getProduct();
+	ctrl.products;
 
 }
 
@@ -15,6 +17,14 @@ ProductCtrl.prototype.addProduct = function(){
 		price: ctrl.price,
 		quantity: ctrl.quantity,
 	};
+	ctrl.productSrv.addProduct(product);
 }
 
-
+ProductCtrl.prototype.getProduct = function(){
+	var ctrl = this; 
+	ctrl.productSrv.getProduct()
+	.then(function(res){
+		console.log(res);
+		ctrl.products = res;
+	})
+}

@@ -14,3 +14,10 @@
 	<br>
 	<button type="submit" ng-click="ctrl.addProduct()">Add to Inventory</button>
 </form>
+
+<div ng-repeat="product in ctrl.products">
+		{{product.name}}
+		{{product.description}}
+		{{product.price}}
+		{{product.quantity}}
+</div>

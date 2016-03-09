@@ -16,7 +16,8 @@ var productSchema = new Schema({
   quantity: { 
     type: Number, 
     required: true
-  });
+  }
+});
 
 //Create a Model using the Schema//
 var Product = mongoose.model('Product', productSchema);
