@@ -44,6 +44,18 @@ app.get('/inventory', function(req, res){
 	})
 })
 
+app.put('/inventory/:_id', function(req, res){
+	console.log(req.body);
+    var update = req.body;
+    var query = {"_id":req.body._id}
+	Product.update(query, update,{}, function (err,product){
+            if (err){
+                console.log(err);
+            }else{
+               res.send(product);
+            }
+    })
+})
 // app.get('/', function(req, res){
 // 	res.send('Hello, World!');
 // });
