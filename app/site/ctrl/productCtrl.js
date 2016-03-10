@@ -28,3 +28,8 @@ ProductCtrl.prototype.getProduct = function(){
 		ctrl.products = res;
 	})
 }
+
+ProductCtrl.prototype.updateForm = function(){
+	var ctrl = this; 
+	ctrl.state.go('updateForm');
+}

@@ -1,8 +1,13 @@
-app.service('api', ApiService);
+angular.module('webApp').service('api', ApiService);
 
 function ApiService($http){ 
 	this.http = $http
 	this.BASE_URL = 'http://localhost:8080';
+//for Login//
+  var LOGIN_URL = this.BASE_URL + 'login';
+  var LOGOUT_URL = this.BASE_URL + 'logout';
+  var PROFILE_URL = this.BASE_URL + 'user';
+  // var CREATE_ACCOUNT_URL = this.BASE_URL + 'createAccount';
 }
 
 ApiService.prototype.request = function(endpoint, data, method){
@@ -38,3 +43,18 @@ ApiService.prototype.formatGetData =function(data){
   if(data_string == '?'){return '';}
   return data_string;
 }
+
+  
+// ApiService.prototype.createAccount = function(username, password) {
+//     var data = {"username": username,"password": password};
+//     $http.post(CREATE_ACCOUNT_URL, data).then(function(data) {
+//       console.log(data);
+//     });
+//   }
+  
+ ApiService.prototype.login = function(username, password) {
+    return this.http.post(LOGIN_URL, {username: username, password: password})
+    .then(function(response) {
+      localStorage.authToken = response.data.authToken;
+    });
+  };

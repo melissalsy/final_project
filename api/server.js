@@ -18,6 +18,14 @@ db.once('open', function() {
 	console.log("Connected to db at /data/db/")
 });
 
+//route configuration
+var init = require('./routes/init'); // init -> asdf
+var userRoutes = require('./routes/userRoutes');
+
+//set Routes
+app.use('/init',init);
+app.use('/user',userRoutes);
+
 
 app.post('/inventory', function(req, res){
 	console.log(req.body);
