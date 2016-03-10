@@ -20,12 +20,12 @@ db.once('open', function() {
 });
 
 //route configuration
-var init = require('./routes/init'); // init -> asdf
+var init = require('./routes/init');
 var userRoutes = require('./routes/userRoutes');
 
 //set Routes
-app.use('/init',init);
-app.use('/user',userRoutes);
+app.use('/init', init);
+app.use('/user', userRoutes);
 
 
 app.post('/inventory', function(req, res){
@@ -59,8 +59,8 @@ app.get('/orders', function(req, res){
 			throw err;
 		}
 		res.json(orders);
-	});
-});
+	})
+})
 
 
 app.put('/inventory/:_id', function(req, res){
@@ -75,15 +75,10 @@ app.put('/inventory/:_id', function(req, res){
             }
     })
 })
+
 // app.get('/', function(req, res){
 // 	res.send('Hello, World!');
 // });
-
-// var productRoutes = require('./routes/productRoutes');
-// var orderRoutes = require('./routes/orderRoutes');
-
-// app.use('/api/products',productRoutes);
-// app.use('/api/orders',orderRoutes);
 
 
 

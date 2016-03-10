@@ -38,11 +38,11 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		// from your controller ctrl.state.go('landing.something')
 
 
-		// .state('product', {
-		// 	url: "/product",
-		// 	templateUrl: ,
-		// 	controller: ,
-		// })
+		.state('product', {
+			url: "/product",
+			templateUrl: 'site/partials/product.html'
+			//controller: ,
+		})
 
 		// .state('about', {
 		// 	url: "/about",
@@ -76,7 +76,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	        
 	 //      }
 	 //    })
-
 //how to set multiple ui-views
 
 	// views:{
