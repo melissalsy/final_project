@@ -20,6 +20,18 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	      templateUrl: 'site/partials/inventory.html',
 	      controller: 'productCtrl as ctrl',
     	})
+		.state ('orders', {
+	      url:'/orders',
+	      templateUrl: 'site/partials/orders.html',
+	      controller: 'orderCtrl as ctrl'
+    	})
+
+    	.state('product', {
+			url: "/product",
+			templateUrl: 'site/partials/product.html'
+			//controller: ,
+		});
+
 		// .state('landing.something' {
 		// 	url: '/something',
 		// 	templateUrl: 'site/partials/something.html'
@@ -29,13 +41,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		// the URL must be /landing/something
 		// from your template ui-sref="landing.something"
 		// from your controller ctrl.state.go('landing.something')
-
-
-		.state('product', {
-			url: "/product",
-			templateUrl: 'site/partials/product.html'
-			//controller: ,
-		})
 
 		// .state('about', {
 		// 	url: "/about",
@@ -69,13 +74,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	        
 	 //      }
 	 //    })
-
-    	 .state ('orders', {
-	      url:'/orders',
-	      templateUrl: 'site/partials/orders.html',
-	      controller: 'orderCtrl as ctrl'
-	 //      resolve:{}
-    	})
 
 //how to set multiple ui-views
 
