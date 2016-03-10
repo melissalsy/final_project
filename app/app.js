@@ -25,7 +25,14 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	      url:'/orders',
 	      templateUrl: 'site/partials/orders.html',
 	      controller: 'orderCtrl as ctrl'
-    	});
+    	})
+
+    	.state('product', {
+			url: "/product",
+			templateUrl: 'site/partials/product.html'
+			//controller: ,
+		});
+
 
 		// .state('landing.something' {
 		// 	url: '/something',
@@ -36,13 +43,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		// the URL must be /landing/something
 		// from your template ui-sref="landing.something"
 		// from your controller ctrl.state.go('landing.something')
-
-
-		.state('product', {
-			url: "/product",
-			templateUrl: 'site/partials/product.html'
-			//controller: ,
-		})
 
 		// .state('about', {
 		// 	url: "/about",

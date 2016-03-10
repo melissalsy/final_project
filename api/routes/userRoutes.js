@@ -14,17 +14,8 @@ router.post('/login',function(req,res){
 			res.set('authentication',token);
 			res.json({user:user});
 		}
-	})
-
-	var where = {where:{email:req.body.email,password:req.body.password}};
-	models.Users.find(where).then(function(user){
-		var user_obj = {email:user.email,id:user.id};
-		var token = jwt.sign(user_obj,'Fv1f3Y37S3RorBbT4PumpWVHejaEYnGs');
-			res.set('authentication',token);
-	        res.json({
-	        	user:user
-	        });
 	});
+
 });
 
 module.exports = router;

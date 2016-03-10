@@ -29,16 +29,14 @@ AuthCtrl.prototype.login = function(){
         console.log(response);
         //successfully response
         if(response.status == 200){
-           ctrl.auth_btn = "Success";
-
-       if (response.data.user != null){
-           ctrl.state.go('inventory');
+          ctrl.auth_btn = "Success";
+          if (response.data.user != null){
+            ctrl.state.go('inventory');
            }
        }
        else{
            ctrl.auth_btn = 'Invalid Password';
        }
-
     })
     .catch(function(err) {
         console.log(err);
