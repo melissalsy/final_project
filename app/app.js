@@ -8,13 +8,12 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		.state('landing', {
 			url: '/landing',
 			templateUrl: 'site/partials/landing.html',
-			controller: 'adminCtrl as ctrl',
+			controller: 'shopCtrl as ctrl',
 		})
-
 		.state ('login', {
 		    url:'/login',
 		    templateUrl: 'site/partials/login.html', 
-		    controller:'adminCtrl as ctrl',
+		    controller:'authCtrl as ctrl',
 		})
 		 .state ('inventory', {
 	      url:'/inventory',
@@ -78,16 +77,33 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	 //      resolve:{}
     	})
 
-	$httpProvider.interceptors.push(function() {
-    	return {
-      		'request': function(config) {
-        	config.headers = config.headers || {};
-        		if (localStorage.authToken) {
-          		config.headers.Authorization = localStorage.authToken;
-        		}
-        	return config;
-      		}
-    	};
-  	});
+//how to set multiple ui-views
+
+	// views:{
+	// 			nav:{
+	// 				templateUrl: 'site/partials/landing.html',
+	// 				controller: 'shopCtrl as ctrl'
+
+	// 			},
+	// 			content:{
+	// 				templateUrl: 'site/partials/landing.html',
+	// 				controller: 'shopCtrl as ctrl'
+
+	// 			}
+	// 		}
+			
+	// 	})
+
+	// $httpProvider.interceptors.push(function() {
+ //    	return {
+ //      		'request': function(config) {
+ //        	config.headers = config.headers || {};
+ //        		if (localStorage.authToken) {
+ //          		config.headers.Authorization = localStorage.authToken;
+ //        		}
+ //        	return config;
+ //      		}
+ //    	};
+ //  	});
 
 });
