@@ -7,10 +7,31 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	$stateProvider
 		.state('landing', {
 			url: '/landing',
-			templateUrl: 'site/partials/landing.html'
-			//controller: ,
+			templateUrl: 'site/partials/landing.html',
+			controller: 'adminCtrl as ctrl',
 		})
+
+		.state ('login', {
+		    url:'/login',
+		    templateUrl: 'site/partials/login.html', 
+		    controller:'adminCtrl as ctrl',
+		})
+		 .state ('inventory', {
+	      url:'/inventory',
+	      templateUrl: 'site/partials/inventory.html',
+	      controller: 'productCtrl as ctrl',
+    	})
+		// .state('landing.something' {
+		// 	url: '/something',
+		// 	templateUrl: 'site/partials/something.html'
+		// })
 		
+		// to get to the view SOMETHING
+		// the URL must be /landing/something
+		// from your template ui-sref="landing.something"
+		// from your controller ctrl.state.go('landing.something')
+
+
 		// .state('product', {
 		// 	url: "/product",
 		// 	templateUrl: ,
@@ -41,14 +62,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		// 	controller: ,
 		// })
 
-		.state ('login', {
-		    url:'/login',
-		    templateUrl: 'site/partials/login.html'
-		    // resolve:{
-		      
-		    // }
-		})
-
 	 //    .state ('admin', {
 	 //      url:'/admin',
 	 //      templateUrl: ,
@@ -57,7 +70,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	        
 	 //      }
 	 //    })
-
 	    .state ('inventory', {
 	      url:'/inventory',
 	      templateUrl: 'site/partials/inventory.html',

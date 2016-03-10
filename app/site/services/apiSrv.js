@@ -1,8 +1,13 @@
-app.service('api', ApiService);
+angular.module('webApp').service('api', ApiService);
 
 function ApiService($http){ 
 	this.http = $http
 	this.BASE_URL = 'http://localhost:8080';
+//for Login//
+  var LOGIN_URL = this.BASE_URL + 'login';
+  var LOGOUT_URL = this.BASE_URL + 'logout';
+  var PROFILE_URL = this.BASE_URL + 'user';
+  // var CREATE_ACCOUNT_URL = this.BASE_URL + 'createAccount';
 }
 
 ApiService.prototype.request = function(endpoint, data, method){
@@ -59,3 +64,4 @@ ApiService.prototype.serializeData = function(data) {
     var source = buffer.join( "&" ).replace( /%20/g, "+" ); 
     return(source); 
 }
+>>>>>>> 19221c08bd84eb15c24fcb6932e3a3078d99f103
