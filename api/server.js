@@ -19,15 +19,15 @@ db.once('open', function() {
 	console.log("Connected to db at /data/db/")
 });
 
-//route configuration
+//configure routes
 var init = require('./routes/init');
 var userRoutes = require('./routes/userRoutes');
 
-//set Routes
+//set routes
 app.use('/init', init);
 app.use('/user', userRoutes);
 
-
+//ADMIN INVENTORY
 app.post('/inventory', function(req, res){
 	console.log(req.body);
     var newProduct = Product(req.body);
@@ -40,7 +40,6 @@ app.post('/inventory', function(req, res){
             res.json(newProduct);
         }
     })
-
 })
 
 app.get('/inventory', function(req, res){
@@ -50,15 +49,6 @@ app.get('/inventory', function(req, res){
 		}else{
 			res.json(Product);
 		}
-	})
-})
-
-app.get('/orders', function(req, res){
-	Orders.getOrders(function(err, orders){
-		if (err){
-			throw err;
-		}
-		res.json(orders);
 	})
 })
 
@@ -76,14 +66,37 @@ app.put('/inventory/:_id', function(req, res){
     })
 })
 
-// app.get('/', function(req, res){
-// 	res.send('Hello, World!');
-// });
+//ADMIN ORDERS
+app.get('/orders', function(req, res){
+	Orders.find({},function(err, orders){
+		if (err){
+			throw err;
+		}
+		res.json(orders);
+	})
+})
 
+// app.get('/orders/:_id', function(req, res){
+// 	console.log(req.body);
+// 	Orders.findById(1, function(err, order){
+// 		if (err) throw err;
+// 		console.log(order);
+// 	})
+// })
 
-
-
-
+app.post('/orders', function(req, res){
+	console.log(req.body);
+    var newOrder = Order(req.body);
+    console.log(newOrder);
+    newOrder.save(function(err) {
+        if(err){
+            res.json(err);
+        }
+        else{
+            res.json(newOrder);
+        }
+    })
+})
 
 // start Express on port 8080 (leaves at the end of code)
 app.listen(8080,function(){

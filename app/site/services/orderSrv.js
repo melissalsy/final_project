@@ -19,3 +19,11 @@ OrderService.prototype.getOrders = function(){
 			return;
 		})
 }
+
+OrderService.prototype.addOrder = function(order){
+	var srv = this;
+	return srv.api.request('/orders', order, 'POST')
+		.then(function(res){
+		console.log(res.data);
+	});
+}
