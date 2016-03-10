@@ -20,5 +20,23 @@
 		<input value="{{product.quantity}}">
 		<button ng-click="updateForm()">update</button>
 </div>
+<h1>View Orders</h1>
+<!-- <table>
+	<tr>
+		<th>Order id</th>
+		<th>Quantity</th>
+		<th>Total $</th>
+	</tr>
+	<tr ng-repeat="orders in ctrl.orders">
+		<td>{{orders.id}}</td>
+		<td>{{orders.quantity}}</td>
+		<td>{{orders.total}}</td>
+	</tr>
+</table> -->
 
+<div ng-repeat="order in ctrl.orders">
+		{{order.id}}
+		{{order.quantity}}
+		{{product.total}}
+</div>
 <button ng-click="ctrl.logout()">Log Out</button>

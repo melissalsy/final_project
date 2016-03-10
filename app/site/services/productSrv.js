@@ -10,7 +10,7 @@ function ProductService($state, api){
 ProductService.prototype.addProduct = function (product){
 	var srv = this;
 	console.log(product);
-	return srv.api.request('/inventory',product,'POST')
+	return srv.api.request('/admin',product,'POST')
 		.then(function(res){
 		console.log(res.data);
 	});
@@ -18,7 +18,7 @@ ProductService.prototype.addProduct = function (product){
 
 ProductService.prototype.getProduct = function (){
 	var srv = this; 
-	return srv.api.request('/inventory',{}, 'GET')
+	return srv.api.request('/admin',{}, 'GET')
 		.then(function(res){
 			console.log(res);
 			srv.products = res.data;
@@ -32,7 +32,7 @@ ProductService.prototype.getProduct = function (){
 
 ProductService.prototype.updateProduct = function (product){
 	var srv = this; 
-	return srv.api.request('/inventory',product, 'PUT')
+	return srv.api.request('/admin',product, 'PUT')
 		.then(function(res){
 			console.log(res)
 		})
