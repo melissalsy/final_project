@@ -10,7 +10,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 			templateUrl: 'site/partials/landing.html',
 			controller: 'shopCtrl as ctrl',
 		})
-
 		.state ('login', {
 		    url:'/login',
 		    templateUrl: 'site/partials/login.html', 
@@ -76,6 +75,23 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	      controller: 'orderCtrl as ctrl'
 	 //      resolve:{}
     	})
+
+//how to set multiple ui-views
+
+	// views:{
+	// 			nav:{
+	// 				templateUrl: 'site/partials/landing.html',
+	// 				controller: 'shopCtrl as ctrl'
+
+	// 			},
+	// 			content:{
+	// 				templateUrl: 'site/partials/landing.html',
+	// 				controller: 'shopCtrl as ctrl'
+
+	// 			}
+	// 		}
+			
+	// 	})
 
 	// $httpProvider.interceptors.push(function() {
  //    	return {

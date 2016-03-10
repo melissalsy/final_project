@@ -32,7 +32,7 @@ var orderSchema = new Schema({
 	tax: Number,
 	price: Number,
 	total: Number,
-	created_at: Date;
+	created_at: Date
 });
 
 //Create a Model using the Schema
