@@ -1,4 +1,4 @@
-var models = require('../models/orders');
+var models = require('../models/orders.js');
 var express = require('express');
 var bodyParser = require('body-parser');
 var router = express.Router();

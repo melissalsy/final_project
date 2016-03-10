@@ -10,7 +10,7 @@ function AuthCtrl($state, api) {
   ctrl.email;
   ctrl.auth_button = 'Continue'
     if(localStorage.authToken){
-      ctrl.state.go('inventory');
+      ctrl.$state.go('inventory');
     } 
 	// ctrl.isHeGoodLooking = false;
 }
@@ -27,14 +27,15 @@ AuthCtrl.prototype.login = function(){
     ctrl.api.request('/user/login',payload,'POST')
     .then(function(response){
         console.log(response);
-        //successfully response
+        //successfull responseva
         if(response.status == 200){
            ctrl.auth_btn = "Success";
 
        if (response.data.user != null){
-           ctrl.state.go('inventory');
+           ctrl.$state.go('inventory');
            }
        }
+
        else{
            ctrl.auth_btn = 'Invalid Password';
        }
