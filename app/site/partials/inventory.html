@@ -17,9 +17,7 @@
 
 <div ng-repeat="product in ctrl.products">
 		{{product.name}} 
-		{{product.description}}
-		{{product.price}}
-		{{product.quantity}}
+		<input value="{{product.quantity}}">
 		<button ng-click="updateForm()">update</button>
 </div>
 
