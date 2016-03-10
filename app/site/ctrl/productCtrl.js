@@ -33,3 +33,11 @@ ProductCtrl.prototype.updateForm = function(){
 	var ctrl = this; 
 	ctrl.state.go('updateForm');
 }
+
+ProductCtrl.prototype.logout = function(){
+	var ctrl =this;
+
+	localStorage.removeItem('authToken');
+	ctrl.state.go('login');
+
+}

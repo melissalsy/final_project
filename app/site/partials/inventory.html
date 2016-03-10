@@ -12,7 +12,7 @@
 	<h5>Quantity:</h5>
 	<input type="text" name="quantity" ng-model="ctrl.quantity" required>
 	<br><br>
-	<button type="submit" ng-click="ctrl.addProduct()">Add to Inventory</button>
+	<button ng-click="ctrl.addProduct()">Add to Inventory</button>
 </form>
 
 <div ng-repeat="product in ctrl.products">
@@ -22,3 +22,5 @@
 		{{product.quantity}}
 		<button ng-click="updateForm()">update</button>
 </div>
+
+<button ng-click="ctrl.logout()">Log Out</button>
