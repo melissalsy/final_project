@@ -28,7 +28,7 @@ AuthCtrl.prototype.login = function(){
     .then(function(response){
         console.log(response);
 
-        //successfull responseva
+        //successfull response
         if(response.status == 200){
           if (response.data.user != null){
             ctrl.state.go('inventory');

@@ -1,0 +1,36 @@
+<h3>Your Order</h3>
+    
+    <div ng-hide="ctrl.is_products">
+        <br><br>
+            <h4><i>your cart is empty</i></h4>
+        </div>
+    </div>
+
+    <div ng-show="ctrl.is_products">
+        <table class="table" style="text-align:center;">
+            <tr>
+                <th>Preview</th>
+                <th>Name</th>
+                <th>Qty</th>
+                <th>Cost</th>
+                <th>Remove</th>
+            </tr>
+            
+            <tr ng-repeat="cartProduct in ctrl.cartSrv.cart">
+                <td><img ng-src="{{'/assets/img/' + cartProduct.image}}" style="height:100px;"></td>
+                <td>{{cartProduct.name}}</td>
+                <td><input type="number" ng-model="cartProduct.quantity" value="{{cartProduct.quantity}}"></td>
+                <td>{{cartProduct.quantity* cartProduct.price| currency:undefined:0}}</td>
+                <td><a ng-click="ctrl.deleteCartItem(cartProduct)">x</a></td>
+            <tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><h4>Total:</h4></td>
+                <td><h4>{{ctrl.total() | currency}}</h4></td>
+                <td></td>
+            </tr>
+        </table>
+        <button class="ourButton" style="width:100%" ng-click="ctrl.checkout()">checkout</button>
+    </div>
+</div>

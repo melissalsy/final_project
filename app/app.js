@@ -7,8 +7,8 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	$stateProvider
 		.state('landing', {
 			url: '/landing',
-			templateUrl: 'site/partials/landing.html',
-			controller: 'shopCtrl as ctrl',
+			templateUrl: 'site/partials/landing.html'
+			//controller: 'shopCtrl as ctrl',
 		})
 		.state ('login', {
 		    url:'/login',
