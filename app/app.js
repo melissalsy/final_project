@@ -99,6 +99,7 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	        return config;
 	    },
 	    response: function(response) {
+	    	// console.log('AUTH TOKEN: '+ response.headers('authentication'));
 	    	var auth_token = response.headers('authentication');
 	           if(localStorage.authToken == undefined && auth_token != null){
 	           	localStorage.authToken = auth_token;

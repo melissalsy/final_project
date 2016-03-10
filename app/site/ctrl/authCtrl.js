@@ -28,14 +28,15 @@ AuthCtrl.prototype.login = function(){
     .then(function(response){
         console.log(response);
         //successfully response
-        if(response.status == 200){
-          ctrl.auth_btn = "Success";
+      if(response.status == 200){
+          
           if (response.data.user != null){
             ctrl.state.go('inventory');
+            ctrl.auth_btn = "Success";
            }
-       }
-       else{
-           ctrl.auth_btn = 'Invalid Password';
+           else{
+            ctrl.auth_btn = 'Invalid Email/Password';
+           }
        }
     })
     .catch(function(err) {
