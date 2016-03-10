@@ -8,13 +8,12 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		.state('landing', {
 			url: '/landing',
 			templateUrl: 'site/partials/landing.html',
-			controller: 'adminCtrl as ctrl',
+			controller: 'shopCtrl as ctrl',
 		})
-
 		.state ('login', {
 		    url:'/login',
 		    templateUrl: 'site/partials/login.html', 
-		    controller:'adminCtrl as ctrl',
+		    controller:'authCtrl as ctrl',
 		})
 		 .state ('inventory', {
 	      url:'/inventory',
@@ -70,21 +69,29 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	        
 	 //      }
 	 //    })
-	    .state ('inventory', {
-	      url:'/inventory',
-	      templateUrl: 'site/partials/inventory.html',
-	      controller: 'productCtrl as ctrl'
-	      // resolve:{
-	
-	      // }
-    	})
-
     	 .state ('orders', {
 	      url:'/orders',
 	      templateUrl: 'site/partials/orders.html',
 	      controller: 'orderCtrl as ctrl'
 	 //      resolve:{}
     	})
+
+//how to set multiple ui-views
+
+	// views:{
+	// 			nav:{
+	// 				templateUrl: 'site/partials/landing.html',
+	// 				controller: 'shopCtrl as ctrl'
+
+	// 			},
+	// 			content:{
+	// 				templateUrl: 'site/partials/landing.html',
+	// 				controller: 'shopCtrl as ctrl'
+
+	// 			}
+	// 		}
+			
+	// 	})
 
 	// $httpProvider.interceptors.push(function() {
  //    	return {
