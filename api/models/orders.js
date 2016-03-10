@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 //This is the Order Schema/
 var orderSchema = new Schema({
 	order_status: {
-		type: String,
+		type: Boolean,
 		required: true
 	},
 	Address: {
@@ -32,6 +32,7 @@ var orderSchema = new Schema({
 	tax: Number,
 	price: Number,
 	total: Number,
+	created_at: Date;
 });
 
 //Create a Model using the Schema

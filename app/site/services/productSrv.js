@@ -30,3 +30,11 @@ ProductService.prototype.getProduct = function (){
 		})
 }
 
+ProductService.prototype.updateProduct = function (product){
+	var srv = this; 
+	return srv.api.request('/inventory',product, 'PUT')
+		.then(function(res){
+			console.log(res)
+		})
+}
+
