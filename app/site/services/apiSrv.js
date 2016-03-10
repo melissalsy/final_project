@@ -44,17 +44,24 @@ ApiService.prototype.formatGetData =function(data){
   return data_string;
 }
 
-  
-// ApiService.prototype.createAccount = function(username, password) {
-//     var data = {"username": username,"password": password};
-//     $http.post(CREATE_ACCOUNT_URL, data).then(function(data) {
-//       console.log(data);
-//     });
-//   }
-  
- ApiService.prototype.login = function(username, password) {
-    return this.http.post(LOGIN_URL, {username: username, password: password})
-    .then(function(response) {
-      localStorage.authToken = response.data.authToken;
-    });
-  };
+ApiService.prototype.serializeData = function(data) { 
+    // If this is not an object, defer to native stringification.
+    if ( ! angular.isObject( data ) ) { 
+        return( ( data == null ) ? "" : data.toString() ); 
+    }
+    var buffer = [];
+    // Serialize each key in the object.
+    for ( var name in data ) { 
+        if ( ! data.hasOwnProperty( name ) ) { 
+            continue; 
+        }
+        var value = data[ name ];
+        buffer.push(
+            encodeURIComponent( name ) + "=" + encodeURIComponent( ( value == null ) ? "" : value )
+        ); 
+    }
+    // Serialize the buffer and clean it up for transportation.
+    var source = buffer.join( "&" ).replace( /%20/g, "+" ); 
+    return(source); 
+}
+>>>>>>> 19221c08bd84eb15c24fcb6932e3a3078d99f103
