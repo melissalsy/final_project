@@ -10,16 +10,23 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 			templateUrl: 'site/partials/landing.html',
 			controller: 'shopCtrl as ctrl',
 		})
-		.state ('login', {
+		.state('login', {
 		    url:'/login',
 		    templateUrl: 'site/partials/login.html', 
 		    controller:'authCtrl as ctrl',
 		})
-		 .state ('inventory', {
+		 .state('inventory', {
 	      url:'/inventory',
 	      templateUrl: 'site/partials/inventory.html',
 	      controller: 'productCtrl as ctrl',
     	})
+
+		.state ('orders', {
+	      url:'/orders',
+	      templateUrl: 'site/partials/orders.html',
+	      controller: 'orderCtrl as ctrl'
+    	});
+
 		// .state('landing.something' {
 		// 	url: '/something',
 		// 	templateUrl: 'site/partials/something.html'
@@ -69,14 +76,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	        
 	 //      }
 	 //    })
-
-    	 .state ('orders', {
-	      url:'/orders',
-	      templateUrl: 'site/partials/orders.html',
-	      controller: 'orderCtrl as ctrl'
-	 //      resolve:{}
-    	})
-
 //how to set multiple ui-views
 
 	// views:{
@@ -94,16 +93,18 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 			
 	// 	})
 
-	// $httpProvider.interceptors.push(function() {
- //    	return {
- //      		'request': function(config) {
- //        	config.headers = config.headers || {};
- //        		if (localStorage.authToken) {
- //          		config.headers.Authorization = localStorage.authToken;
- //        		}
- //        	return config;
- //      		}
- //    	};
- //  	});
-
+	$httpProvider.interceptors.push(function(){
+	return {
+	    request: function(config) {
+	        return config;
+	    },
+	    response: function(response) {
+	    	var auth_token = response.headers('authentication');
+	           if(localStorage.authToken == undefined && auth_token != null){
+	           	localStorage.authToken = auth_token;
+	           }
+	           return response;
+	       }
+	   }
+	});
 });
