@@ -10,17 +10,16 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 			templateUrl: 'site/partials/landing.html',
 			controller: 'shopCtrl as ctrl',
 		})
-		.state('login', {
+		.state ('login', {
 		    url:'/login',
 		    templateUrl: 'site/partials/login.html', 
 		    controller:'authCtrl as ctrl',
 		})
-		 .state('inventory', {
+		 .state ('inventory', {
 	      url:'/inventory',
 	      templateUrl: 'site/partials/inventory.html',
 	      controller: 'productCtrl as ctrl',
     	})
-
 		.state ('orders', {
 	      url:'/orders',
 	      templateUrl: 'site/partials/orders.html',
@@ -32,7 +31,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 			templateUrl: 'site/partials/product.html'
 			//controller: ,
 		});
-
 
 		// .state('landing.something' {
 		// 	url: '/something',
@@ -76,6 +74,7 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	        
 	 //      }
 	 //    })
+
 //how to set multiple ui-views
 
 	// views:{

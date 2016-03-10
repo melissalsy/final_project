@@ -1,11 +1,11 @@
 <h1>Admin Login</h1>
 <br>
-<form name="loginForm">
+<form name="loginForm" method="POST" action="">
 	<h4>Enter Email</h4>
     <input ng-model="ctrl.email" class="inputform" type="text" name="EmailAddress" value="" placeholder="Email Address">
 	<br> 
 	<h4>Enter Password</h4>
     <input ng-model="ctrl.password" class="inputform" type="password" name="Password" placeholder="Password">
 	<br><br>
-	<input value="{{ctrl.auth_btn}}" class="ourButton" ng-click="ctrl.login()">
+	<input type="submit" value="{{ctrl.auth_btn}}" class="ourButton" ng-click="ctrl.login()"/>
 </form>

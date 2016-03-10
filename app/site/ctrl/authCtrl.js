@@ -10,7 +10,7 @@ function AuthCtrl($state, api) {
   ctrl.email;
   ctrl.auth_button = 'Continue'
     if(localStorage.authToken){
-      ctrl.state.go('inventory');
+      ctrl.$state.go('inventory');
     } 
 	// ctrl.isHeGoodLooking = false;
 }
@@ -27,9 +27,9 @@ AuthCtrl.prototype.login = function(){
     ctrl.api.request('/user/login',payload,'POST')
     .then(function(response){
         console.log(response);
-        //successfully response
-      if(response.status == 200){
-          
+
+        //successfull responseva
+        if(response.status == 200){
           if (response.data.user != null){
             ctrl.state.go('inventory');
             ctrl.auth_btn = "Success";
