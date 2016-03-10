@@ -35,27 +35,8 @@ var orderSchema = new Schema({
 	created_at: Date;
 });
 
-//Create a Model using the Schema//
+//Create a Model using the Schema
 var Order = mongoose.model('Order', orderSchema);
 
 // Make this available to our Node applications.
 module.exports = Order;
-
-// module.exports.getOrders = function(callback, limit){
-// 	Orders.find(callback).limit(limit);
-// }
-
-// module.exports.getOrderbyId = function(id, callback){
-// 	Orders.findById(id, callback);
-// }
-
-// module.exports.addOrder = function(book, callback){
-// 	Orders.create(order, callback);
-// }
-
-// module.exports.updateOrder = function(id, book, order, options, callback){
-// 	var query = {_id:id};
-// 	var update =  {
-		
-// 	}
-// }

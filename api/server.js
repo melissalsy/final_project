@@ -2,7 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var app = express();
-var Product = require('./models/product.js')
+var Product = require('./models/product.js');
+var Orders = require('./models/orders.js')
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + './../app/'));
@@ -51,6 +52,16 @@ app.get('/inventory', function(req, res){
 		}
 	})
 })
+
+app.get('/orders', function(req, res){
+	Orders.getOrders(function(err, orders){
+		if (err){
+			throw err;
+		}
+		res.json(orders);
+	});
+});
+
 
 app.put('/inventory/:_id', function(req, res){
 	console.log(req.body);
