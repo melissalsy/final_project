@@ -92,16 +92,19 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 			
 	// 	})
 
-	// $httpProvider.interceptors.push(function() {
- //    	return {
- //      		'request': function(config) {
- //        	config.headers = config.headers || {};
- //        		if (localStorage.authToken) {
- //          		config.headers.Authorization = localStorage.authToken;
- //        		}
- //        	return config;
- //      		}
- //    	};
- //  	});
-
+	$httpProvider.interceptors.push(function(){
+	return {
+	    request: function(config) {
+	        return config;
+	    },
+	    response: function(response) {
+	    	// console.log('AUTH TOKEN: '+ response.headers('authentication'));
+	    	var auth_token = response.headers('authentication');
+	           if(localStorage.authToken == undefined && auth_token != null){
+	           	localStorage.authToken = auth_token;
+	           }
+	           return response;
+	       }
+	   }
+	});
 });

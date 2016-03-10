@@ -24,7 +24,6 @@ ProductCtrl.prototype.getProduct = function(){
 	var ctrl = this; 
 	ctrl.productSrv.getProduct()
 	.then(function(res){
-		console.log(res);
 		ctrl.products = res;
 	})
 }
