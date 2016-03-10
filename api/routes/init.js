@@ -19,7 +19,7 @@ router.get('/',function(req,res){
 		}else {
 			console.log(user);
 			if (user[0]) {
-				res.send('Admin account already exists')
+				res.send('Admin account already exists');
 			} else {
 				var User = new Users({email:'admin@shop.com', password: '1234'});
 				User.save(function(err, user) {

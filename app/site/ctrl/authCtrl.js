@@ -10,7 +10,7 @@ function AuthCtrl($state, api) {
   ctrl.email;
   ctrl.auth_button = 'Continue'
     if(localStorage.authToken){
-      ctrl.$state.go('inventory');
+      ctrl.state.go('inventory');
     } 
 	// ctrl.isHeGoodLooking = false;
 }
