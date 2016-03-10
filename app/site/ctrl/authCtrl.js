@@ -1,22 +1,21 @@
 // login function
 
-app.controller('adminCtrl', adminCtrl);
+app.controller('authCtrl', AuthCtrl);
 
-function adminCtrl($state, api) {
+function AuthCtrl($state, api) {
 	var ctrl = this;
 	ctrl.state = $state;
 	ctrl.api = api;
-	 ctrl.password;
-    ctrl.email;
-    ctrl.auth_button = 'Continue'
+	ctrl.password;
+  ctrl.email;
+  ctrl.auth_button = 'Continue'
     if(localStorage.authToken){
-        ctrl.$state.go('inventory');
+      ctrl.$state.go('inventory');
     } 
 	// ctrl.isHeGoodLooking = false;
 }
 
-
-adminCtrl.prototype.login = function(){
+AuthCtrl.prototype.login = function(){
     var ctrl = this;
 
     var payload = {

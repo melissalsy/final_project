@@ -64,4 +64,4 @@ ApiService.prototype.serializeData = function(data) {
     var source = buffer.join( "&" ).replace( /%20/g, "+" ); 
     return(source); 
 }
->>>>>>> 19221c08bd84eb15c24fcb6932e3a3078d99f103
+
