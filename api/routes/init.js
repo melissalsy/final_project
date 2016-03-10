@@ -5,12 +5,12 @@ var router = express.Router();
 router.get('/',function(req,res){
 
 	//remove all
-	// Users.remove({}, function(err, res) {
-	// 	if (!err) console.log('removing all users');
-	// })
+	Users.remove({}, function(err, res) {
+		if (!err) console.log('removing all users');
+	})
 
-	// // creating dummy
-	// Users.create({email:'admin@shop.com', password: '1234'})
+	// creating dummy
+	Users.create({email:'admin@shop.com', password: '1234'})
 	
 	//check if admin user exists
 	Users.find({email:'admin@shop.com'}, function(err, user){

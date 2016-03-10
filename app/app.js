@@ -32,11 +32,11 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		// from your controller ctrl.state.go('landing.something')
 
 
-		// .state('product', {
-		// 	url: "/product",
-		// 	templateUrl: ,
-		// 	controller: ,
-		// })
+		.state('product', {
+			url: "/product",
+			templateUrl: 'site/partials/product.html'
+			//controller: ,
+		})
 
 		// .state('about', {
 		// 	url: "/about",
@@ -70,14 +70,6 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	        
 	 //      }
 	 //    })
-	    .state ('inventory', {
-	      url:'/inventory',
-	      templateUrl: 'site/partials/inventory.html',
-	      controller: 'productCtrl as ctrl'
-	      // resolve:{
-	
-	      // }
-    	})
 
     	 .state ('orders', {
 	      url:'/orders',
@@ -86,16 +78,16 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	 //      resolve:{}
     	})
 
-	// $httpProvider.interceptors.push(function() {
- //    	return {
- //      		'request': function(config) {
- //        	config.headers = config.headers || {};
- //        		if (localStorage.authToken) {
- //          		config.headers.Authorization = localStorage.authToken;
- //        		}
- //        	return config;
- //      		}
- //    	};
- //  	});
+	$httpProvider.interceptors.push(function() {
+    	return {
+      		'request': function(config) {
+        	config.headers = config.headers || {};
+        		if (localStorage.authToken) {
+          		config.headers.Authorization = localStorage.authToken;
+        		}
+        	return config;
+      		}
+    	};
+  	});
 
 });
