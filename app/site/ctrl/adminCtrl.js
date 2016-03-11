@@ -10,6 +10,10 @@ function AdminCtrl($state,productSrv, orderSrv) {
 	ctrl.getOrders();
 	ctrl.orders;
 	ctrl.product;
+	if(localStorage.authToken == undefined || localStorage.authToken == null){
+		$state.go('login');
+	}
+	
 }
 
 AdminCtrl.prototype.addProduct = function(){
@@ -20,7 +24,7 @@ AdminCtrl.prototype.addProduct = function(){
 		price: ctrl.price,
 		quantity: ctrl.quantity,
 	};
-	ctrl.productSrv.addProduct(ctrl.product);
+	ctrl.productSrv.addOrder(ctrl.product);
 }
 
 AdminCtrl.prototype.getProduct = function(){
