@@ -5,9 +5,15 @@ function OrderService($state, api){
 	srv.api = api;
 	srv.state = $state;
 	srv.orders = [];
+	srv.cart = [];
 	srv.newCustomer;
 }
 
+OrderService.prototype.addProducts = function (product){
+	var srv = this; 
+	srv.cart.push(product);
+	console.log(srv.cart)
+}
 OrderService.prototype.getOrders = function(){
 	var srv = this;
 	return srv.api.request('/orders', {}, 'GET')
