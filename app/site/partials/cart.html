@@ -28,7 +28,7 @@
                 <td>{{ctrl.total() | currency}}</td>
             </tr>
         </table>
-        <button ng-click="ctrl.checkout()">checkout</button>
+        <button ng-click="ctrl.checkout($order)">checkout</button>
 
    <!--  
     <div ng-hide="ctrl.is_products">

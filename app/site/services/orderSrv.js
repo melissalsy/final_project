@@ -5,6 +5,7 @@ function OrderService($state, api){
 	srv.api = api;
 	srv.state = $state;
 	srv.orders = [];
+	srv.cart = [];
 	srv.newCustomer;
 }
 

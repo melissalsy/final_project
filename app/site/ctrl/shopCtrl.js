@@ -20,11 +20,11 @@ app.controller('shopCtrl', ShopCtrl);
 // }
 
 function ShopCtrl($scope, $state, orderSrv, api) {
-	
-	this.state = $state;
-	this.scope = $scope;
-	this.orderSrv = orderSrv;
-	this.api = api;
+	var ctrl = this;
+	ctrl.state = $state;
+	ctrl.scope = $scope;
+	ctrl.orderSrv = orderSrv;
+	ctrl.api = api;
 
     $scope.product = {
         items: [{
@@ -33,18 +33,22 @@ function ShopCtrl($scope, $state, orderSrv, api) {
             cost: 100.00}]
     };
 }
-    //THIS CAN BE SUBMITORDER AND PUSH TO ADMIN ORDERS
-    // $scope.addItem = function() {
-    //     $scope.product.items.push({
-    //         qty: 1,
-    //         description: '',
-    //         cost: 0
-    //     });
-    // }
 
 // ShopCtrl.prototype.addOrder = function(){
 // 	srv.orderSrv.orders.push()
 // }
+// ShopCtrl.prototype.addToCart = function(product){
+//     var ctrl = this;
+//     var cartProduct = {
+//             name: product.name,
+//             image:product.image,
+//             price: product.price,
+//             quantity: 1
+//         };
+        
+//     ctrl.orderSrv.cart.push(cartProduct);
+//     console.log(ctrl.orderSrv.cart);
+// };
 
 ShopCtrl.prototype.removeItem = function(index) {
         this.scope.product.items.splice(index, 1);
@@ -69,10 +73,28 @@ ShopCtrl.prototype.goToCart = function(){
 }
 
 ShopCtrl.prototype.checkout = function(){
-   	this.state.go('checkout');
-}
 
-OrderCtrl.prototype.reviewOrder = function(){
+}
+// ShopCtrl.prototype.checkout = function(){
+//    	var ctrl = this;
+// 	// var obj = {
+// 	// 	order: {
+// 	// 		name: order.name,
+// 	// 		image: order.qty.val(),
+// 	// 		price: order.cost,
+// 	// 	}
+// 	// };
+// 	for (ctrl.scope.product.items, function(item){
+// 		orderQty = item.qty;
+// 	})
+// 	console.log(orderQty);
+// }
+// 	ctrl.orderSrv.orders.push(obj);
+// 	console.log(ctrl.orderSrv.orders);
+//    	this.state.go('checkout');
+// }
+
+ShopCtrl.prototype.reviewOrder = function(){
     var ctrl = this; 
 
     var customer = {
