@@ -7,8 +7,7 @@
 	Description:<h5>{{product.description}}</h5>
 	Price:<p>{{product.price | currency}}</p>
 </div> -->
-
-	<img ng-src="/assets/img/demo.jpg" width="30%"></a>
+<img ng-src="/assets/img/demo.jpg" width="30%"></a>
 	<br><br>
 	<h5>Name:</h5> 
 	Portable Outlet
@@ -23,4 +22,6 @@
 
 	<br><br>
 
-<button ng-click="ctrl.addToCart(); toggle=!toggle"><span ng-show="toggle">product added!</span><span ng-hide="toggle">Add to Cart</span></button>
+<button ui-sref="cart" toggle=!toggle> 
+	<span ng-show="toggle">product added!</span><span ng-hide="toggle">Add to Cart</span>
+</button>

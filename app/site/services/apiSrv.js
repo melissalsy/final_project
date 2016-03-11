@@ -4,9 +4,9 @@ function ApiService($http){
 	this.http = $http
 	this.BASE_URL = 'http://localhost:8080';
 //for Login//
-  var LOGIN_URL = this.BASE_URL + 'login';
-  var LOGOUT_URL = this.BASE_URL + 'logout';
-  var PROFILE_URL = this.BASE_URL + 'user';
+  // var LOGIN_URL = this.BASE_URL + 'login';
+  // var LOGOUT_URL = this.BASE_URL + 'logout';
+  // var PROFILE_URL = this.BASE_URL + 'user';
   // var CREATE_ACCOUNT_URL = this.BASE_URL + 'createAccount';
 }
 
