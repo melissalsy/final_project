@@ -1,10 +1,10 @@
 <h3>order review</h3>
 
     <div class="customer">
-        <p>{{ctrl.finalCustomer.firstName}} {{ctrl.finalCustomer.lastName}}
-        <br>{{ctrl.finalCustomer.email}}
-        <br>{{ctrl.finalCustomer.apt}} {{ctrl.finalCustomer.address1}}
-        <br>{{ctrl.finalCustomer.city}}, {{ctrl.finalCustomer.province}}, {{ctrl.finalCustomer.postal}}</p>
+        <p>{{ctrl.customerInfo.firstName}} {{ctrl.customerInfo.lastName}}
+        <br>{{ctrl.customerInfo.email}}
+        <br>{{ctrl.customerInfo.apt}} {{ctrl.customerInfo.address1}}
+        <br>{{ctrl.customerInfo.city}}, {{ctrl.customerInfo.province}}, {{ctrl.customerInfo.postal}}</p>
     </div>
     
         <table class="table" style="text-align:center;">
@@ -18,14 +18,14 @@
             <tr ng-repeat="cartProduct in ctrl.cart">
                 <td><img ng-src="{{'/assets/img/' + cartProduct.image}}" style="height:100px;"></td>
                 <td>{{cartProduct.name}}</td>
-                <td>{{cartProduct.quantity}}</td>
-                <td>{{cartProduct.quantity* cartProduct.price| currency:undefined:0}}</td>
+                <td>{{cartProduct.qty}}</td>
+                <td>{{cartProduct.qty* cartProduct.cost| currency:undefined:0}}</td>
             <tr>
-            <tr>
+            <tr ng-repeat="cartProduct in ctrl.cart">
                 <td></td>
                 <td></td>
                 <td><h4>Total:</h4></td>
-                <td><h4>{{ctrl.total() | currency}}</h4></td>
+                <td><h4>{{cartProduct.qty* cartProduct.cost| currency}}</h4></td>
                 <td></td>
             </tr>
         </table>

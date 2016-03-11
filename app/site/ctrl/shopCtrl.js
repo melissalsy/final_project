@@ -24,15 +24,11 @@ function ShopCtrl($state, $scope, orderSrv, api) {
         //     console.log(ctrl.product);
         // }
     });
-        $scope.$watch(function(){
-        return orderSrv.cart;
+    
+    $scope.$watch(function(){
+        return orderSrv.newCustomer;
     }, function (newValue, oldValue) {
-        ctrl.cart = newValue;
-        // if(orderSrv.cart.data != ctrl.product){
-        //     console.log(orderSrv.cart);
-        //     // ctrl.product = orderSrv.cart;
-        //     console.log(ctrl.product);
-        // }
+        ctrl.customerInfo= newValue;
     });
 
 }
