@@ -5,6 +5,7 @@ function OrderService($state, api){
 	srv.api = api;
 	srv.state = $state;
 	srv.orders = [];
+	srv.newCustomer;
 }
 
 OrderService.prototype.getOrders = function(){
@@ -22,8 +23,15 @@ OrderService.prototype.getOrders = function(){
 
 OrderService.prototype.addOrder = function(order){
 	var srv = this;
-	return srv.api.request('/orders', order, 'POST')
-		.then(function(res){
-		console.log(res.data);
-	});
+	console.log(order);
+	srv.api.request('/orders',order,'POST')
+	.then(function(res){
+		console.log(res);
+		if(res.status === 200){
+			//order was added successfully
+			srv.orders.push(res.data.order);
+			//srv.state.go('admin');
+
+		}
+	})
 }

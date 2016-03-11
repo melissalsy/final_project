@@ -1,5 +1,4 @@
 // login function
-
 app.controller('authCtrl', AuthCtrl);
 
 function AuthCtrl($state, api) {

@@ -1,0 +1,54 @@
+<h3>shipping information</h3>
+<br>
+    <form name="frm" ng-submit="ctrl.reviewOrder()">
+        <div>
+            <p>first name</p>
+            <input class="inputform" type="text" name="first_name" ng-model="ctrl.firstName" required>
+            <br><br>
+        </div>
+        <div>
+            <p>last name</p>
+            <input class="inputform" type="text" name="last_name" ng-model="ctrl.lastName" required>
+            <br><br>
+        </div>
+        <div>
+            <p>email</p>
+            <input class="inputform" type="text" name="email" ng-model="ctrl.email" required>
+            <br><br>
+        </div>
+        <div>
+            <p>primary address</p>
+            <input class="inputform" type="text" name="address1" ng-model="ctrl.address1" required>
+            <br><br>
+        </div>
+        <div>
+            <p>apt/suite #</p>
+            <input class="inputform" type="text" name="apt" ng-model="ctrl.apt" required>
+            <br><br>
+        </div>
+        <div>
+            <p>province</p>
+            <input class="inputform" type="text" name="province" ng-model="ctrl.province" required>
+            <br><br>
+        </div>
+        <div>
+            <p>city</p>
+            <input class="inputform" type="text" name="city" ng-model="ctrl.city" required>
+            <br><br>
+        </div>
+        <div>
+            <p>postal code</p>
+            <input class="inputform" type="text" name="postal" ng-model="ctrl.postal" required>
+        </div>
+        
+            <br><br>
+
+        <button class="ourButton" ng-click="ctrl.goToCart()">back to cart</button>
+
+            <br><br>
+
+        <button ng-click="ctrl.reviewOrder()"> review & submit order </button>
+            
+            <br><br>
+
+    </form>

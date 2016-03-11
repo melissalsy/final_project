@@ -16,12 +16,3 @@ OrderCtrl.prototype.getOrders = function(){
 		ctrl.orders = res;
 	})
 }
-
-	// var order = {
-	// 	orderId: ctrl._id,
-	// 	quantity: ctrl.quantity,
-	// 	total: ctrl.total,
-	// 	status: true
-	// };
-
-	//ctrl.orderSrv.getOrders();

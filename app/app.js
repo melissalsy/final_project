@@ -7,18 +7,18 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	$stateProvider
 		.state('landing', {
 			url: '/landing',
-			templateUrl: 'site/partials/landing.html'
-			//controller: 'shopCtrl as ctrl',
+			templateUrl: 'site/partials/landing.html',
+			controller: 'shopCtrl as ctrl'
 		})
 		.state ('login', {
 		    url:'/login',
 		    templateUrl: 'site/partials/login.html', 
-		    controller:'authCtrl as ctrl',
+		    controller:'authCtrl as ctrl'
 		})
 		 .state ('inventory', {
 	      url:'/inventory',
 	      templateUrl: 'site/partials/inventory.html',
-	      controller: 'productCtrl as ctrl',
+	      controller: 'productCtrl as ctrl'
     	})
 		.state ('orders', {
 	      url:'/orders',
@@ -28,9 +28,9 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 
     	.state('product', {
 			url: "/product",
-			templateUrl: 'site/partials/product.html'
-			//controller: ,
-		});
+			templateUrl: 'site/partials/product.html',
+			controller: 'shopCtrl as ctrl'
+		})
 
 		// .state('landing.something' {
 		// 	url: '/something',
@@ -42,11 +42,11 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		// from your template ui-sref="landing.something"
 		// from your controller ctrl.state.go('landing.something')
 
-		// .state('about', {
-		// 	url: "/about",
-		// 	templateUrl: ,
-		// 	controller: ,
-		// })
+		.state('about', {
+			url: "/about",
+			templateUrl: 'site/partials/about.html' ,
+			//controller: ,
+		})
 
 		// .state('contact', {
 		// 	url: "/contact",
@@ -54,17 +54,26 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		// 	controller: ,
 		// })
 
-		// .state('cart', {
-		// 	url: "/cart",
-		// 	templateUrl: ,
-		// 	controller: ,
-		// })
+		.state('cart', {
+			url: "/cart",
+			templateUrl: 'site/partials/cart.html',
+			controller: 'shopCtrl as ctrl'
+		})
 
-		// .state('checkout', {
-		// 	url: "/checkout",
-		// 	templateUrl: ,
-		// 	controller: ,
-		// })
+		.state('checkout', {
+			url: "/checkout",
+			templateUrl: 'site/partials/checkout.html',
+			controller: 'shopCtrl as ctrl'
+		})
+		.state('review', {
+			url: "/review",
+			templateUrl: 'site/partials/review.html',
+			controller: 'shopCtrl as ctrl'
+		})
+		.state('final', {
+			url: "/thankyou",
+			templateUrl: 'site/partials/final.html'
+		})
 
 	 //    .state ('admin', {
 	 //      url:'/admin',

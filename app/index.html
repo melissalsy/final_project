@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="site/ctrl/authCtrl.js"></script>
 	<script type="text/javascript" src="site/ctrl/orderCtrl.js">
 	</script><script type="text/javascript" src="site/ctrl/productCtrl.js"></script>
+	</script><script type="text/javascript" src="site/ctrl/shopCtrl.js"></script>
 
 	<!-- App Services -->
 	<script type="text/javascript" src="site/services/apiSrv.js"></script>
@@ -20,7 +21,12 @@
 </head>
 <body ng-app="webApp">
 
-	<div>Hello, Melissa! Now we are testing! This is our Index Page<div>
+	<nav>
+		<a ui-sref="landing">Shop</a>
+		<a ui-sref="product">Product</a>
+		<a ui-sref="about">About Us</a>
+		<a ui-sref="login">Login</a>
+	</nav>
 
 <div ui-view></div>
 <!-- how to set multi view  -->
