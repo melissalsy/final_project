@@ -9,17 +9,18 @@ function AdminCtrl($state,productSrv, orderSrv) {
 	ctrl.products;
 	ctrl.getOrders();
 	ctrl.orders;
+	ctrl.product;
 }
 
 AdminCtrl.prototype.addProduct = function(){
 	var ctrl = this;
-	var product = {
+	ctrl.product = {
 		name: ctrl.name,
 		description: ctrl.description,
 		price: ctrl.price,
 		quantity: ctrl.quantity,
 	};
-	ctrl.productSrv.addProduct(product);
+	ctrl.productSrv.addProduct(ctrl.product);
 }
 
 AdminCtrl.prototype.getProduct = function(){
@@ -27,12 +28,22 @@ AdminCtrl.prototype.getProduct = function(){
 	ctrl.productSrv.getProduct()
 	.then(function(res){
 		ctrl.products = res;
-	})
+	});
 }
 
-AdminCtrl.prototype.updateForm = function(){
-	var ctrl = this; 
-	ctrl.state.go('updateForm');
+
+
+AdminCtrl.prototype.updateProduct = function(product){
+	var ctrl = this;
+	var updatedProduct = {
+		name: product.name,
+		description: product.description,
+		price: product.price,
+		quantity: product.quantity,
+		_id: product._id
+	}
+	ctrl.productSrv.updateProduct(updatedProduct,product._id);
+	ctrl.state.go('admin');
 }
 
 AdminCtrl.prototype.logout = function(){
@@ -49,7 +60,7 @@ AdminCtrl.prototype.getOrders = function(){
 	.then(function(res){
 		console.log(res);
 		ctrl.orders = res;
-	})
+	});
 }
 
 	// var order = {

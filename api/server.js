@@ -22,10 +22,12 @@ db.once('open', function() {
 //configure routes
 var init = require('./routes/init');
 var userRoutes = require('./routes/userRoutes');
+var productRoutes = require('./routes/productRoutes')
 
 //set routes
 app.use('/init', init);
 app.use('/user', userRoutes);
+app.use('/product', productRoutes)
 
 //ADMIN INVENTORY
 app.post('/admin', function(req, res){

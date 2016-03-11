@@ -16,9 +16,11 @@
 </form>
 
 <div ng-repeat="product in ctrl.products">
+	<form>
 		{{product.name}} 
-		<input value="{{product.quantity}}">
-		<button ng-click="updateForm()">update</button>
+		<input value="{{product.quantity}}" ng-model="product.quantity">
+		<button ng-click="ctrl.updateProduct(product)">update</button>
+	</form>
 </div>
 <h1>View Orders</h1>
 <!-- <table>

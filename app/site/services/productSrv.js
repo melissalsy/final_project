@@ -30,11 +30,23 @@ ProductService.prototype.getProduct = function (){
 		})
 }
 
-ProductService.prototype.updateProduct = function (product){
-	var srv = this; 
-	return srv.api.request('/admin',product, 'PUT')
+ProductService.prototype.updateProduct = function (product, productId){
+	var srv = this;
+	return srv.api.request('/product/',product, 'PUT')
 		.then(function(res){
-			console.log(res)
+			console.log(res);
+			if(res.status === 200){
+			//product was updated successfully
+			console.log(res);
+			srv.updateProductList(product, productId);
+			}
 		})
 }
-
+ProductService.prototype.updateProductList = function(product,productId){
+	var srv = this;
+	for(index in srv.products){
+		if(srv.products[index]._id == productId){
+			srv.products[index].quantity = product.quantity;
+		}
+	}
+}
