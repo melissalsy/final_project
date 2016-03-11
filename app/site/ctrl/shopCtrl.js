@@ -26,12 +26,8 @@ ShopCtrl.prototype.total = function() {
 
 ShopCtrl.prototype.addToCart = function(){
     var ctrl = this;
-    ctrl.orderSrv.addOrder(ctrl.product);
+    ctrl.orderSrv.addProducts(ctrl.product);
 }
-
-// ShopCtrl.prototype.submitOrdder = function (){
-
-// }
 
 ShopCtrl.prototype.reviewOrder = function(){
     var ctrl = this; 

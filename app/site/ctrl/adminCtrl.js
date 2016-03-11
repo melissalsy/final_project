@@ -35,8 +35,6 @@ AdminCtrl.prototype.getProduct = function(){
 	});
 }
 
-
-
 AdminCtrl.prototype.updateProduct = function(product){
 	var ctrl = this;
 	var updatedProduct = {
