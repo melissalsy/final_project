@@ -22,13 +22,15 @@ db.once('open', function() {
 //configure routes
 var init = require('./routes/init');
 var userRoutes = require('./routes/userRoutes');
+var productRoutes = require('./routes/productRoutes')
 
 //set routes
 app.use('/init', init);
 app.use('/user', userRoutes);
+app.use('/product', productRoutes)
 
 //ADMIN INVENTORY
-app.post('/inventory', function(req, res){
+app.post('/admin', function(req, res){
 	console.log(req.body);
     var newProduct = Product(req.body);
     console.log(newProduct);
@@ -42,7 +44,7 @@ app.post('/inventory', function(req, res){
     })
 })
 
-app.get('/inventory', function(req, res){
+app.get('/admin', function(req, res){
 	Product.find({}, function(err, Product){
 		if (err){
 			console.log(err)
@@ -53,7 +55,7 @@ app.get('/inventory', function(req, res){
 })
 
 
-app.put('/inventory/:_id', function(req, res){
+app.put('/admin/:_id', function(req, res){
 	console.log(req.body);
     var update = req.body;
     var query = {"_id":req.body._id}

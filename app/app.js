@@ -15,51 +15,26 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		    templateUrl: 'site/partials/login.html', 
 		    controller:'authCtrl as ctrl'
 		})
-		 .state ('inventory', {
-	      url:'/inventory',
-	      templateUrl: 'site/partials/inventory.html',
-	      controller: 'productCtrl as ctrl'
+		 .state ('admin', {
+	      url:'/admin',
+	      templateUrl: 'site/partials/admin.html',
+	      controller: 'adminCtrl as ctrl',
     	})
-		.state ('orders', {
-	      url:'/orders',
-	      templateUrl: 'site/partials/orders.html',
-	      controller: 'orderCtrl as ctrl'
-    	})
-
     	.state('product', {
 			url: "/product",
 			templateUrl: 'site/partials/product.html',
 			controller: 'shopCtrl as ctrl'
 		})
-
-		// .state('landing.something' {
-		// 	url: '/something',
-		// 	templateUrl: 'site/partials/something.html'
-		// })
-		
-		// to get to the view SOMETHING
-		// the URL must be /landing/something
-		// from your template ui-sref="landing.something"
-		// from your controller ctrl.state.go('landing.something')
-
-		.state('about', {
+   		.state('about', {
 			url: "/about",
 			templateUrl: 'site/partials/about.html' ,
 			//controller: ,
 		})
-
-		// .state('contact', {
-		// 	url: "/contact",
-		// 	templateUrl: ,
-		// 	controller: ,
-		// })
-
-		.state('cart', {
+   		.state('cart', {
 			url: "/cart",
 			templateUrl: 'site/partials/cart.html',
 			controller: 'shopCtrl as ctrl'
 		})
-
 		.state('checkout', {
 			url: "/checkout",
 			templateUrl: 'site/partials/checkout.html',
@@ -74,6 +49,25 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 			url: "/thankyou",
 			templateUrl: 'site/partials/final.html'
 		})
+		// .state('landing.something' {
+		// 	url: '/something',
+		// 	templateUrl: 'site/partials/something.html'
+		// })
+		
+		// to get to the view SOMETHING
+		// the URL must be /landing/something
+		// from your template ui-sref="landing.something"
+		// from your controller ctrl.state.go('landing.something')
+
+		
+
+		// .state('contact', {
+		// 	url: "/contact",
+		// 	templateUrl: ,
+		// 	controller: ,
+		// })
+
+		
 
 	 //    .state ('admin', {
 	 //      url:'/admin',
