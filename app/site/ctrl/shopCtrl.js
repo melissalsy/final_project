@@ -1,8 +1,9 @@
 app.controller('shopCtrl', ShopCtrl);
 
-function ShopCtrl($state, orderSrv, api) {
+function ShopCtrl($state, $scope, orderSrv, api) {
 	var ctrl = this; 
 	ctrl.state = $state;
+    ctrl.scope = $scope;
 	ctrl.orderSrv = orderSrv;
 	ctrl.api = api;
     ctrl.product = {
@@ -10,6 +11,30 @@ function ShopCtrl($state, orderSrv, api) {
         qty: 1,
         cost: 100.00
     };
+    ctrl.cart = [];
+    ctrl.customerInfo = {};
+
+    $scope.$watch(function(){
+        return orderSrv.cart;
+    }, function (newValue, oldValue) {
+        ctrl.cart = newValue;
+        // if(orderSrv.cart.data != ctrl.product){
+        //     console.log(orderSrv.cart);
+        //     // ctrl.product = orderSrv.cart;
+        //     console.log(ctrl.product);
+        // }
+    });
+        $scope.$watch(function(){
+        return orderSrv.cart;
+    }, function (newValue, oldValue) {
+        ctrl.cart = newValue;
+        // if(orderSrv.cart.data != ctrl.product){
+        //     console.log(orderSrv.cart);
+        //     // ctrl.product = orderSrv.cart;
+        //     console.log(ctrl.product);
+        // }
+    });
+
 }
 
 ShopCtrl.prototype.removeItem = function(index) {
@@ -26,7 +51,7 @@ ShopCtrl.prototype.total = function() {
 
 ShopCtrl.prototype.addToCart = function(){
     var ctrl = this;
-    ctrl.orderSrv.addOrder(ctrl.product);
+    ctrl.orderSrv.addProducts(ctrl.product);
 }
 
 // ShopCtrl.prototype.submitOrdder = function (){
@@ -35,8 +60,7 @@ ShopCtrl.prototype.addToCart = function(){
 
 ShopCtrl.prototype.reviewOrder = function(){
     var ctrl = this; 
-
-    var customer = {
+    ctrl.customer = {
         firstName: ctrl.firstName,
         lastName: ctrl.lastName,
         email: ctrl.email,
@@ -46,9 +70,8 @@ ShopCtrl.prototype.reviewOrder = function(){
         province: ctrl.province,
         postal: ctrl.postal
     }
-      console.log(customer);
-    ctrl.orderSrv.newCustomer = customer;
-    ctrl.$state.go('review');
+    ctrl.orderSrv.addCustomer(ctrl.customer);
+    ctrl.state.go('review');
 }
 
 ShopCtrl.prototype.submitOrder = function(){
