@@ -39,7 +39,8 @@ ShopCtrl.prototype.checkout = function(){
 }
 
 ShopCtrl.prototype.addToCart = function(){
-    this.state.go('cart');
+    var ctrl = this;
+    ctrl.orderSrv.addProducts(ctrl.product);
 }
 
 ShopCtrl.prototype.reviewOrder = function(){

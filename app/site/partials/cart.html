@@ -28,7 +28,8 @@
                 <td>{{ctrl.total() | currency}}</td>
             </tr>
         </table>
-        <button ng-click="ctrl.checkout()">checkout</button>
+
+        <button ui-sref="checkout" ng-click="ctrl.addProducts()">checkout</button>
 
    <!--  
     <div ng-hide="ctrl.is_products">
