@@ -1,24 +1,5 @@
 app.controller('shopCtrl', ShopCtrl);
 
-// function ShopCtrl($state, productSrv, orderSrv, api) {
-// 	var ctrl = this;
-// 	ctrl.state = $state;
-// 	ctrl.productSrv = productSrv;
-// 	ctrl.orderSrv = orderSrv;
-// 	ctrl.api = api;
-// 	ctrl.product;
-// }
-
-// ShopCtrl.prototype.addToCart = function(product){
-// 	var ctrl = this;
-// 	var cartProduct = {
-// 		quantity: 1
-// 	};
-
-// 	ctrl.orderSrv.cart,push(cartProduct);
-// 	console.log(ctrl.orderSrv.cart);
-// }
-
 function ShopCtrl($scope, $state, orderSrv, api) {
 	var ctrl = this;
 	ctrl.state = $state;
@@ -28,43 +9,37 @@ function ShopCtrl($scope, $state, orderSrv, api) {
 
     $scope.product = {
         items: [{
-            qty: 1,
+            qty: this.qty,
             name: 'Portable Outlet',
-            cost: 100.00}]
+            cost: 100,
+            total: 0}]
     };
 }
 
-// ShopCtrl.prototype.addOrder = function(){
-// 	srv.orderSrv.orders.push()
-// }
-// ShopCtrl.prototype.addToCart = function(product){
-//     var ctrl = this;
-//     var cartProduct = {
-//             name: product.name,
-//             image:product.image,
-//             price: product.price,
-//             quantity: 1
-//         };
-        
-//     ctrl.orderSrv.cart.push(cartProduct);
-//     console.log(ctrl.orderSrv.cart);
-// };
-
 ShopCtrl.prototype.removeItem = function(index) {
-    var ctrl = this; 
-    ctrl.product.splice(index, 1);
-   	ctrl.state.go('product');
-}
+    this.scope.product.items.splice(index, 1);
+   	this.state.go('product');
+    }
 
 ShopCtrl.prototype.total = function() {
-    var ctrl = this; 
-    var total = ctrl.product.qty * ctrl.product.cost
-    return total;
+        var total = 0;
+        angular.forEach(this.scope.product.items, function(item) {
+            total += item.qty * item.cost;
+        })
+
+        return total;
+    }
+
+ShopCtrl.prototype.checkout = function(){
+	var order = this.scope.product;
+	order.items[0].total = order.items[0].qty  * order.items[0].cost;
+	this.orderSrv.addOrder(order);
+	console.log(this.orderSrv.orders);
+	this.state.go('checkout');
 }
 
 ShopCtrl.prototype.addToCart = function(){
-    var ctrl = this;
-    ctrl.orderSrv.addOrder(ctrl.product);
+    this.state.go('cart');
 }
 
 ShopCtrl.prototype.reviewOrder = function(){
@@ -80,39 +55,8 @@ ShopCtrl.prototype.reviewOrder = function(){
         province: ctrl.province,
         postal: ctrl.postal
     }
-      console.log(customer);
+
+    console.log(customer);
     ctrl.orderSrv.newCustomer = customer;
     ctrl.$state.go('review');
 }
-
-ShopCtrl.prototype.submitOrder = function(){
-    var ctrl = this;
-    ctrl.order = {
-       customer: ctrl.customer,
-       cart: ctrl.cart,
-       total: '',
-       tax:'',
-       final_total:'',
-   };
-    ctrl.orderSrv.addOrder(ctrl.order);
-    ctrl.$state.go('shop.lastpage');
-}
-
-// function ShopCtrl($state, productSrv, orderSrv, api) {
-//  var ctrl = this;
-//  ctrl.state = $state;
-//  ctrl.productSrv = productSrv;
-//  ctrl.orderSrv = orderSrv;
-//  ctrl.api = api;
-//  ctrl.product;
-// }
-
-// ShopCtrl.prototype.addToCart = function(product){
-//  var ctrl = this;
-//  var cartProduct = {
-//      quantity: 1
-//  };
-
-//  ctrl.orderSrv.cart,push(cartProduct);
-//  console.log(ctrl.orderSrv.cart);
-// }
