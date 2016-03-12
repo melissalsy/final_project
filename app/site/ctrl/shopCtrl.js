@@ -32,7 +32,10 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     });
 
 }
-
+ShopCtrl.prototype.eachTotal = function(){
+    var ctrl = this; 
+    ctrl.totalCart = ctrl;product.quantity * ctrl.product.cost
+}
 ShopCtrl.prototype.removeItem = function(index) {
     var ctrl = this; 
     ctrl.product.splice(index, 1);
@@ -40,9 +43,12 @@ ShopCtrl.prototype.removeItem = function(index) {
 }
 
 ShopCtrl.prototype.total = function() {
-    var ctrl = this; 
-    var total = ctrl.product.qty * ctrl.product.cost
-    return total;
+    var ctrl = this;
+    var total = 0;
+    for (var i=0; i<cart.length; i++) {
+        total += ctrl.cart[i].quantity;
+    };
+    console.log(total);
 }
 
 ShopCtrl.prototype.addToCart = function(){

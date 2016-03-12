@@ -20,12 +20,11 @@
                 <td>{{cartProduct.name}}</td>
                 <td>{{cartProduct.qty}}</td>
                 <td>{{cartProduct.qty* cartProduct.cost| currency:undefined:0}}</td>
-            <tr>
             <tr ng-repeat="cartProduct in ctrl.cart">
                 <td></td>
                 <td></td>
                 <td><h4>Total:</h4></td>
-                <td><h4>{{cartProduct.qty* cartProduct.cost| currency}}</h4></td>
+                <td><h4>{{ctrl.total()}}</h4></td>
                 <td></td>
             </tr>
         </table>
