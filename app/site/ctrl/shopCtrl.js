@@ -56,10 +56,6 @@ ShopCtrl.prototype.addToCart = function(){
     ctrl.orderSrv.addProducts(ctrl.product);
 }
 
-// ShopCtrl.prototype.submitOrdder = function (){
-
-// }
-
 ShopCtrl.prototype.reviewOrder = function(){
     var ctrl = this; 
     ctrl.customer = {
