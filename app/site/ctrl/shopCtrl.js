@@ -6,6 +6,7 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     ctrl.scope = $scope;
     ctrl.orderSrv = orderSrv;
     ctrl.api = api;
+
     ctrl.product = {
         name: 'Portable Outlet',
         qty: 1,
@@ -13,10 +14,12 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     };
     ctrl.cart = [];
     ctrl.customerInfo = {};
+
     $scope.$watch(function(){
         return orderSrv.cart;
     }, function (newValue, oldValue) {
         ctrl.cart = newValue;
+
         if(orderSrv.cart.data != ctrl.product){
             console.log(orderSrv.cart);
             // ctrl.product = orderSrv.cart;
@@ -30,10 +33,12 @@ function ShopCtrl($state, $scope, orderSrv, api) {
         ctrl.customerInfo= newValue;
     });
 }
+
 ShopCtrl.prototype.eachTotal = function(){
     var ctrl = this; 
     ctrl.totalCart = ctrl;product.quantity * ctrl.product.cost
 }
+
 ShopCtrl.prototype.removeItem = function(index) {
     var ctrl = this; 
     ctrl.product.splice(index, 1);
@@ -80,4 +85,10 @@ ShopCtrl.prototype.submitOrder = function(){
    };
     ctrl.orderSrv.addOrder(ctrl.order);
     ctrl.$state.go('shop.lastpage');
+<<<<<<< HEAD
 }
+=======
+}
+
+
+>>>>>>> d6b05ec86a5a8f3e2d97a946f39efe9a7922fb85

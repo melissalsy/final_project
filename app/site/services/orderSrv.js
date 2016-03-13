@@ -8,10 +8,12 @@ function OrderService($state, api){
     srv.cart = [];
     srv.newCustomer;
 }
+
 OrderService.prototype.addProducts = function (product){
-    var srv = this; 
-    srv.cart.push(product);
+	var srv = this; 
+	srv.cart.splice(product);
 }
+
 OrderService.prototype.getOrders = function(){
     var srv = this;
     return srv.api.request('/orders', {}, 'GET')
@@ -29,6 +31,7 @@ OrderService.prototype.addCustomer = function(customer){
     srv.newCustomer = customer;
     console.log(srv.newCustomer);
 }
+
 OrderService.prototype.addOrder = function(order){
     var srv = this;
     console.log(order);
