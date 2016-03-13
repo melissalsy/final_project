@@ -11,7 +11,7 @@ function OrderService($state, api){
 
 OrderService.prototype.addProducts = function (product){
 	var srv = this; 
-	srv.cart.push(product);
+	srv.cart.splice(product);
 }
 OrderService.prototype.getOrders = function(){
 	var srv = this;

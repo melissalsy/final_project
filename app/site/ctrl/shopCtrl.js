@@ -12,7 +12,7 @@ function ShopCtrl($state, $scope, orderSrv, api) {
         cost: 100.00
     };
     ctrl.cart = [];
-    ctrl.customerInfo = {};
+    // ctrl.customerInfo = {};
 
     $scope.$watch(function(){
         return orderSrv.cart;
@@ -32,10 +32,10 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     });
 
 }
-ShopCtrl.prototype.eachTotal = function(){
-    var ctrl = this; 
-    ctrl.totalCart = ctrl;product.quantity * ctrl.product.cost
-}
+// ShopCtrl.prototype.eachTotal = function(){
+//     var ctrl = this; 
+//     ctrl.totalCart = ctrl;product.quantity * ctrl.product.cost
+// }
 ShopCtrl.prototype.removeItem = function(index) {
     var ctrl = this; 
     ctrl.product.splice(index, 1);
@@ -89,21 +89,4 @@ ShopCtrl.prototype.submitOrder = function(){
     ctrl.$state.go('shop.lastpage');
 }
 
-// function ShopCtrl($state, productSrv, orderSrv, api) {
-//  var ctrl = this;
-//  ctrl.state = $state;
-//  ctrl.productSrv = productSrv;
-//  ctrl.orderSrv = orderSrv;
-//  ctrl.api = api;
-//  ctrl.product;
-// }
 
-// ShopCtrl.prototype.addToCart = function(product){
-//  var ctrl = this;
-//  var cartProduct = {
-//      quantity: 1
-//  };
-
-//  ctrl.orderSrv.cart,push(cartProduct);
-//  console.log(ctrl.orderSrv.cart);
-// }
