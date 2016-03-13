@@ -9,12 +9,12 @@
                 <th>Total</th>
                 <th></th>
             </tr>
-            <tr ng-repeat="item in product.items">
+            <tr ng-repeat="product in ctrl.product">
                 <td><img ng-src="/assets/img/demo.jpg" style="height:100px;"></td>
-                <td>{{item.name}}</td>
-                <td>{{item.cost}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.cost}}</td>
                  <td><input type="number" min="1" ng-model="item.qty" style="width:40px;" required></td>
-                <td>{{item.qty * item.cost | currency}}</td>
+                <td>{{product.qty * product.cost | currency}}</td>
                 <td>
                     [<a href ng-click="ctrl.removeItem($index)">x</a>]
                 </td>
