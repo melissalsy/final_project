@@ -1,12 +1,12 @@
 app.service('orderSrv', OrderService);
 
 function OrderService($state, api){
-	var srv = this;
-	srv.api = api;
-	srv.state = $state;
-	srv.orders = [];
-	srv.cart = [];
-	srv.newCustomer;
+    var srv = this;
+    srv.api = api;
+    srv.state = $state;
+    srv.orders = [];
+    srv.cart = [];
+    srv.newCustomer;
 }
 
 OrderService.prototype.addProducts = function (product){
@@ -15,6 +15,7 @@ OrderService.prototype.addProducts = function (product){
 	srv.cart.splice(0,1,product);
 	console.log(srv.cart);
 }
+
 OrderService.prototype.getOrders = function(){
 	var srv = this;
 	return srv.api.request('/orders/', {}, 'GET')
@@ -29,10 +30,11 @@ OrderService.prototype.getOrders = function(){
 }
 
 OrderService.prototype.addCustomer = function(customer){
-	var srv = this; 
-	srv.newCustomer = customer;
-	console.log(srv.newCustomer);
+    var srv = this; 
+    srv.newCustomer = customer;
+    console.log(srv.newCustomer);
 }
+
 OrderService.prototype.addOrder = function(order){
 	var srv = this;
 	srv.api.request('/orders/',order,'POST')
@@ -43,7 +45,6 @@ OrderService.prototype.addOrder = function(order){
 			srv.orders.push(res);
 			// console.log(srv.orders);
 			//srv.state.go('admin');
-
 		}
 	})
 }
