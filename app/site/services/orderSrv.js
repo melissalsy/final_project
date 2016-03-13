@@ -11,11 +11,13 @@ function OrderService($state, api){
 
 OrderService.prototype.addProducts = function (product){
 	var srv = this; 
-	srv.cart.splice(product);
+	return [product];
+	srv.cart.splice(0,1,product);
+	console.log(srv.cart);
 }
 OrderService.prototype.getOrders = function(){
 	var srv = this;
-	return srv.api.request('/orders', {}, 'GET')
+	return srv.api.request('/orders/', {}, 'GET')
 		.then(function(res){
 			console.log(res);
 			srv.orders = res.data;
@@ -33,13 +35,13 @@ OrderService.prototype.addCustomer = function(customer){
 }
 OrderService.prototype.addOrder = function(order){
 	var srv = this;
-	console.log(order);
-	srv.api.request('/orders',order,'POST')
+	srv.api.request('/orders/',order,'POST')
 	.then(function(res){
-		console.log(res);
 		if(res.status === 200){
+			console.log(res);
 			//order was added successfully
-			srv.orders.push(res.data.order);
+			srv.orders.push(res);
+			// console.log(srv.orders);
 			//srv.state.go('admin');
 
 		}

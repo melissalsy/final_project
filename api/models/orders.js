@@ -7,26 +7,39 @@ var orderSchema = new Schema({
 		type: Boolean,
 		required: true
 	},
-	Address: {
-		type: String,
-		required: true
-	},
-	City: {
-		type: String,
-		required: true
-	},
-	Country: {
-		type: String,
-		required: true
-	},
-	Province: {
-		type: String,
-		required: true
-	},
-	Postal: {
-		type: String, 
+	customer_Info: {
+		firstName: {
+			type: String, 
+			required: true
+		}, 
+        lastName: {
+			type: String, 
+			required: true
+		}, 
+        email: {
+			type: String, 
+			required: true
+		},
+        address: {
+			type: String, 
+			required: true
+		},
+        apt: {
+			type: String, 
+		},
+        city: {
+			type: String, 
+			required: true
+		},
+        province: {
+			type: String, 
+			required: true
+		},
+        postal: {
+			type: String, 
 		minimum: 6, 
 		required: true
+		}
 	},
 	cart: Array,
 	tax: Number,

@@ -12,12 +12,13 @@ function ShopCtrl($state, $scope, orderSrv, api) {
         cost: 100.00
     };
     ctrl.cart = [];
-    // ctrl.customerInfo = {};
+    ctrl.customerInfo = {};
 
     $scope.$watch(function(){
-        return orderSrv.cart;
+        return ctrl.orderSrv.cart;
     }, function (newValue, oldValue) {
         ctrl.cart = newValue;
+        console.log(ctrl.cart);
         // if(orderSrv.cart.data != ctrl.product){
         //     console.log(orderSrv.cart);
         //     // ctrl.product = orderSrv.cart;
@@ -42,18 +43,24 @@ ShopCtrl.prototype.removeItem = function(index) {
    	ctrl.state.go('product');
 }
 
-ShopCtrl.prototype.total = function() {
-    var ctrl = this;
-    var total = 0;
-    for (var i=0; i<cart.length; i++) {
-        total += ctrl.cart[i].quantity;
-    };
-    console.log(total);
-}
+// ShopCtrl.prototype.total = function() {
+//     var ctrl = this;
+//     var total = 0;
+//     for (var i=0; i<cart.length; i++) {
+//         total += ctrl.cart[i].quantity;
+//     };
+//     console.log(total);
+// }
 
 ShopCtrl.prototype.addToCart = function(){
     var ctrl = this;
-    ctrl.orderSrv.addProducts(ctrl.product);
+    var product = {
+        name:ctrl.product.name,
+        qty: ctrl.product.qty,
+        cost: ctrl.product.cost
+    }
+    ctrl.cart.splice(0,1,product);
+    console.log(ctrl.cart);
 }
 
 ShopCtrl.prototype.reviewOrder = function(){
@@ -62,7 +69,7 @@ ShopCtrl.prototype.reviewOrder = function(){
         firstName: ctrl.firstName,
         lastName: ctrl.lastName,
         email: ctrl.email,
-        address1: ctrl.address1,
+        address: ctrl.address,
         apt: ctrl.apt,
         city: ctrl.city,
         province: ctrl.province,
@@ -72,17 +79,22 @@ ShopCtrl.prototype.reviewOrder = function(){
     ctrl.state.go('review');
 }
 
-ShopCtrl.prototype.submitOrder = function(){
+ShopCtrl.prototype.submitOrder = function(cart){
     var ctrl = this;
+    for (var i = 0; i < ctrl.cart.length; i++) {
+        delete ctrl.cart[i].$$hashKey;
+    }
+    console.log(ctrl.cart);
     ctrl.order = {
-       customer: ctrl.customer,
-       cart: ctrl.cart,
-       total: '',
-       tax:'',
-       final_total:'',
+        order_status: true,
+        customer_Info: ctrl.customerInfo,
+        cart: ctrl.cart,
+        // total: ctrl.cart.total,
+        tax:'',
+        final_total:'',
    };
+   console.log(ctrl.order);
     ctrl.orderSrv.addOrder(ctrl.order);
-    ctrl.$state.go('shop.lastpage');
 }
 
 
