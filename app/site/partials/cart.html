@@ -1,0 +1,63 @@
+<h3>Your Order</h3>
+        <table class="table" style="text-align:center;">
+            <tr> 
+                <th>Preview</th>
+                <th>Product</th>
+                <th>Cost</th>
+                <th>Qty</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><img ng-src="/assets/img/demo.jpg" style="height:100px;"></td>
+                <td>{{ctrl.product.name}}</td>
+                <td>{{ctrl.product.cost}}</td>
+                 <td><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required></td>
+                <td>
+                    <!-- [<a href ng-click="ctrl.removeItem($index)">x</a>] -->
+                </td>
+            </tr>
+            <tr>
+                <!-- <td><a href ng-click="addItem()" class="btn btn-small">add item</a></td> -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total:</td>
+            <td>{{ctrl.product.qty * ctrl.product.cost | currency}}</td>
+            </tr>
+        </table>
+        <button ui-sref="checkout" ng-click="ctrl.addToCart()">checkout</button>
+   <!--  
+    <div ng-hide="ctrl.is_products">
+        <br><br>
+            <h4><i>your cart is empty</i></h4>
+        </div>
+    </div>
+    <div ng-show="ctrl.is_products">
+        <table class="table" style="text-align:center;">
+            <tr>
+                <th>Preview</th>
+                <th>Name</th>
+                <th>Qty</th>
+                <th>Cost</th>
+                <th>Remove</th>
+            </tr>
+            
+            <tr ng-repeat="cartProduct in ctrl.cartSrv.cart">
+                <td><img ng-src="/assets/img/demo.jpg" style="height:100px;"></td>
+                <td>Portable Outlet</td>
+                <td><input type="number" ng-model="cartProduct.quantity" value="{{cartProduct.quantity}}"></td>
+                <td>{{cartProduct.quantity* cartProduct.price| currency:undefined:0}}</td>
+                <td><a ng-click="ctrl.deleteCartItem(cartProduct)">x</a></td>
+            <tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><h4>Total:</h4></td>
+                <td><h4>{{ctrl.total() | currency}}</h4></td>
+                <td></td>
+            </tr>
+        </table>
+        <button ng-click="ctrl.checkout()">checkout</button>
+    </div>
+</div>
+ -->
