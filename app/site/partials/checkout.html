@@ -1,5 +1,11 @@
-<h3>shipping information</h3>
-<br>
+<button ng-click="ctrl.goToCart()">back to cart</button>
+
+<br><br>
+
+<div class="container shippingInfo">
+
+    <h3>shipping information</h3>
+    <br>
     <form name="frm">
         <div>
             <p>first name</p>
@@ -40,11 +46,38 @@
             <p>postal code</p>
             <input class="inputform" type="text" name="postal" ng-model="ctrl.postal" required>
         </div>
-        
             <br><br>
-        <button class="ourButton" ng-click="ctrl.goToCart()">back to cart</button>
-            <br><br>
-        <button ng-click="ctrl.reviewOrder()"> review & submit order </button>
+
+        <button ng-click="ctrl.reviewOrder()"> review & submit order</button>
             
             <br><br>
     </form>
+
+</div>
+
+<div class="container orderReview" ng-repeat="cartProduct in ctrl.cart">
+    <table>
+        <colgroup>
+            <col span="1" class="tableCol1">
+        </colgroup>
+        <tr>
+            <td><img ng-src="/assets/img/demo.jpg" style="height:100px;"></td>
+        </tr>
+        <tr>
+            <th>name:</th>
+            <td>{{cartProduct.name}}</td>
+        </tr>
+        <tr>
+            <th>cost:</th>
+            <td>{{cartProduct.cost}}</td>
+        </tr>
+        <tr>
+            <th>quantity:</th>
+            <td>{{cartProduct.qty}}</td>
+        </tr>
+        <tr>
+            <th>total cost:</th>
+            <td>{{cartProduct.qty* cartProduct.cost| currency:undefined:0}}</td>
+        </tr>
+    </table>
+</div>

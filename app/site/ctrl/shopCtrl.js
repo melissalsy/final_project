@@ -31,22 +31,13 @@ function ShopCtrl($state, $scope, orderSrv, api) {
 
 ShopCtrl.prototype.eachTotal = function(){
     var ctrl = this; 
-    ctrl.totalCart = ctrl;product.quantity * ctrl.product.cost
+    ctrl.totalCart = ctrl;product.qty * ctrl.product.cost
 }
 
 ShopCtrl.prototype.removeItem = function(index) {
     var ctrl = this; 
     ctrl.cart.splice(index, 1);
-    //ctrl.state.go('product');
-}
-
-ShopCtrl.prototype.total = function() {
-    var ctrl = this;
-    var total = 0;
-    for (var i=0){
-        total += ctrl.cart[i].quantity;
-    });
-    console.log(total);
+    ctrl.state.go('product');
 }
 
 ShopCtrl.prototype.addToCart = function(){
@@ -91,6 +82,6 @@ ShopCtrl.prototype.submitOrder = function(){
    };
    console.log(ctrl.order);
     ctrl.orderSrv.addOrder(ctrl.order);
-    ctrl.$state.go('shop.lastpage');
+    //ctrl.$state.go('final');
 }
 

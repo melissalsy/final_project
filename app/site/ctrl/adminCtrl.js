@@ -70,6 +70,5 @@ AdminCtrl.prototype.getOrders = function(){
 }
 AdminCtrl.prototype.deleteOrder= function(productId){
 	var ctrl = this; 
-	console.log('hello');
 	ctrl.productSrv.deleteProduct(ctrl.product.id);
 }

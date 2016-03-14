@@ -1,3 +1,5 @@
+<div class="container">
+
 <h3>order review</h3>
     <div class="customer">
         <p>{{ctrl.customerInfo.firstName}} {{ctrl.customerInfo.lastName}}
@@ -12,22 +14,18 @@
                 <th>Name</th>
                 <th>Qty</th>
                 <th>Cost</th>
+                <th>Total Cost</th>
             </tr>
             
             <tr ng-repeat="cartProduct in ctrl.cart">
                 <td><img  ng-src="/assets/img/demo.jpg" style="height:100px;"></td>
                 <td>{{cartProduct.name}}</td>
                 <td>{{cartProduct.qty}}</td>
+                <td>{{cartProduct.cost}}</td>
                 <td>{{cartProduct.qty* cartProduct.cost| currency:undefined:0}}</td>
-            <tr ng-repeat="cartProduct in ctrl.cart">
-                <td></td>
-                <td></td>
-                <td><h4>Total:</h4></td>
-                <!-- <td><h4>{{ctrl.total()}}</h4></td> -->
-                <td></td>
             </tr>
         </table>
         <h3>you're all set!</h3>
-        <button class="ourButton" style="width:100%" ui-sref="final" ng-click = "ctrl.submitOrder()" >Confirm</button>
+        <button class="ourButton" style="width:100%" ui-sref= "final" ng-click = "ctrl.submitOrder()" >Confirm</button>
         
-    </div>
+</div>
