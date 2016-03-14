@@ -17,11 +17,7 @@ router.post('/', function(req,res){
 		}
 	})
 })
-// router.post('/',function(req,res){
-// 	Orders.remove({}, function(err, res) {
-// 		if (!err) console.log('removing all orders');
-// 	})
-// });
+
 router.get('/', function(req, res){
 	Orders.find({}, function(err, orders){
 		if (err){
@@ -32,6 +28,20 @@ router.get('/', function(req, res){
 	});
 });
 
+router.delete('/:orderId', function(req,res){
+	Orders.findOne({"_id":req.params.orderId}, function(err, order){
+		if (err){
+			console.log(err);
+		}else{
+			console.log(order);
+			// order.remove(function(err){
+			// 	if (err){
+			// 		console.log(err);
+			// 	}else{
+			// 		console.log('success!');
+		}
+	})
+})
 // router.get('/orders/:_id', function(req, res){
 // 	models.Orders.getOrderById(function(err, order){
 // 		// if (err){

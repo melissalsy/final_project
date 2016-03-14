@@ -14,7 +14,7 @@
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	<br>
-	<h5>Price:</h5> {{ctrl.product.price | currency}}
+	<h5>Price:</h5> {{ctrl.product.cost | currency}}
 	<br><br>
 
 <button ui-sref ="cart" toggle=!toggle"><span ng-show="toggle">product added!</span><span ng-hide="toggle">Add to Cart</span></button>

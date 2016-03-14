@@ -47,3 +47,13 @@ OrderService.prototype.addOrder = function(order){
 		}
 	})
 }
+
+OrderService.prototype.removeOrders = function(order, orderId){
+	var srv = this; 
+	srv.api.request('/orders/:orderId', order, 'DEL')
+	.then(function(res){
+		if(res.status ===200){
+			console.log(res);
+		}
+	})
+}

@@ -62,14 +62,12 @@ AdminCtrl.prototype.getOrders = function(){
 	ctrl.orderSrv.getOrders()
 	.then(function(res){
 		console.log(res);
-
 		ctrl.orders = res.data;
 		// console.log(res[0].cart[0].name);
 		// console.log(ctrl.orders);
 	});
 }
-AdminCtrl.prototype.deleteOrder= function(productId){
+AdminCtrl.prototype.deleteOrder= function(){
 	var ctrl = this; 
-	console.log('hello');
-	ctrl.productSrv.deleteProduct(ctrl.product.id);
+	ctrl.orderSrv.removeOrders(ctrl.orders, ctrl.orders._id);
 }
