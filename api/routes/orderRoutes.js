@@ -17,20 +17,20 @@ router.post('/', function(req,res){
 		}
 	})
 })
-router.post('/',function(req,res){
-	Orders.remove({}, function(err, res) {
-		if (!err) console.log('removing all orders');
-	})
-});
-// router.get('/', function(req, res){
-// 	Orders.find({}, function(err, orders){
-// 		if (err){
-// 			throw err;
-// 		}else{
-// 		res.json(orders);
-// 		}
-// 	});
+// router.post('/',function(req,res){
+// 	Orders.remove({}, function(err, res) {
+// 		if (!err) console.log('removing all orders');
+// 	})
 // });
+router.get('/', function(req, res){
+	Orders.find({}, function(err, orders){
+		if (err){
+			throw err;
+		}else{
+		res.json(orders);
+		}
+	});
+});
 
 // router.get('/orders/:_id', function(req, res){
 // 	models.Orders.getOrderById(function(err, order){

@@ -6,6 +6,7 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     ctrl.scope = $scope;
     ctrl.orderSrv = orderSrv;
     ctrl.api = api;
+    ctrl.orders;
 
     ctrl.product = {
         name: 'Portable Outlet',
