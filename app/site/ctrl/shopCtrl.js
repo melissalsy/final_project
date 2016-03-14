@@ -41,15 +41,15 @@ ShopCtrl.prototype.eachTotal = function(){
 
 ShopCtrl.prototype.removeItem = function(index) {
     var ctrl = this; 
-    ctrl.product.splice(index, 1);
-    ctrl.state.go('product');
+    ctrl.cart.splice(index, 1);
+    //ctrl.state.go('product');
 }
 ShopCtrl.prototype.total = function() {
     var ctrl = this;
     var total = 0;
-    for (var i=0; i<cart.length; i++) {
+    for (var i=0){
         total += ctrl.cart[i].quantity;
-    };
+    });
     console.log(total);
 }
 ShopCtrl.prototype.addToCart = function(){
@@ -85,10 +85,5 @@ ShopCtrl.prototype.submitOrder = function(){
    };
     ctrl.orderSrv.addOrder(ctrl.order);
     ctrl.$state.go('shop.lastpage');
-<<<<<<< HEAD
-}
-=======
 }
 
-
->>>>>>> d6b05ec86a5a8f3e2d97a946f39efe9a7922fb85
