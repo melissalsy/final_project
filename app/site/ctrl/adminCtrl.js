@@ -70,4 +70,5 @@ AdminCtrl.prototype.getOrders = function(){
 AdminCtrl.prototype.deleteOrder= function(){
 	var ctrl = this; 
 	ctrl.orderSrv.removeOrders(ctrl.orders, ctrl.orders._id);
+
 }

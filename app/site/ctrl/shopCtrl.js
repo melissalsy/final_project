@@ -32,12 +32,12 @@ function ShopCtrl($state, $scope, orderSrv, api) {
 //Cart functions//
 ShopCtrl.prototype.eachTotal = function(){
     var ctrl = this; 
-    ctrl.totalCart = ctrl;product.quantity * ctrl.product.cost
+    ctrl.totalCart = ctrl;product.qty * ctrl.product.cost
 }
 
 ShopCtrl.prototype.removeItem = function(index) {
     var ctrl = this; 
-    ctrl.product.splice(index, 1);
+    ctrl.cart.splice(index, 1);
     ctrl.state.go('product');
 }
 
@@ -85,6 +85,6 @@ ShopCtrl.prototype.submitOrder = function(){
    };
    console.log(ctrl.order);
     ctrl.orderSrv.addOrder(ctrl.order);
+    //ctrl.$state.go('final');
 }
-
 
