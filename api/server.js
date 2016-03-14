@@ -22,12 +22,14 @@ db.once('open', function() {
 //configure routes
 var init = require('./routes/init');
 var userRoutes = require('./routes/userRoutes');
-var productRoutes = require('./routes/productRoutes')
+var productRoutes = require('./routes/productRoutes');
+var orderRoutes = require('./routes/orderRoutes');
 
 //set routes
 app.use('/init', init);
 app.use('/user', userRoutes);
-app.use('/product', productRoutes)
+app.use('/product', productRoutes);
+app.use('/orders', orderRoutes);
 
 //ADMIN INVENTORY
 app.post('/admin', function(req, res){
@@ -65,38 +67,6 @@ app.put('/admin/:_id', function(req, res){
             }else{
                res.send(product);
             }
-    })
-})
-
-//ADMIN ORDERS
-app.get('/orders', function(req, res){
-	Orders.find({},function(err, orders){
-		if (err){
-			throw err;
-		}
-		res.json(orders);
-	})
-})
-
-// app.get('/orders/:_id', function(req, res){
-// 	console.log(req.body);
-// 	Orders.findById(1, function(err, order){
-// 		if (err) throw err;
-// 		console.log(order);
-// 	})
-// })
-
-app.post('/orders', function(req, res){
-	console.log(req.body);
-    var newOrder = Order(req.body);
-    console.log(newOrder);
-    newOrder.save(function(err) {
-        if(err){
-            res.json(err);
-        }
-        else{
-            res.json(newOrder);
-        }
     })
 })
 

@@ -11,21 +11,24 @@ function OrderService($state, api){
 
 OrderService.prototype.addProducts = function (product){
 	var srv = this; 
-	srv.cart.splice(product);
+	return [product];
+	srv.cart.splice(0,1,product);
+	console.log(srv.cart);
 }
 
 OrderService.prototype.getOrders = function(){
-    var srv = this;
-    return srv.api.request('/orders', {}, 'GET')
-        .then(function(res){
-            console.log(res);
-            srv.orders = res.data;
-            return res.data;
-        }, function(res){
-            console.log(res);
-            return;
-        })
+	var srv = this;
+	return srv.api.request('/orders/', {}, 'GET')
+		.then(function(res){
+			console.log(res);
+			srv.orders = res.data;
+			return res.data;
+		}, function(res){
+			console.log(res);
+			return;
+		})
 }
+
 OrderService.prototype.addCustomer = function(customer){
     var srv = this; 
     srv.newCustomer = customer;
@@ -33,15 +36,15 @@ OrderService.prototype.addCustomer = function(customer){
 }
 
 OrderService.prototype.addOrder = function(order){
-    var srv = this;
-    console.log(order);
-    srv.api.request('/orders',order,'POST')
-    .then(function(res){
-        console.log(res);
-        if(res.status === 200){
-            //order was added successfully
-            srv.orders.push(res.data.order);
-            //srv.state.go('admin');
-        }
-    })
+	var srv = this;
+	srv.api.request('/orders/',order,'POST')
+	.then(function(res){
+		if(res.status === 200){
+			console.log(res);
+			//order was added successfully
+			srv.orders.push(res);
+			// console.log(srv.orders);
+			//srv.state.go('admin');
+		}
+	})
 }

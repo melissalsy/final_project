@@ -60,16 +60,8 @@ AdminCtrl.prototype.getOrders = function(){
 	var ctrl = this;
 	ctrl.orderSrv.getOrders()
 	.then(function(res){
-		console.log(res);
 		ctrl.orders = res;
+		console.log(res[0].cart[0].name);
+		console.log(ctrl.orders);
 	});
 }
-
-	// var order = {
-	// 	orderId: ctrl._id,
-	// 	quantity: ctrl.quantity,
-	// 	total: ctrl.total,
-	// 	status: true
-	// };
-
-	//ctrl.orderSrv.getOrders();

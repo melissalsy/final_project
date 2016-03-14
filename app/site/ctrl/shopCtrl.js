@@ -16,15 +16,9 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     ctrl.customerInfo = {};
 
     $scope.$watch(function(){
-        return orderSrv.cart;
+        return ctrl.orderSrv.cart;
     }, function (newValue, oldValue) {
         ctrl.cart = newValue;
-
-        if(orderSrv.cart.data != ctrl.product){
-            console.log(orderSrv.cart);
-            // ctrl.product = orderSrv.cart;
-            console.log(ctrl.product);
-        }
     });
     
     $scope.$watch(function(){
@@ -44,28 +38,24 @@ ShopCtrl.prototype.removeItem = function(index) {
     ctrl.product.splice(index, 1);
     ctrl.state.go('product');
 }
-ShopCtrl.prototype.total = function() {
-    var ctrl = this;
-    var total = 0;
-    for (var i=0; i<cart.length; i++) {
-        total += ctrl.cart[i].quantity;
-    };
-    console.log(total);
-}
+
 ShopCtrl.prototype.addToCart = function(){
     var ctrl = this;
-    ctrl.orderSrv.addProducts(ctrl.product);
-    ctrl.state.go('cart');
+    var product = {
+        name:ctrl.product.name,
+        qty: ctrl.product.qty,
+        cost: ctrl.product.cost
+    }
+    ctrl.cart.splice(0,1,product);
+    console.log(ctrl.cart);
 }
-// ShopCtrl.prototype.submitOrdder = function (){
-// }
 ShopCtrl.prototype.reviewOrder = function(){
     var ctrl = this; 
     ctrl.customer = {
         firstName: ctrl.firstName,
         lastName: ctrl.lastName,
         email: ctrl.email,
-        address1: ctrl.address1,
+        address: ctrl.address,
         apt: ctrl.apt,
         city: ctrl.city,
         province: ctrl.province,
@@ -74,21 +64,23 @@ ShopCtrl.prototype.reviewOrder = function(){
     ctrl.orderSrv.addCustomer(ctrl.customer);
     ctrl.state.go('review');
 }
+
 ShopCtrl.prototype.submitOrder = function(){
     var ctrl = this;
+    for (var i = 0; i < ctrl.cart.length; i++) {
+        delete ctrl.cart[i].$$hashKey;
+    }
+    console.log(ctrl.cart);
     ctrl.order = {
-       customer: ctrl.customer,
-       cart: ctrl.cart,
-       total: '',
-       tax:'',
-       final_total:'',
+        order_status: true,
+        customer_Info: ctrl.customerInfo,
+        cart: ctrl.cart,
+        // total: ctrl.cart.total,
+        tax:'',
+        final_total:'',
    };
+   console.log(ctrl.order);
     ctrl.orderSrv.addOrder(ctrl.order);
-    ctrl.$state.go('shop.lastpage');
-<<<<<<< HEAD
-}
-=======
 }
 
 
->>>>>>> d6b05ec86a5a8f3e2d97a946f39efe9a7922fb85

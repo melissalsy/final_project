@@ -37,8 +37,11 @@
 </table> -->
 
 <div ng-repeat="order in ctrl.orders">
-		{{order.id}}
-		{{order.quantity}}
-		{{product.total}}
+	<div ng-repeat="cart in order.cart">
+		{{order.customer_Info.firstName}}
+		{{cart.name}}
+		{{cart.quantity}}
+		{{cart.total}}
+	</div>
 </div>
 <button ng-click="ctrl.logout()">Log Out</button>
