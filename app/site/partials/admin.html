@@ -23,25 +23,14 @@
 	</form>
 </div>
 <h1>View Orders</h1>
-<!-- <table>
-	<tr>
-		<th>Order id</th>
-		<th>Quantity</th>
-		<th>Total $</th>
-	</tr>
-	<tr ng-repeat="orders in ctrl.orders">
-		<td>{{orders.id}}</td>
-		<td>{{orders.quantity}}</td>
-		<td>{{orders.total}}</td>
-	</tr>
-</table> -->
-
 <div ng-repeat="order in ctrl.orders">
 	<div ng-repeat="cart in order.cart">
 		{{order.customer_Info.firstName}}
 		{{cart.name}}
 		{{cart.quantity}}
 		{{cart.total}}
+	<button>Order Complete</button>
+	<a href ng-click="ctrl.deleteOrder()">x</a>
 	</div>
 </div>
 <button ng-click="ctrl.logout()">Log Out</button>

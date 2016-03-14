@@ -21,8 +21,7 @@ OrderService.prototype.getOrders = function(){
 	return srv.api.request('/orders/', {}, 'GET')
 		.then(function(res){
 			console.log(res);
-			srv.orders = res.data;
-			return res.data;
+			return res;
 		}, function(res){
 			console.log(res);
 			return;

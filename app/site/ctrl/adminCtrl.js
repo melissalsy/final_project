@@ -1,10 +1,11 @@
 app.controller('adminCtrl', AdminCtrl);
 
-function AdminCtrl($state,productSrv, orderSrv) { 
+function AdminCtrl($state,productSrv, orderSrv, $scope) { 
 	var ctrl = this; 
 	ctrl.state = $state;
 	ctrl.productSrv = productSrv;
 	ctrl.orderSrv = orderSrv;
+	ctrl.$scope = $scope;
 	ctrl.getProduct();
 	ctrl.products;
 	ctrl.getOrders();
@@ -60,8 +61,15 @@ AdminCtrl.prototype.getOrders = function(){
 	var ctrl = this;
 	ctrl.orderSrv.getOrders()
 	.then(function(res){
-		ctrl.orders = res;
-		console.log(res[0].cart[0].name);
-		console.log(ctrl.orders);
+		console.log(res);
+
+		ctrl.orders = res.data;
+		// console.log(res[0].cart[0].name);
+		// console.log(ctrl.orders);
 	});
+}
+AdminCtrl.prototype.deleteOrder= function(productId){
+	var ctrl = this; 
+	console.log('hello');
+	ctrl.productSrv.deleteProduct(ctrl.product.id);
 }
