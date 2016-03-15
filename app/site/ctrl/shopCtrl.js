@@ -29,6 +29,7 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     });
 }
 
+//Cart functions//
 ShopCtrl.prototype.eachTotal = function(){
     var ctrl = this; 
     ctrl.totalCart = ctrl;product.qty * ctrl.product.cost
@@ -50,6 +51,8 @@ ShopCtrl.prototype.addToCart = function(){
     ctrl.cart.splice(0,1,product);
     console.log(ctrl.cart);
 }
+
+//Order Submission Functions//
 ShopCtrl.prototype.reviewOrder = function(){
     var ctrl = this; 
     ctrl.customer = {
