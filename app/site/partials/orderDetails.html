@@ -2,9 +2,12 @@
 <div class="top">
 <div class="align-shopmain row title">
 
-{{ctrl.orders.name}}
-{{ctrl.orders.address}}
-{{ctrl.orders.rating}}
+{{ctrl.order.cart}}
+{{ctrl.order.customer_Info}}
+{{ctrl.order.tax}}
+{{ctrl.order.order_status}}
+
+<button ng-click="ctrl.completeOrder(ctrl.order._id)">Order Complete</button>
 
 <!-- <button ng-click="ctrl.updateShop()">Update Shop</button> -->
 <!-- <button ng-click="ctrl.deleteShop()">Delete</button> -->

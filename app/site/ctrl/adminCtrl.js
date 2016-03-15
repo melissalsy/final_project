@@ -1,20 +1,37 @@
 app.controller('adminCtrl', AdminCtrl);
 
-function AdminCtrl($state,productSrv, orderSrv, $scope) { 
+function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) { 
 	var ctrl = this; 
 	ctrl.state = $state;
 	ctrl.productSrv = productSrv;
 	ctrl.orderSrv = orderSrv;
 	ctrl.$scope = $scope;
-	ctrl.getProduct();
+	ctrl.$stateParams = $stateParams;
+	// ctrl.getProduct();
 	ctrl.products;
-	ctrl.getOrders();
+	// ctrl.getOrders();
 	ctrl.orders;
 	ctrl.product;
+	ctrl.order;
+	ctrl.api = api;
 	if(localStorage.authToken == undefined || localStorage.authToken == null){
 		$state.go('login');
 	}
-	
+	console.log($stateParams);
+	if(ctrl.$stateParams.orderId){
+		console.log('hi');
+		ctrl.eachOrder(ctrl.$stateParams.orderId);
+	}
+	else{
+		ctrl.getOrders();
+		ctrl.getProduct();
+	}
+
+	$scope.$watch(function() {
+		return productSrv.products;
+	}, function(newVal, oldVal) {
+		ctrl.products = newVal;
+	});
 }
 
 AdminCtrl.prototype.addProduct = function(){
@@ -25,7 +42,7 @@ AdminCtrl.prototype.addProduct = function(){
 		price: ctrl.price,
 		quantity: ctrl.quantity,
 	};
-	ctrl.productSrv.addOrder(ctrl.product);
+	ctrl.productSrv.addProduct(ctrl.product);
 }
 
 AdminCtrl.prototype.getProduct = function(){
@@ -51,7 +68,6 @@ AdminCtrl.prototype.updateProduct = function(product){
 
 AdminCtrl.prototype.logout = function(){
 	var ctrl =this;
-
 	localStorage.removeItem('authToken');
 	ctrl.state.go('login');
 
@@ -63,15 +79,29 @@ AdminCtrl.prototype.getOrders = function(){
 	.then(function(res){
 		console.log(res);
 		ctrl.orders = res.data;
-		// console.log(res[0].cart[0].name);
-		// console.log(ctrl.orders);
 	});
 }
 
-AdminCtrl.prototype.viewOrder = function(id){
+AdminCtrl.prototype.viewOrder = function(orderId){
+	var ctrl = this;
+	ctrl.state.go('orders', {orderId:orderId});
+
+}
+
+AdminCtrl.prototype.eachOrder = function(orderId){
+	var ctrl = this;
+	ctrl.api.request('/orders/'+orderId, {}, 'GET')
+	.then(function(res){
+		ctrl.order = res.data[0];
+	})
+}
+
+AdminCtrl.prototype.completeOrder = function(order){
 	var ctrl = this; 
-	// console.log(id);
-	ctrl.orderSrv.viewOrder(id)
+	ctrl.orderSrv.completeOrder(order)
+	.then(function(res){
+		console.log(res);
+	})
 }
 AdminCtrl.prototype.deleteOrder= function(id){
 	var ctrl = this;

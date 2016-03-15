@@ -18,11 +18,12 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		 .state ('admin', {
 	      url:'/admin',
 	      templateUrl: 'site/partials/admin.html',
-	      controller: 'adminCtrl as ctrl',
+	      controller: 'adminCtrl as ctrl'
     	})
-		.state('admin.order',{
-			url:'orders',
-			templateUrl: 'site/partials/orderDetails.html',
+		.state('orders',{
+			url:'/orders/:orderId',
+			templateUrl: 'site/partials/orderDetails.html', 
+			controller:'adminCtrl as ctrl'
 		})
     	.state('product', {
 			url: "/product",
