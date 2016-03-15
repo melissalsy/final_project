@@ -48,12 +48,21 @@ OrderService.prototype.addOrder = function(order){
 	})
 }
 
-OrderService.prototype.removeOrders = function(order, orderId){
-	var srv = this; 
-	srv.api.request('/orders/:orderId', order, 'DEL')
-	.then(function(res){
-		if(res.status ===200){
-			console.log(res);
-		}
-	})
+// OrderService.prototype.viewOrder = function (id){
+// 	var srv = this; 
+// 	srv.api.request('/orders/'+id,{},'GET')
+// 	.then(function(res){
+// 		if (res.status ===200){
+// 			srv.state.go('admin')
+// 		}
+// 	})
+// }
+OrderService.prototype.removeOrders = function(orderId){
+	var srv = this;
+	return srv.api.request('/orders/' + orderId, {}, 'DEL');
+	// .then(function(res){
+	// 	if(res.status ===200){
+	// 		console.log(res);
+	// 	}
+	// })
 }

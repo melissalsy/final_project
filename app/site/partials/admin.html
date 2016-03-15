@@ -30,7 +30,8 @@
 		{{cart.quantity}}
 		{{cart.total}}
 	<button>Order Complete</button>
-	<a href ng-click="ctrl.deleteOrder()">x</a>
+	<button ng-click="ctrl.viewOrder(order._id)">View Order Details</button>
+	<a href ng-click="ctrl.deleteOrder(order._id)">x</a>
 	</div>
 </div>
 <button ng-click="ctrl.logout()">Log Out</button>

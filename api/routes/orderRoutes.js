@@ -33,12 +33,26 @@ router.delete('/:orderId', function(req,res){
 		if (err){
 			console.log(err);
 		}else{
-			console.log(order);
-			// order.remove(function(err){
-			// 	if (err){
-			// 		console.log(err);
-			// 	}else{
-			// 		console.log('success!');
+			order.remove(function(err){
+				if (err){
+					console.log(err);
+				}else{
+					console.log('success!');
+				}
+			})
+		}
+	})
+})
+
+router.put('/:orderId', function(req, res){
+	var update = req.body;
+    var query = {"_id":req.body._id}
+	Orders.update(query, update,{}, function (err,order){
+            if (err){
+                console.log(err);
+            }else{
+               res.send(order);
+            }
 		}
 	})
 })

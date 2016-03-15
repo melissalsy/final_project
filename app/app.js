@@ -20,6 +20,10 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	      templateUrl: 'site/partials/admin.html',
 	      controller: 'adminCtrl as ctrl',
     	})
+		.state('admin.order',{
+			url:'orders',
+			templateUrl: 'site/partials/orderDetails.html',
+		})
     	.state('product', {
 			url: "/product",
 			templateUrl: 'site/partials/product.html',

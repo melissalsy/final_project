@@ -1,3 +1,5 @@
+<div class="container login">
+
 <h1>Admin Login</h1>
 <br>
 <form name="loginForm">
@@ -7,5 +9,7 @@
 	<h4>Enter Password</h4>
     <input ng-model="ctrl.password" class="inputform" type="password" name="Password" placeholder="Password">
 	<br><br>
-	<input value="{{ctrl.auth_btn}}" class="ourButton" ng-click="ctrl.login()"/>
+	<button value="{{ctrl.auth_btn}}" ng-click="ctrl.login()">login</button>
 </form>
+
+</div>

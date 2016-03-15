@@ -67,8 +67,18 @@ AdminCtrl.prototype.getOrders = function(){
 		// console.log(ctrl.orders);
 	});
 }
-AdminCtrl.prototype.deleteOrder= function(){
-	var ctrl = this; 
-	ctrl.orderSrv.removeOrders(ctrl.orders, ctrl.orders._id);
 
+AdminCtrl.prototype.viewOrder = function(id){
+	var ctrl = this; 
+	// console.log(id);
+	ctrl.orderSrv.viewOrder(id)
+}
+AdminCtrl.prototype.deleteOrder= function(id){
+	var ctrl = this;
+	ctrl.orderSrv.removeOrders(id)
+	.then(function(res) {
+			if(res.status ===200){
+				ctrl.state.go('admin');
+			}
+		})
 }
