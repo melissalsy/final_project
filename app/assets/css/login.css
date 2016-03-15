@@ -1,65 +1,74 @@
-.container {
-    margin: auto;
-    width: 60%;
-    border: 1px dotted gray;
-    padding: 10px;
+.input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 1em;
+	max-width: 350px;
+	width: calc(100% - 2em);
+	vertical-align: top;
 }
 
-.login {
-	width: 30%;
-	padding: 20px;
-}
-
-.loginForm {
-	width:80%;
-}
-
-.login button {
-	width: 45px;
-	height:30px;
-	background: transparent;
-	border: dotted 1px;
+.input__field {
+	position: relative;
+	display: block;
 	float: right;
-	margin-top: 20px;
-	margin-bottom: 10px;
-	margin-right: 25px;
-	padding-bottom: 25px;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: 100;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
 }
 
-#shippingInfo {
-	width:35%;
-	margin-left: 10%;
-	padding: 10 50px;
-	margin-right: 0;
+.input__field:focus {
+	outline: none;
 }
 
-.inputform {
+.input__label {
+	display: inline-block;
+	float: right;
+	padding: 0 1em;
+	width: 40%;
+	color: #6a7989;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.input__label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
 	width: 100%;
 }
 
-.tableCol1 {
-	width:10%;
+.graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
 }
 
-.orderReview {
-	width: 400px;
-	background-color:white;
-    position: fixed;
-    float: left;
-    left: 50%;
-    top:9%;
+.icon {
+	color: #ddd;
+	font-size: 150%;
 }
 
-.nav {
-	margin-left:5%;
 
-}
-
-/* ADMIN LOGIN */
-
+/* Hideo */
 .input--hideo {
 	overflow: hidden;
-	background: #fff;
+	background: #f3f2f2;
 }
 
 .input__field--hideo {
@@ -123,3 +132,6 @@
 	-webkit-transform: scale3d(0.6, 0.6, 1);
 	transform: scale3d(0.6, 0.6, 1);
 }
+
+
+
