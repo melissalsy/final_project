@@ -5,15 +5,16 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+	<link rel="shortcut icon" href="../favicon.ico">
+	
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/login.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/nav.css" />
 
-<!-- 	<link rel="shortcut icon" href="assets/TextInputEffects/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="assets/TextStylesHoverEffects/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="assets/TextStylesHoverEffects/css/demo.css" />
-	<link rel="stylesheet" type="text/css" href="assets/TextStylesHoverEffects/css/linkstyles.css" /> -->
 
 	<!-- Dependencies -->
 	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
@@ -30,14 +31,94 @@
 	<script type="text/javascript" src="site/services/orderSrv.js"></script>
 	<script type="text/javascript" src="site/services/productSrv.js"></script>
 
+	<script src="js/classie.js"></script>
+	<script>
+		(function() {
+			// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+			if (!String.prototype.trim) {
+				(function() {
+					// Make sure we trim BOM and NBSP
+					var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+					String.prototype.trim = function() {
+						return this.replace(rtrim, '');
+					};
+				})();
+			}
+
+			[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+				// in case the input is already filled..
+				if( inputEl.value.trim() !== '' ) {
+					classie.add( inputEl.parentNode, 'input--filled' );
+				}
+
+				// events:
+				inputEl.addEventListener( 'focus', onInputFocus );
+				inputEl.addEventListener( 'blur', onInputBlur );
+			} );
+
+			function onInputFocus( ev ) {
+				classie.add( ev.target.parentNode, 'input--filled' );
+			}
+
+			function onInputBlur( ev ) {
+				if( ev.target.value.trim() === '' ) {
+					classie.remove( ev.target.parentNode, 'input--filled' );
+				}
+			}
+		})();
+	</script>		
+	<script src="js/clipboard.min.js"></script>
+	<script>
+		(function() {
+			[].slice.call(document.querySelectorAll('.menu')).forEach(function(menu) {
+				var menuItems = menu.querySelectorAll('.menu__link'),
+					setCurrent = function(ev) {
+						ev.preventDefault();
+
+						var item = ev.target.parentNode; // li
+
+						// return if already current
+						if (classie.has(item, 'menu__item--current')) {
+							return false;
+						}
+						// remove current
+						classie.remove(menu.querySelector('.menu__item--current'), 'menu__item--current');
+						// set current
+						classie.add(item, 'menu__item--current');
+					};
+
+				[].slice.call(menuItems).forEach(function(el) {
+					el.addEventListener('click', setCurrent);
+				});
+			});
+
+			[].slice.call(document.querySelectorAll('.link-copy')).forEach(function(link) {
+				link.setAttribute('data-clipboard-text', location.protocol + '//' + location.host + location.pathname + '#' + link.parentNode.id);
+				new Clipboard(link);
+				link.addEventListener('click', function() {
+					classie.add(link, 'link-copy--animate');
+					setTimeout(function() {
+						classie.remove(link, 'link-copy--animate');
+					}, 300);
+				});
+			});
+		})(window);
+		</script>
+
 </head>
+
 <body ng-app="webApp">
 
-	<nav class="nav">
-		<a ui-sref="landing">Shop</a>
-		<a ui-sref="product">Product</a>
-		<a ui-sref="about">About Us</a>
-		<a ui-sref="login">Login</a>
+	<nav class="menu menu--alonso">
+		<ul class="menu__list">
+			<li class="menu__item menu__item--current"><a ui-sref="landing" class="menu__link">Shop</a></li>
+			<li class="menu__item"><a ui-sref="product" class="menu__link">Product</a></li>
+			<li class="menu__item"><a ui-sref="about" class="menu__link">About Us</a></li>
+			<li class="menu__item"><a ui-sref="login" class="menu__link">Login</a></li>
+			<li class="menu__line"></li>
+			<li class="menu__item"><a ui-sref="cart" class="menu__link"><img src="assets/img/cart.png" alt="My Cart" style="width:30px; margin-top:-3px;"></a></li>
+		
+		</ul>
 	</nav>
 
 <div ui-view></div>
