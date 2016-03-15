@@ -62,13 +62,23 @@ AdminCtrl.prototype.getOrders = function(){
 	ctrl.orderSrv.getOrders()
 	.then(function(res){
 		console.log(res);
-
 		ctrl.orders = res.data;
 		// console.log(res[0].cart[0].name);
 		// console.log(ctrl.orders);
 	});
 }
-AdminCtrl.prototype.deleteOrder= function(productId){
+
+AdminCtrl.prototype.viewOrder = function(id){
 	var ctrl = this; 
-	ctrl.productSrv.deleteProduct(ctrl.product.id);
+	// console.log(id);
+	ctrl.orderSrv.viewOrder(id)
+}
+AdminCtrl.prototype.deleteOrder= function(id){
+	var ctrl = this;
+	ctrl.orderSrv.removeOrders(id)
+	.then(function(res) {
+			if(res.status ===200){
+				ctrl.state.go('admin');
+			}
+		})
 }
