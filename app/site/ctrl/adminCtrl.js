@@ -24,7 +24,7 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 	}
 	else{
 		ctrl.getOrders();
-		ctrl.getProduct();
+		// ctrl.getProduct();
 	}
 
 	$scope.$watch(function() {
@@ -34,37 +34,37 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 	});
 }
 
-AdminCtrl.prototype.addProduct = function(){
-	var ctrl = this;
-	ctrl.product = {
-		name: ctrl.name,
-		description: ctrl.description,
-		price: ctrl.price,
-		quantity: ctrl.quantity,
-	};
-	ctrl.productSrv.addProduct(ctrl.product);
-}
+// AdminCtrl.prototype.addProduct = function(){
+// 	var ctrl = this;
+// 	ctrl.product = {
+// 		name: ctrl.name,
+// 		description: ctrl.description,
+// 		price: ctrl.price,
+// 		quantity: ctrl.quantity,
+// 	};
+// 	ctrl.productSrv.addProduct(ctrl.product);
+// }
 
-AdminCtrl.prototype.getProduct = function(){
-	var ctrl = this; 
-	ctrl.productSrv.getProduct()
-	.then(function(res){
-		ctrl.products = res;
-	});
-}
+// AdminCtrl.prototype.getProduct = function(){
+// 	var ctrl = this; 
+// 	ctrl.productSrv.getProduct()
+// 	.then(function(res){
+// 		ctrl.products = res;
+// 	});
+// }
 
-AdminCtrl.prototype.updateProduct = function(product){
-	var ctrl = this;
-	var updatedProduct = {
-		name: product.name,
-		description: product.description,
-		price: product.price,
-		quantity: product.quantity,
-		_id: product._id
-	}
-	ctrl.productSrv.updateProduct(updatedProduct,product._id);
-	ctrl.state.go('admin');
-}
+// AdminCtrl.prototype.updateProduct = function(product){
+// 	var ctrl = this;
+// 	var updatedProduct = {
+// 		name: product.name,
+// 		description: product.description,
+// 		price: product.price,
+// 		quantity: product.quantity,
+// 		_id: product._id
+// 	}
+// 	ctrl.productSrv.updateProduct(updatedProduct,product._id);
+// 	ctrl.state.go('admin');
+// }
 
 AdminCtrl.prototype.logout = function(){
 	var ctrl =this;

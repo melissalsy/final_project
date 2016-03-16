@@ -1,22 +1,4 @@
 <div class="container">
-
-	<h1>Inventory</h1>
-	<form method="GET">
-		<h5>Name:</h5>
-		<input type="text" name="name" ng-model="ctrl.name" required>
-		<br>
-		<h5>Description:</h5>
-		<textarea type="text" name="description" ng-model="ctrl.description"required></textarea>
-		<br>
-		<h5>Price:</h5>
-		<input type="text" name="price" ng-model="ctrl.price" required>
-		<br>
-		<h5>Quantity:</h5>
-		<input type="text" name="quantity" ng-model="ctrl.quantity" required>
-		<br><br>
-		<button ng-click="ctrl.addProduct()">Add to Inventory</button>
-	</form>
-
 	<div ng-repeat="product in ctrl.products">
 		<form>
 			{{product.name}} 
@@ -25,7 +7,11 @@
 		</frm>
 	</div>
 	<h1>View Orders</h1>
-	<div ng-repeat="order in ctrl.orders">
+	<!-- <input type="text" ng-model="ctrl.name"> -->
+	<button ng-click="order_status=true">Pending Orders</button>
+	<button ng-click="order_status=false">Completed Orders</button>
+	<!-- attach a ng-click to this button, which will change the value of the expression being checked for to 'true' -->
+	<div ng-repeat="order in ctrl.orders| filter:order_status">
 		<!-- inside your ng-repeat, apply filter. The filter will target a property of order -->
 		<div ng-repeat="cart in order.cart">
 			{{order.customer_Info.firstName}}
@@ -37,6 +23,7 @@
 			<a href ng-click="ctrl.deleteOrder(order._id)">x</a>
 		</div>
 	</div>
+	<button ui-sref="inventory">Manage Inventory</button>
 	<button ng-click="ctrl.logout()">Log Out</button>
 	<div ui-view=""></div>
 
