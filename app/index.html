@@ -9,28 +9,39 @@
 	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/login.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/nav.css" />
-
-
+	
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" type="text/css" href="assets/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/component.css" />
+	<script src="assets/js/modernizr.custom.js"></script>
 	<!-- Dependencies -->
 	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
 	<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 
 	<!-- App Controllers -->
 	<script type="text/javascript" src="site/ctrl/authCtrl.js"></script>
-	</script><script type="text/javascript" src="site/ctrl/adminCtrl.js"></script>
-	</script><script type="text/javascript" src="site/ctrl/shopCtrl.js"></script>
+	<script type="text/javascript" src="site/ctrl/adminCtrl.js"></script>
+	<script type="text/javascript" src="site/ctrl/shopCtrl.js"></script>
+	<script type="text/javascript" src="site/ctrl/productCtrl.js"></script>
 
 	<!-- App Services -->
 	<script type="text/javascript" src="site/services/apiSrv.js"></script>
 	<script type="text/javascript" src="site/services/orderSrv.js"></script>
 	<script type="text/javascript" src="site/services/productSrv.js"></script>
 
+
+	
 	<script src="assets/js/classie.js"></script>
 	<script>
 		(function() {
@@ -67,7 +78,7 @@
 			}
 		})();
 	</script>		
-	<script src="js/clipboard.min.js"></script>
+	<script src="assets/js/clipboard.min.js"></script>
 	<script>
 		(function() {
 			[].slice.call(document.querySelectorAll('.menu')).forEach(function(menu) {
@@ -105,6 +116,7 @@
 		})(window);
 		</script>
 
+
 </head>
 
 <body ng-app="webApp">
@@ -120,7 +132,6 @@
 		
 		</ul>
 	</nav>
-
 <div ui-view></div>
 <!-- how to set multi view  -->
 <!-- 	<div ui-view name='nav'></div>

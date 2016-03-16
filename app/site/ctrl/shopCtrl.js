@@ -27,6 +27,8 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     }, function (newValue, oldValue) {
         ctrl.customerInfo= newValue;
     });
+
+    jQuery('.collapse').collapse();
 }
 
 //Cart functions//
