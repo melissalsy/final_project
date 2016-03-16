@@ -28,6 +28,16 @@ router.get('/', function(req, res){
 	});
 });
 
+router.get('/:orderId', function(req, res){
+    Orders.find({"_id": req.params.orderId}, function (err, order){
+        if (err){
+            console.log(err);
+        } else {
+            res.json(order);
+        }
+    })
+});
+
 router.delete('/:orderId', function(req,res){
 	Orders.findOne({"_id":req.params.orderId}, function(err, order){
 		if (err){
@@ -45,17 +55,17 @@ router.delete('/:orderId', function(req,res){
 })
 
 router.put('/:orderId', function(req, res){
-	var update = req.body;
+	var update = { $set: { "order_status": "false" }}
     var query = {"_id":req.body._id}
-	Orders.update(query, update,{}, function (err,order){
+	Orders.update(query, update, function (err,order){
             if (err){
                 console.log(err);
             }else{
+            	console.log(order);
                res.send(order);
             }
-		}
+		})
 	})
-})
 // router.get('/orders/:_id', function(req, res){
 // 	models.Orders.getOrderById(function(err, order){
 // 		// if (err){

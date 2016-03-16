@@ -5,6 +5,7 @@ function ProductService($state, api){
 	srv.api = api;
 	srv.state = $state;
 	srv.products = [];
+	srv.getProduct();
 }
 
 ProductService.prototype.addProduct = function (product){
@@ -12,6 +13,7 @@ ProductService.prototype.addProduct = function (product){
 	console.log(product);
 	return srv.api.request('/admin',product,'POST')
 		.then(function(res){
+			srv.products.push(res.data);
 		console.log(res.data);
 	});
 }
