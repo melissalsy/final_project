@@ -1,3 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+/* Grid */
+/*.grid__item {
+	height: calc(100vh - 40px);
+	min-height: 460px;
+	max-width: calc(100vw - 40px);
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-transform: translate3d(0,0,0); /* Solves Safari bug because of SVG clipping mask */
+}
+
+.grid__item p {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #777;
+}*/
+
 .login {
     width: 25%;
     padding: 25px;
@@ -5,16 +32,25 @@
 
 .loginForm {
     width:80%;
-}.container {
-    margin: auto;
-    width: 60%;
-    border: 1px dotted gray;
-    padding: 10px;
 }
 
-.login {
-	width: 30%;
-	padding: 20px;
+.container {
+    margin: auto;
+    width: 70%;
+    padding: 50px;
+}
+
+.mainContent{
+	border: dotted 1px;
+	margin-top:100px;
+	padding: 5%;
+	height: 100%;
+	text-align: center;
+}
+
+#wordContent{
+	text-align: justify;
+	padding: 10px;
 }
 
 .loginForm {
@@ -33,19 +69,33 @@
 	padding-bottom: 25px;
 }
 
+.button {
+	width: 45px;
+	height:30px;
+	background: white;
+	border: dotted 1px;
+}
+
+.headerBtn {
+	border-radius: 13px;
+	padding: 4% 5%;
+	background-color: #00bfff;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
 #shippingInfo {
 	width:35%;
-	margin-left: 10%;
+	margin-left: 15%;
 	padding: 10 50px;
 	margin-right: 0;
 }
 
 .inputform {
 	width: 100%;
-}
-
-.tableCol1 {
-	width:10%;
 }
 
 .orderReview {
@@ -57,76 +107,41 @@
     top:9%;
 }
 
-.nav {
-	margin-left:5%;
+.navbar {
+	font-size: 18px;
+	font-weight: 100;
+	padding:50px 50px;
+}
+
+.nav-left {
+	background-image: url("../img/logoblue.png");
+	z-index: 10;
+	width: 50%;
+}
+
+.nav-right{
 
 }
 
-/* ADMIN LOGIN */
-
-.input--hideo {
-	overflow: hidden;
-	background: #fff;
+.nav-right a {
+	padding:10px;
 }
 
-.input__field--hideo {
-	padding: 0.85em 0.85em 0.85em 3em;
+.background {
+	background-image: url("../img/mysaheader.jpg");
+
 	width: 100%;
-	background: transparent;
-	-webkit-transform: translate3d(1em, 0, 0);
-	transform: translate3d(1em, 0, 0);
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
+	height: 50%;
 }
 
-.input__label--hideo {
-	position: absolute;
-	padding: 1.25em 0 0;
-	width: 4em;
-	height: 100%;
+.about-logo{
+	width: 200px;
 }
 
-.input__label--hideo::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	width: 4em;
-	height: 100%;
-	background: #899dda;
-	-webkit-transform-origin: 0% 50%;
-	transform-origin: 0% 50%;
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
-}
 
-.icon--hideo {
-	color: #fff;
-	-webkit-transform: scale3d(1, 1, 1); /* Needed for Chrome bug */
-	transform: scale3d(1, 1, 1);
-	-webkit-transform-origin: 0% 50%;
-	transform-origin: 0% 50%;
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
-}
 
-.input__label-content--hideo {
-	position: absolute;
-	top: 100%;
-}
 
-.input__field--hideo:focus {
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
-}
 
-.input__field--hideo:focus + .input__label--hideo::before {
-	-webkit-transform: scale3d(0.8, 1, 1);
-	transform: scale3d(0.8, 1, 1);
-}
 
-.input__field--hideo:focus + .input__label--hideo .icon--hideo {
-	-webkit-transform: scale3d(0.6, 0.6, 1);
-	transform: scale3d(0.6, 0.6, 1);
-}
+
+

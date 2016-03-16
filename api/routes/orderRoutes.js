@@ -53,9 +53,8 @@ router.put('/:orderId', function(req, res){
             }else{
                res.send(order);
             }
-		}
+		})
 	})
-})
 // router.get('/orders/:_id', function(req, res){
 // 	models.Orders.getOrderById(function(err, order){
 // 		// if (err){
@@ -77,4 +76,3 @@ router.put('/:orderId', function(req, res){
 
 
 module.exports = router;
-

@@ -27,6 +27,15 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     }, function (newValue, oldValue) {
         ctrl.customerInfo= newValue;
     });
+
+    ctrl.images = [
+        './../assets/img/product1.jpg',
+        './../assets/img/product2.jpg',
+        './../assets/img/product3.jpg',
+        './../assets/img/product4.jpg'
+      ];
+  
+    ctrl.index = 0;
 }
 
 //Cart functions//
@@ -50,6 +59,7 @@ ShopCtrl.prototype.addToCart = function(){
     }
     ctrl.cart.splice(0,1,product);
     console.log(ctrl.cart);
+    ctrl.state.go('checkout');
 }
 
 //Order Submission Functions//
@@ -88,3 +98,15 @@ ShopCtrl.prototype.submitOrder = function(){
     //ctrl.$state.go('final');
 }
 
+// Carousel Front //
+
+ShopCtrl.prototype.next = function() {
+    var ctrl = this;    
+    ctrl.index++;
+}
+
+/*TODO #4: clicking previous should show the previous image*/
+ShopCtrl.prototype.previous = function() {
+    var ctrl = this;
+    ctrl.index--;
+}
