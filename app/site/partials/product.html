@@ -17,9 +17,10 @@
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	<br>
 	<h5>Price:</h5> {{ctrl.product.cost | currency}}
+	<h5>Quantity:</h5><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required>
 	<br><br>
 
-<button ui-sref ="cart"><span ng-show="toggle">product added!</span><span ng-hide="toggle">Add to Cart</span></button>
+<button ui-sref ="checkout" ng-click="ctrl.addToCart()">Buy Now!</button>
 <!-- <div class="container"> -->
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">

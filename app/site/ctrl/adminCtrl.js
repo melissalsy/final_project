@@ -55,18 +55,18 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 // 	});
 // }
 
-// AdminCtrl.prototype.updateProduct = function(product){
-// 	var ctrl = this;
-// 	var updatedProduct = {
-// 		name: product.name,
-// 		description: product.description,
-// 		price: product.price,
-// 		quantity: product.quantity,
-// 		_id: product._id
-// 	}
-// 	ctrl.productSrv.updateProduct(updatedProduct,product._id);
-// 	ctrl.state.go('admin');
-// }
+AdminCtrl.prototype.updateProduct = function(product){
+	var ctrl = this;
+	var updatedProduct = {
+		name: product.name,
+		description: product.description,
+		price: product.price,
+		quantity: product.quantity,
+		_id: product._id
+	}
+	ctrl.productSrv.updateProduct(updatedProduct,product._id);
+	ctrl.state.go('admin');
+}
 
 AdminCtrl.prototype.logout = function(){
 	var ctrl =this;
