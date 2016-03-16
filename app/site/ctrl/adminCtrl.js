@@ -34,6 +34,8 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 	});
 }
 
+
+
 // AdminCtrl.prototype.addProduct = function(){
 // 	var ctrl = this;
 // 	ctrl.product = {

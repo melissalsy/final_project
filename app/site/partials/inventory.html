@@ -1,6 +1,6 @@
 
 	<h1>Inventory</h1>
-	<form method="GET">
+	<form>
 		<h5>Name:</h5>
 		<input type="text" name="name" ng-model="ctrl.name" required>
 		<br>
@@ -13,10 +13,14 @@
 		<h5>Quantity:</h5>
 		<input type="text" name="quantity" ng-model="ctrl.quantity" required>
 		<br><br>
+		<input ngf-select ngf-max-size="2MB" accept = "image/*" type="file" name="userPhoto" ng-model="ctrl.photo">
+		<button ng-click="ctrl.upload(ctrl.photo)">upload File</button>
+		<br>
 		<button ng-click="ctrl.addProduct()">Add to Inventory</button>
 	</form>
 	<div ng-repeat="product in ctrl.products">
 		<form>
+			<img src="{{ctrl.uploadedPhoto}}">
 			{{product.name}}
 			{{product.description}} 
 			{{product.price}}

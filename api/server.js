@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var multer = require('multer');
 var app = express();
 var Product = require('./models/product.js');
 var Orders = require('./models/orders.js')
@@ -31,6 +32,25 @@ app.use('/user', userRoutes);
 app.use('/product', productRoutes);
 app.use('/orders', orderRoutes);
 
+
+//UPLOAD STORAGE 
+var storageDetails = multer.diskStorage({
+    destination: './app/uploads',
+    filename: function (req, file, callback){
+        var originalname = file.originalname;
+        var extension = originalname.substring(originalname.lastIndexOf('.'));
+        var withoutExtension = originalname.substring(0, originalname.lastIndexOf('.'));
+        var fullfilename = withoutExtension + '_' + Date.now() + extension;
+        callback(null, fullfilename);
+    }
+
+});
+
+var upload = multer({storage: storageDetails, fileSize: 500000}).any();
+
+app.post('/api/photo', upload, function(req, res){
+    res.json(req.files);
+})
 //ADMIN INVENTORY
 app.post('/admin', function(req, res){
 	console.log(req.body);

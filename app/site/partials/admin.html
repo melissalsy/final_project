@@ -1,32 +1,42 @@
-<div class="container">
-	<div ng-repeat="product in ctrl.products">
+<h3>View All Orders</h3>
+<div class="inventory col-xs-offset-1 col-xs-10">
+		<div ng-repeat="product in ctrl.products">
 		<form>
 			{{product.name}} 
 			<input value="{{product.quantity}}" ng-model="product.quantity">
 			<button ng-click="ctrl.updateProduct(product)">update</button>
-		</frm>
-	</div>
+		</form>
+		</div>
 	<h1>View Orders</h1>
 	<!-- <input type="text" ng-model="ctrl.name"> -->
 	<button ng-click="order_status=true">Pending Orders</button>
 	<button ng-click="order_status=false">Completed Orders</button>
 	<!-- attach a ng-click to this button, which will change the value of the expression being checked for to 'true' -->
-	<div ng-repeat="order in ctrl.orders| filter:order_status">
 		<!-- inside your ng-repeat, apply filter. The filter will target a property of order -->
-		<div ng-repeat="cart in order.cart">
-			{{order.customer_Info.firstName}}
-			{{cart.name}}
-			{{cart.quantity}}
-			{{cart.total}}
-			<button ng-click="ctrl.completeOrder(order)">Order Complete</button>
-			<button ng-click="ctrl.viewOrder(order._id)">View Order Details</button>
-			<a href ng-click="ctrl.deleteOrder(order._id)">x</a>
-		</div>
-	</div>
+	<table class="products-list table">
+		<tr>
+			<th>Customer</th>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Total</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="order in ctrl.orders| filter:order_status">
+				<td>{{order.customer_Info.firstName}}</td>
+				<td>{{order.cart[0].name}}</td>
+				<td>{{order.cart[0].qty}}</td>
+				<td>{{order.cart[0].cost}}</td>
+				<td><button ng-click="ctrl.completeOrder(order)">Order Complete</button></td>
+				<td><button ng-click="ctrl.viewOrder(order._id)">View Order Details</button></td>
+				<td><a href ng-click="ctrl.deleteOrder(order._id)">x</a></td>
+		</tr
+
+	</table>
 	<button ui-sref="inventory">Manage Inventory</button>
 	<button ng-click="ctrl.logout()">Log Out</button>
 	<div ui-view=""></div>
-
 </div>
 
 

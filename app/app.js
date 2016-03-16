@@ -1,4 +1,4 @@
-var app = angular.module('webApp', ['ui.router']);
+var app = angular.module('webApp', ['ui.router', 'ngFileUpload', 'ngAnimate']);
 
 app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	
