@@ -21,8 +21,8 @@
 			</tr>
 		</table>
 	<h1>View Orders</h1>
-	<button ng-click="ctrl.order_status=true" class="btn btn-default btn-sm active">Pending Orders</button>
-	<button ng-click="ctrl.order_status=false" class="btn btn-default btn-sm active">Completed Orders</button>
+	<button ng-click="ctrl.order_status=true" class="button active">Pending Orders</button>
+	<button ng-click="ctrl.order_status=false" class="btn btn-default active">Completed Orders</button>
 
 	<table class="products-list table">
 		<tr>
@@ -45,7 +45,7 @@
 		</tr
 
 	</table>
-	<button class="btn btn-default btn-sm active" ui-sref="inventory">Manage Inventory</button>
-	<button class="btn btn-default btn-sm" ng-click="ctrl.logout()">Log Out</button>
+	<button class="button  active" ui-sref="inventory">Manage Inventory</button>
+	<button class="button btn-sm" ng-click="ctrl.logout()">Log Out</button>
 	<div ui-view=""></div>
 </div>
