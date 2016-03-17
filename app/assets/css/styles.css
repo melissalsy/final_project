@@ -233,12 +233,13 @@ a:focus {
 .banner-clean h1{
 	font-size: 100px;
 	font-weight: 500;
+	line-height: 25%;
 }
 
 .headertxt{
 	position: relative;
 	left:5%;
-	top: 5%;
+	top: 10%;
 }
 
 .threeCol {
