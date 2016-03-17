@@ -206,3 +206,8 @@ a:focus {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
+
+//ADMIN STYLING//
+.inventory.button{
+	background-color:#B2EBF2;
+}

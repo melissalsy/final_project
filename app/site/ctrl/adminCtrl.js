@@ -14,6 +14,9 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 	ctrl.product;
 	ctrl.order;
 	ctrl.api = api;
+
+	ctrl.order_status = true;
+
 	if(localStorage.authToken == undefined || localStorage.authToken == null){
 		$state.go('login');
 	}
@@ -33,27 +36,6 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 		ctrl.products = newVal;
 	});
 }
-
-
-
-// AdminCtrl.prototype.addProduct = function(){
-// 	var ctrl = this;
-// 	ctrl.product = {
-// 		name: ctrl.name,
-// 		description: ctrl.description,
-// 		price: ctrl.price,
-// 		quantity: ctrl.quantity,
-// 	};
-// 	ctrl.productSrv.addProduct(ctrl.product);
-// }
-
-// AdminCtrl.prototype.getProduct = function(){
-// 	var ctrl = this; 
-// 	ctrl.productSrv.getProduct()
-// 	.then(function(res){
-// 		ctrl.products = res;
-// 	});
-// }
 
 AdminCtrl.prototype.updateProduct = function(product){
 	var ctrl = this;

@@ -1,102 +1,129 @@
 <div class="container">
-	<div class="mainContent">
+	<div class="row mainContent">
+      <div class="col-sm-6 col-md-6">
+        <img class="col-sm-6"ng-src="/assets/img/outlet.png" width="100%"></a>
+      </div>
+  
+      <div class="col-sm-6 col-md-6">
+      	<h5>Name:</h5> {{ctrl.product.name}}	
+      	<br>
+      	<h5>Description:</h5>
+      	<p style="width:400px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      	<br>
+      	<h5>Price:</h5> {{ctrl.product.cost | currency}}
+      	<h5>Quantity:</h5><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required>
+      	<br><br>
+        <button class="btn" ui-sref ="checkout" ng-click="ctrl.addToCart()">Buy Now!</button>
+      </div>
+  </div>
 
-	<h1>Product</h1>
-	<br>
-	<img ng-src="/assets/img/outlet.png" width="30%"></a>
+  <div class="row">
+    <h1>FAQs</h1>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+         <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              What is Mysa track system?
+            </a>
+            </h4>
+          </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          The system consists of the power track and the tap-off units such as plug and adaptor. The system allows electrical power to be tapped off anywhere along the track through the use of specially designed tap-off units. The tracks are available in 2 versions; the surface mount and recess mount type. A wide range of Eubiq adaptors are also available for all major plug types of the world.
+        </div>
+      </div>
+      </div>
 
-	<br><br>
-	<h5>Name:</h5> {{ctrl.product.name}}	
-	<br>
-	<h5>Description:</h5>
-	<p style="width:400px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<br>
-	<h5>Price:</h5> {{ctrl.product.cost | currency}}
-	<h5>Quantity:</h5><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required>
-	<br><br>
-
-<button ui-sref ="checkout" ng-click="ctrl.addToCart()">Buy Now!</button>
-<!-- <div class="container"> -->
-
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-         What is Mysa track system?
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        The system consists of the power track and the tap-off units such as plug and adaptor. The system allows electrical power to be tapped off anywhere along the track through the use of specially designed tap-off units. The tracks are available in 2 versions; the surface mount and recess mount type. A wide range of Eubiq adaptors are also available for all major plug types of the world.
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+              How many tap-off units are allowed on the track at any one time to tap power from the track?
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            The number of tap-off units is dependent on the total load current consumed at that point of time rather than the absolute number of tap-off units connected. Maximum load current available on the system is subjected to the rating of the MCB at the Distribution Board supplying to the final sub-circuit. In practice, the track can accommodate up to 12x adaptors or 18x plugs per metre run. Ratio of adaptor to plug is 2:3.
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+              What's the maximum length of track available?
+            </a>
+          </h4>
+          </div>
+        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+    	       The maximum length of individual track is 3.6m. It can be linked up to any required length to cover the wall perimeter. Wires will be looped accordingly to provide the continuity of the power supply. More than one incoming circuits may be supplied to the track at different interval (electrically isolated between tracks) if the demand of the total load is higher than the rating of a single MCB rating at the DB.
+          </div>
+        </div>
+      </div>
+  
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+              Is the product waterproof or water resistant? 
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            Yes! Our skirting tracks are guaranteed to work across multi-varied working platforms, available to be used in kitchen and coworking spaces. 
+          </div>
+        </div>
+      </div>
+  
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
+              Can the plug/plug adaptor slide along the track?
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            Yes, the plugs are able to slide along tracks and be conducted across all points of contacts along the skirting. Welcome to work/interior freedom. 
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-          How many tap-off units are allowed on the track at any one time to tap power from the track?
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-       The number of tap-off units is dependent on the total load current consumed at that point of time rather than the absolute number of tap-off units connected. Maximum load current available on the system is subjected to the rating of the MCB at the Distribution Board supplying to the final sub-circuit. In practice, the track can accommodate up to 12x adaptors or 18x plugs per metre run. Ratio of adaptor to plug is 2:3.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
-          What's the maximum length of track available?
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-    	The maximum length of individual track is 3.6m. It can be linked up to any required length to cover the wall perimeter. Wires will be looped accordingly to provide the continuity of the power supply. More than one incoming circuits may be supplied to the track at different interval (electrically isolated between tracks) if the demand of the total load is higher than the rating of a single MCB rating at the DB.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
-          Is the product waterproof or water resistant? 
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-       Yes! Our skirting tracks are guaranteed to work across multi-varied working platforms, available to be used in kitchen and coworking spaces. 
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
-          Can the plug/plug adaptor slide along the track?
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-       Yes, the plugs are able to slide along tracks and be conducted across all points of contacts along the skirting. Welcome to work/interior freedom. 
-      </div>
-    </div>
-  </div>
+		<!-- <button class="button" ui-sref ="cart">&#10003;</button> -->
 </div>
->>>>>>> b754bdc64d1e8de56a00a5da2e6a7d5713d585ae
 
-		<button class="button" ui-sref ="cart">&#10003;</button>
-	</div>
-</div>
+
+<!-- 
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-sm-6">
+      <img src="">
+    </div>
+
+    <div class="col-sm-6">
+      <h4>adsf</h4>
+      <p></p>
+    </div>
+
+  </div>
+
+  <div class="row">
+    FAQ
+    <ul>
+    </ul>
+  </div>
+
+</div> -->

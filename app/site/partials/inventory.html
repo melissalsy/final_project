@@ -1,6 +1,7 @@
-
-	<h1>Inventory</h1>
-	<form>
+<div class="container">
+	<button ui-sref="admin">Go Back</button>
+	<button ng-click="showmyform = true">Add New Product</button>
+	<form class = "container"ng-show="showmyform">
 		<h5>Name:</h5>
 		<input type="text" name="name" ng-model="ctrl.name" required>
 		<br>
@@ -13,19 +14,36 @@
 		<h5>Quantity:</h5>
 		<input type="text" name="quantity" ng-model="ctrl.quantity" required>
 		<br><br>
-		<input ngf-select ngf-max-size="2MB" accept = "image/*" type="file" name="userPhoto" ng-model="ctrl.photo">
-		<button ng-click="ctrl.upload(ctrl.photo)">upload File</button>
-		<br>
-		<button ng-click="ctrl.addProduct()">Add to Inventory</button>
+		<h5>Image:</h5><input ngf-select ngf-max-size="2MB" accept = "image/*" type="file" name="userPhoto" ng-model="ctrl.photo">
+		<button ng-click="ctrl.upload(ctrl.photo)">Upload File</button>
+		<br><br>
+		<button ng-click="ctrl.addProduct()">Add to Inventory</button><button ng-click="showmyform = false">Cancel</button>
 	</form>
+
+	<h1>Your Products</h1>
 	<div ng-repeat="product in ctrl.products">
-		<form>
-			<img src="{{ctrl.uploadedPhoto}}">
-			{{product.name}}
-			{{product.description}} 
-			{{product.price}}
-			{{product.quantity}} 
-			<input value="{{product.quantity}}" ng-model="product.quantity">
-			<button ng-click="ctrl.updateProduct(product)">update</button>
-		</form>
+		<table>
+			<tr>
+				<th class="col-sm-3"> </th>
+				<th class="col-sm-3">Name</th>
+				<th class="col-sm-3">Quantity</th>
+				<th> </th>
+			</tr>
+			<tr ng-repeat="product in ctrl.products">
+				<td class="col-sm-3">
+					<img src="{{product.image}}" style="width:200px">
+				</td>
+				<td class="col-sm-3">
+					{{product.name}}
+				</td>
+				<td class="col-sm-3">
+					<input type="number" ng-model="product.quantity">
+				</td>
+				<td><button ng-click="ctrl.updateProduct(product)">update</button>
+				<button ng-click="ctrl.deleteProduct(product._id)">delete</button>
+				</td>
+				
+			</tr>
+		</table>
 	</div>
+</div>
