@@ -107,6 +107,8 @@ AdminCtrl.prototype.completeOrder = function(order){
 	.then(function(res){
 		console.log(res);
 	})
+    ctrl.state.reload();
+    // ctrl.state.go('admin', {}, {reload: true});
 }
 AdminCtrl.prototype.deleteOrder= function(id){
 	var ctrl = this;
@@ -116,4 +118,5 @@ AdminCtrl.prototype.deleteOrder= function(id){
 				ctrl.state.go('admin');
 			}
 		})
+	// ctrl.state.reload();
 }
