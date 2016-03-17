@@ -1,41 +1,46 @@
-<div class="container mainContent">
+<div class="container">
+	<div class="mainContent">
+		<h1>Inventory</h1>
 
-<h1>Inventory</h1>
-<form method="GET">
-	<h5>Name:</h5>
-	<input type="text" name="name" ng-model="ctrl.name" required>
-	<br>
-	<h5>Description:</h5>
-	<textarea type="text" name="description" ng-model="ctrl.description"required></textarea>
-	<br>
-	<h5>Price:</h5>
-	<input type="text" name="price" ng-model="ctrl.price" required>
-	<br>
-	<h5>Quantity:</h5>
-	<input type="text" name="quantity" ng-model="ctrl.quantity" required>
-	<br><br>
-	<button ng-click="ctrl.addProduct()">Add to Inventory</button>
-</form>
+		<form method="GET">
+			<h5>Name:</h5>
+			<input type="text" name="name" ng-model="ctrl.name" required>
+			<br>
+			<h5>Description:</h5>
+			<textarea type="text" name="description" ng-model="ctrl.description"required></textarea>
+			<br>
+			<h5>Price:</h5>
+			<input type="text" name="price" ng-model="ctrl.price" required>
+			<br>
+			<h5>Quantity:</h5>
+			<input type="text" name="quantity" ng-model="ctrl.quantity" required>
+			<br><br>
+			<button ng-click="ctrl.addProduct()">Add to Inventory</button>
+		</form>
 
-<div ng-repeat="product in ctrl.products">
-	<form>
-		{{product.name}} 
-		<input value="{{product.quantity}}" ng-model="product.quantity">
-		<button ng-click="ctrl.updateProduct(product)">update</button>
-	</form>
-</div>
-<h1>View Orders</h1>
-<div ng-repeat="order in ctrl.orders">
-	<div ng-repeat="cart in order.cart">
-		{{order.customer_Info.firstName}}
-		{{cart.name}}
-		{{cart.quantity}}
-		{{cart.total}}
-	<button>Order Complete</button>
-	<button ng-click="ctrl.viewOrder(order._id)">View Order Details</button>
-	<a href ng-click="ctrl.deleteOrder(order._id)">x</a>
+		<div ng-repeat="product in ctrl.products">
+			<form>
+				{{product.name}} 
+				<input value="{{product.quantity}}" ng-model="product.quantity">
+				<button ng-click="ctrl.updateProduct(product)">update</button>
+			</form>
+		</div>
+
+		<h1>View Orders</h1>
+
+		<div ng-repeat="order in ctrl.orders">
+			<div ng-repeat="cart in order.cart">
+				{{order.customer_Info.firstName}}
+				{{cart.name}}
+				{{cart.quantity}}
+				{{cart.total}}
+			<button>Order Complete</button>
+			<button ng-click="ctrl.viewOrder(order._id)">View Order Details</button>
+			<a href ng-click="ctrl.deleteOrder(order._id)">x</a>
+			</div>
+		</div>
+
+		<button class="button" ng-click="ctrl.logout()">Log Out</button>
+
 	</div>
-</div>
-<button ng-click="ctrl.logout()">Log Out</button>
-
 </div>

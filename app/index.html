@@ -10,6 +10,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/login.css" />
 
 
 	<!-- Dependencies -->
@@ -26,19 +27,20 @@
 	<script type="text/javascript" src="site/services/apiSrv.js"></script>
 	<script type="text/javascript" src="site/services/orderSrv.js"></script>
 	<script type="text/javascript" src="site/services/productSrv.js"></script>
+	<script src="assets/js/classie.js"></script>
+
 </head>
 
 <body ng-app="webApp">
 
 <div class="navbar col-xs-12">
-	<div class="nav-left col-xs-6">
+	<div class="nav-left col-xs-6" ui-sref="landing">
 	</div>
-	<div class="nav-right col-xs-6">
-	 	<a ui-sref="landing">HOME</a>
-	 	<a ui-sref="product">SHOP</a>
-	 	<a ui-sref="about">ABOUT US</a>
-	 	<a ui-sref="login">LOGIN</a>
-	 	<a ui-sref="cart"><img src="assets/img/cart.png" width="10%"></a>
+	<div class="nav-right col-xs-6 ">
+		 	<a ui-sref="landing">HOME</a>
+		 	<a ui-sref="product">SHOP</a>
+		 	<a ui-sref="about">ABOUT US</a>
+		 	<a ui-sref="login">LOGIN</a>
 	</div>
 </div>
 
