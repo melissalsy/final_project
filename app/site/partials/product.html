@@ -1,29 +1,40 @@
 <div class="container">
 	<div class="mainContent">
 
+<section id="product">
 	<h1>Product</h1>
-	<br>
-	<img ng-src="/assets/img/outlet.png" width="30%"></a>
-
-	<br><br>
+	 <br>
+	<img ng-src="/assets/img/outlet.png" width="50%"></a>
+	 <br><br>
 	<h5>Name:</h5> {{ctrl.product.name}}	
-	<br>
+	 <br>
 	<h5>Description:</h5>
-	<p style="width:400px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<br>
+  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	 <br>
 	<h5>Price:</h5> {{ctrl.product.cost | currency}}
 	<h5>Quantity:</h5><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required>
-	<br><br>
+	 <br><br>
 
-<button ui-sref ="checkout" ng-click="ctrl.addToCart()">Buy Now!</button>
-<!-- <div class="container"> -->
+<button class="button buyBtn" ui-sref ="checkout" ng-click="ctrl.addToCart()">Buy Now!</button>
+</section>
+<br><br>
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<section>
+
+  <h2>FAQ:</h2>
+
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
@@ -38,6 +49,7 @@
       </div>
     </div>
   </div>
+  <br>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
@@ -52,6 +64,7 @@
       </div>
     </div>
   </div>
+  <br>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
@@ -66,6 +79,7 @@
       </div>
     </div>
   </div>
+  <br>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
@@ -80,6 +94,7 @@
       </div>
     </div>
   </div>
+  <br>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
@@ -95,8 +110,8 @@
     </div>
   </div>
 </div>
->>>>>>> b754bdc64d1e8de56a00a5da2e6a7d5713d585ae
-
-		<button class="button" ui-sref ="cart">&#10003;</button>
+</section>
+  <br>
+		<button class="button" ui-sref="cart">&#10003;</button>
 	</div>
 </div>

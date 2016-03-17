@@ -122,11 +122,19 @@ a:focus {
 	padding-bottom: 25px;
 }
 
+#product p {
+	text-align: justify;
+}
+
 .button {
 	width: 45px;
 	height:30px;
 	background: white;
 	border: dotted 1px;
+}
+
+.buyBtn {
+	width:10%;
 }
 
 .headerBtn {
@@ -138,6 +146,7 @@ a:focus {
     font-size: 18px;
     font-weight: 120;
     letter-spacing: 1.5px;
+    z-index: 10;
 }
 
 #shippingInfo {
@@ -186,23 +195,87 @@ a:focus {
 	padding:10px;
 }
 
-.background {
+/*BANNERS*/
+
+.banner-bedroom {
+	background-image: url("../img/banner-bedroom.jpg");
+	background-size: cover;
+	height: 100%;
+	position: relative;
+	z-index:1;
+}
+
+.banner-banner {
 	background-image: url("../img/banner-banner.jpg");
+	background-size: cover;
+	height: 100%;
+	position: relative;
+	z-index:1;
+	
+}
+
+/*.banner-clean {
+	background-image: url("../img/banner-clean.jpg");
 	background-size: contain;
 	background-repeat: no-repeat;
 	height: 100%;
-	position: absolute;
-	z-index:1;
+	position: relative;
+	z-index:0;
+}*/
+
+/*TEXTURES*/
+/*
+.steel {
+	background-image: url("../img/texture-steel.jpg");
+	background-size: contain;
+	border-radius: 25px;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+}
+
+.plastic {
+	background-image: url("../img/texture-plastic.jpg");
+}
+
+.woodgrain {
+	background-image: url("../img/texture-plastic.jpg");
 }
 
 .headertxt{
 	position: relative;
 	top:55%;
 	left:5%;
-}
+}*/
+
+/*ABOUT*/
 
 .about-logo{
-	background-image: url("../img/logogrey.png");
-	background-size: contain;
-	background-repeat: no-repeat;
+	background-image: url("./../img/logoblue.png");
+	background-size: cover;
+	width: 200px;
+	height: 200px;
+	/*background-repeat: no-repeat;*/
 }
+
+.contact{
+	margin-left:-40%;
+}
+
+/*FAQ*/
+
+.panel-group{
+	width:70%;
+	margin: 0 auto;
+}
+
+#headingOne {
+	background: white;
+	text-align: left;
+	font-family: slabo;
+}
+
+.panel-body {
+	text-align:justify;
+}
+
