@@ -1,3 +1,4 @@
+<body>
 <div class="inventory col-xs-offset-1 col-xs-10">
 	<h1> Current Product</h1>
 		<table>
@@ -20,8 +21,9 @@
 				<td><button ng-click="ctrl.updateProduct(product)">update</button></td>
 			</tr>
 		</table>
+	<button class="btn btn-default active" ui-sref="inventory">Manage Inventory</button>
 	<h1>View Orders</h1>
-	<button ng-click="ctrl.order_status=true" class="button active">Pending Orders</button>
+	<button ng-click="ctrl.order_status=true" class="btn btn-default  active">Pending Orders</button>
 	<button ng-click="ctrl.order_status=false" class="btn btn-default active">Completed Orders</button>
 
 	<table class="products-list table">
@@ -39,13 +41,13 @@
 				<td>{{order.cart[0].name}}</td>
 				<td>{{order.cart[0].qty}}</td>
 				<td>{{order.cart[0].qty * order.cart[0].cost}}</td>
-				<td><button ng-click="ctrl.viewOrder(order._id)">View Order Details</button></td>
-				<td><button ng-click="ctrl.completeOrder(order)" ng-if="order.order_status">Order Complete</button></td>
+				<td><button class="btn btn-sm" ng-click="ctrl.viewOrder(order._id)">View Order Details</button></td>
+				<td><button class="btn btn-sm" ng-click="ctrl.completeOrder(order)" ng-if="order.order_status">Order Complete</button></td>
 				<td><a href ng-click="ctrl.deleteOrder(order._id)">x</a></td>
 		</tr
 
 	</table>
-	<button class="button  active" ui-sref="inventory">Manage Inventory</button>
-	<button class="button btn-sm" ng-click="ctrl.logout()">Log Out</button>
+	<button class="btn btn-default active" ng-click="ctrl.logout()">Log Out</button>
 	<div ui-view=""></div>
 </div>
+</body>
