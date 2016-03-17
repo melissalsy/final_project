@@ -13,8 +13,8 @@
 		</table>
 	<h1>View Orders</h1>
 	<!-- <input type="text" ng-model="ctrl.name"> -->
-	<button ng-click="order_status=true">Pending Orders</button>
-	<button ng-click="order_status=false">Completed Orders</button>
+	<button ng-click="order_status=true" class="btn btn-default btn-sm active">Pending Orders</button>
+	<button ng-click="order_status=false" class="btn btn-default btn-sm active">Completed Orders</button>
 	<!-- attach a ng-click to this button, which will change the value of the expression being checked for to 'true' -->
 		<!-- inside your ng-repeat, apply filter. The filter will target a property of order -->
 	<table class="products-list table">
@@ -38,8 +38,8 @@
 		</tr
 
 	</table>
-	<button ui-sref="inventory">Manage Inventory</button>
-	<button ng-click="ctrl.logout()">Log Out</button>
+	<button class="btn btn-default btn-sm" ui-sref="inventory">Manage Inventory</button>
+	<button class="btn btn-default btn-sm" ng-click="ctrl.logout()">Log Out</button>
 	<div ui-view=""></div>
 </div>
 
