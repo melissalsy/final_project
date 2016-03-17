@@ -14,6 +14,9 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 	ctrl.product;
 	ctrl.order;
 	ctrl.api = api;
+
+	ctrl.order_status = true;
+
 	if(localStorage.authToken == undefined || localStorage.authToken == null){
 		$state.go('login');
 	}
