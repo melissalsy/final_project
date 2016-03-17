@@ -32,6 +32,10 @@ ProductService.prototype.getProduct = function (){
 		})
 }
 
+ProductService.prototype.removeProduct = function (id){
+	var srv = this; 
+	return srv.api.request('/product/'+id, {}, 'DEL');
+}
 ProductService.prototype.updateProduct = function (product, productId){
 	var srv = this;
 	return srv.api.request('/product/',product, 'PUT')
