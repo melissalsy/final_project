@@ -1,22 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+/* Grid */
+/*.grid__item {
+	height: calc(100vh - 40px);
+	min-height: 460px;
+	max-width: calc(100vw - 40px);
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-transform: translate3d(0,0,0); /* Solves Safari bug because of SVG clipping mask 
+}
+
+.grid__item p {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #777;
+}*/
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'codropsicons';
+    src:url('../fonts/codropsicons/codropsicons.eot');
+    src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+        url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+        url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
+
+*, 
+*:after, 
+*:before { 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+.clearfix:before, 
+.clearfix:after { 
+	content: ''; 
+	display: table; 
+}
+
+.clearfix:after { 
+	clear: both; 
+}
+
+body {
+	font-size: 1.5em;
+}
+
+a {
+	text-decoration: none;
+	color: #4e3c3e;
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	color: #cccae5;
+}
+
+.container-login {
+	margin: 0 auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.content {
+	font-size: 150%;
+}
+
+.content h2 {
+	opacity: 0.7;
+	font-weight: 100;
+}
+
 .login {
     width: 25%;
     padding: 25px;
 }
 
-.loginForm {
-    width:80%;
-}
-
 /*.container {
     margin: auto;
-    width: 60%;
-    border: 1px dotted gray;
-    padding: 10px;
+    width: 70%;
+    padding: 50px;
 }*/
 
-.login {
-	width: 30%;
-	padding: 20px;
+.mainContent{
+	border: dotted 1px;
+	margin-top:100px;
+	padding: 5%;
+	text-align: center;
+}
+
+#wordContent{
+	text-align: justify;
+	padding: 10px;
 }
 
 .loginForm {
@@ -35,19 +122,33 @@
 	padding-bottom: 25px;
 }
 
+.button {
+	width: 45px;
+	height:30px;
+	background: white;
+	border: dotted 1px;
+}
+
+.headerBtn {
+	border-radius: 13px;
+	padding: 4% 5%;
+	background-color: #00bfff;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 120;
+    letter-spacing: 1.5px;
+}
+
 #shippingInfo {
 	width:35%;
-	margin-left: 10%;
+	margin-left: 15%;
 	padding: 10 50px;
 	margin-right: 0;
 }
 
 .inputform {
 	width: 100%;
-}
-
-.tableCol1 {
-	width:10%;
 }
 
 .orderReview {
@@ -59,7 +160,49 @@
     top:9%;
 }
 
-.nav {
-	margin-left:5%;
+.navbar {
+	font-size: 18px;
+	font-weight: 100;
+	padding:50px 50px;
+}
 
+.nav-left {
+	background-image: url("./../img/logoblue.png");
+	background-size: cover;
+	position: absolute;
+	z-index: 10;
+	width: 100px;
+	height: 100px;
+	top: 0;
+}
+
+.nav-right{
+	/*padding-left: 10%;*/
+	float:right;
+	z-index: 10;
+}
+
+.nav-right a {
+	padding:10px;
+}
+
+.background {
+	background-image: url("../img/banner-banner.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 100%;
+	position: absolute;
+	z-index:1;
+}
+
+.headertxt{
+	position: relative;
+	top:55%;
+	left:5%;
+}
+
+.about-logo{
+	background-image: url("../img/logogrey.png");
+	background-size: contain;
+	background-repeat: no-repeat;
 }

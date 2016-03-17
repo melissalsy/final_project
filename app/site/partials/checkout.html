@@ -1,8 +1,8 @@
-<button ui-sref = "product">Back</button>
+<!-- <button ng-click="ctrl.goToCart()">back to cart</button> -->
 
 <br><br>
 
-<div class="container" id="shippingInfo">
+<div class="container mainContent" id="shippingInfo">
 
     <h3>shipping information</h3>
     <br>
@@ -48,14 +48,14 @@
         </div>
             <br><br>
 
-        <button ng-click="ctrl.reviewOrder()"> review & submit order</button>
+        <button class="button" ng-click="ctrl.reviewOrder()">&#10003;</button>
             
             <br><br>
     </form>
 
 </div>
 
-<div class="container orderReview" ng-repeat="cartProduct in ctrl.cart">
+<!-- <div class="container orderReview" ng-repeat="cartProduct in ctrl.cart">
     <table>
         <colgroup>
             <col span="1" class="tableCol1">
@@ -81,3 +81,4 @@
         </tr>
     </table>
 </div>
+ -->

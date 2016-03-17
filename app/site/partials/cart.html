@@ -1,30 +1,27 @@
 <div class="container">
-<h3>Your Order</h3>
+    <div class="mainContent">
+        <h3>Your Order</h3>
+        <br>
         <table class="table">
             <tr> 
                 <th>Preview</th>
                 <th>Product</th>
                 <th>Cost</th>
                 <th>Qty</th>
-                <th></th>
             </tr>
             <tr>
-                <td><img ng-src="/assets/img/demo.jpg" style="height:100px;"></td>
+                <td><img ng-src="/assets/img/outlet.png" style="height:150px;"></td>
                 <td>{{ctrl.product.name}}</td>
                 <td>{{ctrl.product.cost}}</td>
                  <td><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required></td>
-                <td>
-                    <!-- [<a href ng-click="ctrl.removeItem($index)">x</a>] -->
-                </td>
             </tr>
             <tr>
-                <!-- <td><a href ng-click="addItem()" class="btn btn-small">add item</a></td> -->
-                <td></td>
                 <td></td>
                 <td></td>
                 <td>Total:</td>
             <td>{{ctrl.product.qty * ctrl.product.cost | currency}}</td>
             </tr>
         </table>
-        <button ui-sref="checkout" ng-click="ctrl.addToCart()">checkout</button>
+        <button class="button" ui-sref="checkout" ng-click="ctrl.addToCart()">&#10003;</button>
+    </div>
 </div>
