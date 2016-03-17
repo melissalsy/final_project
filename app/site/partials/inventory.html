@@ -19,14 +19,27 @@
 		<button ng-click="ctrl.addProduct()">Add to Inventory</button>
 	</form>
 	<div ng-repeat="product in ctrl.products">
-		<form>
-			<img src="{{product.image}}" style="width:200px">
-			{{product.name}}
-			{{product.description}} 
-			{{product.price}}
-			{{product.quantity}} 
-			<input value="{{product.quantity}}" ng-model="product.quantity">
-			<button ng-click="ctrl.updateProduct(product)">update</button>
-			<button ng-click="ctrl.deleteProduct(product._id)">delete</button>
-		</form>
+		<table>
+			<tr>
+				<th class="col-sm-3"> </th>
+				<th class="col-sm-3">Name</th>
+				<th class="col-sm-3">Quantity</th>
+				<th> </th>
+			</tr>
+			<tr ng-repeat="product in ctrl.products">
+				<td class="col-sm-3">
+					<img src="{{product.image}}" style="width:200px">
+				</td>
+				<td class="col-sm-3">
+					{{product.name}}
+				</td>
+				<td class="col-sm-3">
+					<input type="number" ng-model="product.quantity">
+				</td>
+				<td><button ng-click="ctrl.updateProduct(product)">update</button>
+				<button ng-click="ctrl.deleteProduct(product._id)">delete</button>
+				</td>
+				
+			</tr>
+		</table>
 	</div>
