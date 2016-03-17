@@ -26,11 +26,11 @@ ProductCtrl.prototype.upload = function(file){
 		ctrl.photo = 'http://localhost:8080/uploads/' + res.data[0].filename;
 	}, function(err){
 		console.log(err);
-	})
+	}) 
 }
 
-ProductCtrl.prototype.addProduct = function(){
-	var ctrl = this;
+ProductCtrl.prototype.addProduct = function (){
+	var ctrl = this; 
 	ctrl.product = {
 		name: ctrl.name,
 		description: ctrl.description,
@@ -40,7 +40,6 @@ ProductCtrl.prototype.addProduct = function(){
 	};
 	ctrl.productSrv.addProduct(ctrl.product);
 }
-
 ProductCtrl.prototype.getProduct = function(){
 	var ctrl = this; 
 	ctrl.productSrv.getProduct()
@@ -60,4 +59,14 @@ ProductCtrl.prototype.updateProduct = function(product){
 	}
 	ctrl.productSrv.updateProduct(updatedProduct,product._id);
 	ctrl.state.go('admin');
+}
+
+ProductCtrl.prototype.deleteProduct = function(id){
+	var ctrl = this; 
+	ctrl.productSrv.removeProduct(id)
+	.then(function(res){
+		if (res.status ===200){
+			ctrl.state.reload();
+		}
+	})
 }

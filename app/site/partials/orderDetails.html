@@ -1,4 +1,4 @@
-<h1> This is Each Order</h1>
+<h1>Order Details</h1>
 <div class="top">
 <div class="align-shopmain row title">
 
@@ -29,28 +29,16 @@
 		Quantity: {{ctrl.order.cart[0].qty}}
 		<br>
 		Total: {{ctrl.order.cart[0].cost * ctrl.order.cart[0].qty}}
-
-		<!-- <br>
-		{{ctrl.order.cart.qty}}
-		<br>
-		{{ctrl.order.cart.cost}} -->
 	</td>
 	<td class="col-sm-3">
 		<h6 ng-show ='ctrl.order.order_status'>ACTIVE<H6>
 		<h6 ng-hide ='ctrl.order.order_status'>INACTIVE<H6>
 	</td>
 
-
-
-	<<!-- td>{{ctrl.order.customer_Info}}</td>
-	<td>{{ctrl.order.cart}}</td>
-	<td>{{ctrl.order.order_status}}</td> -->
 <tr>
 </table>
 
 <button ng-click="ctrl.completeOrder(ctrl.order._id)">Order Complete</button>
-<!-- <button ng-click="ctrl.updateShop()">Update Shop</button> -->
-<!-- <button ng-click="ctrl.deleteShop()">Delete</button> -->
 </div>
 </div>
 <div ui-view></div>

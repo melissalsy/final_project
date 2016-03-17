@@ -20,4 +20,19 @@ router.put('/', function(req, res){
 	})
 })
 
+router.delete('/:productId', function(req, res){
+	Products.findOne({"_id": req.params.productId}, function(err, product){
+		if (err){
+			console.log(err);
+		}else{
+			product.remove(function(err){
+				if(err){
+					console.log(err);
+				}else {
+					console.log('success!');
+				}
+			})
+		}
+	})
+})
 module.exports = router;

@@ -2,11 +2,15 @@
 	<h1> Current Product</h1>
 		<table>
 			<tr>
+				<th></th>
 				<th>Name</th>
 				<th>Quantity</th>
 			</tr>
 			<tr ng-repeat="product in ctrl.products">
-			<td>{{product.name}}</td>
+			<td>
+				<img src="{{product.image}}" style="width:200px">
+				{{product.name}}
+			</td>
 			<td><input type="number" ng-model="product.quantity"></td>
 			<td><button ng-click="ctrl.updateProduct(product)">update</button></td>
 			</tr>
@@ -15,8 +19,7 @@
 	<!-- <input type="text" ng-model="ctrl.name"> -->
 	<button ng-click="ctrl.order_status=true" class="btn btn-default btn-sm active">Pending Orders</button>
 	<button ng-click="ctrl.order_status=false" class="btn btn-default btn-sm active">Completed Orders</button>
-	<!-- attach a ng-click to this button, which will change the value of the expression being checked for to 'true' -->
-		<!-- inside your ng-repeat, apply filter. The filter will target a property of order -->
+
 	<table class="products-list table">
 		<tr>
 			<th>Customer</th>

@@ -37,27 +37,6 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 	});
 }
 
-
-
-// AdminCtrl.prototype.addProduct = function(){
-// 	var ctrl = this;
-// 	ctrl.product = {
-// 		name: ctrl.name,
-// 		description: ctrl.description,
-// 		price: ctrl.price,
-// 		quantity: ctrl.quantity,
-// 	};
-// 	ctrl.productSrv.addProduct(ctrl.product);
-// }
-
-// AdminCtrl.prototype.getProduct = function(){
-// 	var ctrl = this; 
-// 	ctrl.productSrv.getProduct()
-// 	.then(function(res){
-// 		ctrl.products = res;
-// 	});
-// }
-
 AdminCtrl.prototype.updateProduct = function(product){
 	var ctrl = this;
 	var updatedProduct = {
