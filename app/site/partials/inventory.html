@@ -1,6 +1,7 @@
-
-	<h1>Inventory</h1>
-	<form>
+<div class="container">
+	<button ui-sref="admin">Go Back</button>
+	<button ng-click="showmyform = true">Add New Product</button>
+	<form class = "container"ng-show="showmyform">
 		<h5>Name:</h5>
 		<input type="text" name="name" ng-model="ctrl.name" required>
 		<br>
@@ -15,9 +16,11 @@
 		<br><br>
 		<h5>Image:</h5><input ngf-select ngf-max-size="2MB" accept = "image/*" type="file" name="userPhoto" ng-model="ctrl.photo">
 		<button ng-click="ctrl.upload(ctrl.photo)">Upload File</button>
-		<br>
-		<button ng-click="ctrl.addProduct()">Add to Inventory</button>
+		<br><br>
+		<button ng-click="ctrl.addProduct()">Add to Inventory</button><button ng-click="showmyform = false">Cancel</button>
 	</form>
+
+	<h1>Your Products</h1>
 	<div ng-repeat="product in ctrl.products">
 		<table>
 			<tr>
@@ -43,3 +46,4 @@
 			</tr>
 		</table>
 	</div>
+</div>
