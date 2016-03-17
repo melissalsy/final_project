@@ -17,23 +17,24 @@
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	<br>
 	<h5>Price:</h5> {{ctrl.product.cost | currency}}
+	<h5>Quantity:</h5><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required>
 	<br><br>
 
-<button ui-sref ="cart"><span ng-show="toggle">product added!</span><span ng-hide="toggle">Add to Cart</span></button>
+<button ui-sref ="checkout" ng-click="ctrl.addToCart()">Buy Now!</button>
 <!-- <div class="container"> -->
 
-div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+         What is Mysa track system?
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        The system consists of the power track and the tap-off units such as plug and adaptor. The system allows electrical power to be tapped off anywhere along the track through the use of specially designed tap-off units. The tracks are available in 2 versions; the surface mount and recess mount type. A wide range of Eubiq adaptors are also available for all major plug types of the world.
       </div>
     </div>
   </div>
@@ -41,13 +42,55 @@ div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+          How many tap-off units are allowed on the track at any one time to tap power from the track?
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+       The number of tap-off units is dependent on the total load current consumed at that point of time rather than the absolute number of tap-off units connected. Maximum load current available on the system is subjected to the rating of the MCB at the Distribution Board supplying to the final sub-circuit. In practice, the track can accommodate up to 12x adaptors or 18x plugs per metre run. Ratio of adaptor to plug is 2:3.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+          What's the maximum length of track available?
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+    	The maximum length of individual track is 3.6m. It can be linked up to any required length to cover the wall perimeter. Wires will be looped accordingly to provide the continuity of the power supply. More than one incoming circuits may be supplied to the track at different interval (electrically isolated between tracks) if the demand of the total load is higher than the rating of a single MCB rating at the DB.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+          Is the product waterproof or water resistant? 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+       Yes! Our skirting tracks are guaranteed to work across multi-varied working platforms, available to be used in kitchen and coworking spaces. 
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
+          Can the plug/plug adaptor slide along the track?
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+       Yes, the plugs are able to slide along tracks and be conducted across all points of contacts along the skirting. Welcome to work/interior freedom. 
       </div>
     </div>
   </div>

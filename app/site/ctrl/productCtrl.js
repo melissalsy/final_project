@@ -5,6 +5,7 @@ function ProductCtrl($scope, productSrv, $state, Upload){
 	ctrl.$scope = $scope;
 	ctrl.state = $state;
 	ctrl.productSrv = productSrv;
+	ctrl.Upload = Upload;
 	ctrl.getProduct();
 	ctrl.products;
 	$scope.$watch(function() {
@@ -15,13 +16,14 @@ function ProductCtrl($scope, productSrv, $state, Upload){
 }
 
 ProductCtrl.prototype.upload = function(file){
-	file.upload = Upload.upload({
+	var ctrl = this;
+	file.upload = ctrl.Upload.upload({
 		url:'api/photo',
 		data: {file:file}
 	})
 	.then(function(res){
 		console.log(res.data[0].filename);
-		ctrl.uploadedPhoto = 'http://localhost:8080/uploads/' + res.data[0].filename;
+		ctrl.photo = 'http://localhost:8080/uploads/' + res.data[0].filename;
 	}, function(err){
 		console.log(err);
 	})

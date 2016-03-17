@@ -1,12 +1,16 @@
-<h3>View All Orders</h3>
 <div class="inventory col-xs-offset-1 col-xs-10">
-		<div ng-repeat="product in ctrl.products">
-		<form>
-			{{product.name}} 
-			<input value="{{product.quantity}}" ng-model="product.quantity">
-			<button ng-click="ctrl.updateProduct(product)">update</button>
-		</form>
-		</div>
+	<h1> Current Product</h1>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Quantity</th>
+			</tr>
+			<tr ng-repeat="product in ctrl.products">
+			<td>{{product.name}}</td>
+			<td><input type="number" ng-model="product.quantity"></td>
+			<td><button ng-click="ctrl.updateProduct(product)">update</button></td>
+			</tr>
+		</table>
 	<h1>View Orders</h1>
 	<!-- <input type="text" ng-model="ctrl.name"> -->
 	<button ng-click="order_status=true">Pending Orders</button>
@@ -27,9 +31,9 @@
 				<td>{{order.customer_Info.firstName}}</td>
 				<td>{{order.cart[0].name}}</td>
 				<td>{{order.cart[0].qty}}</td>
-				<td>{{order.cart[0].cost}}</td>
-				<td><button ng-click="ctrl.completeOrder(order)">Order Complete</button></td>
+				<td>{{order.cart[0].qty * order.cart[0].cost}}</td>
 				<td><button ng-click="ctrl.viewOrder(order._id)">View Order Details</button></td>
+				<td><button ng-click="ctrl.completeOrder(order)" ng-if="order.order_status">Order Complete</button></td>
 				<td><a href ng-click="ctrl.deleteOrder(order._id)">x</a></td>
 		</tr
 
