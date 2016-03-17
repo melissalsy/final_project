@@ -9,7 +9,7 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     ctrl.orders;
 
     ctrl.product = {
-        name: 'Portable Outlet',
+        name: 'MYSA Power Adaptor',
         qty: 1,
         cost: 100.00
     };
