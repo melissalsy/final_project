@@ -1,29 +1,26 @@
 <div class="container">
   <div class="row mainContent">
       <div class="col-sm-6 col-md-6">
-        <img class="col-sm-6 col-md-6"ng-src="/assets/img2/product.jpg" width="100%"></a>
+        <img class="img col-sm-6 col-md-6"ng-src="/assets/img/product.jpg"></a>
       </div>
   
-      <div class="col-sm-6 col-md-6">
-      	<h5>{{ctrl.product.name}}<h5>
-      	<br>
-      	<h5>Description:</h5>
-      	<p style="width:400px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      	<br>
-      	<h5>Price:</h5> {{ctrl.product.cost | currency}}
-      	<h5>Quantity:</h5><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required>
+      <div class="col-sm-6 col-md-6" style="width:300px;">
+      	<h1 class="mainContent header">{{ctrl.product.name}}</h1>
+        <hr>
+        <br>
+      	<p>{{ctrl.product.description}}</p>
+        <br>
+        <span>$</span>
+        <span class="curr_amt">{{ctrl.product.cost}}</span>
+        <br><hr>
+      	<h5><input type="number" min="1" ng-model="ctrl.product.qty" style="width:40px;" required></h5>
       	<br><br>
-        <button class="btn" ui-sref ="checkout" ng-click="ctrl.addToCart()">Buy Now!</button>
+        <button class="btn" ui-sref ="checkout" ng-click="ctrl.addToCart()">Buy Now</button>
       </div>
   </div>
 
   <div class="row">
-    <h1>FAQs</h1>
+    <h1 class="header panel-group">FAQs</h1> <br>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
          <div class="panel-heading" role="tab" id="headingOne">
