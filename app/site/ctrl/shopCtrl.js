@@ -28,14 +28,7 @@ function ShopCtrl($state, $scope, orderSrv, api) {
         ctrl.customerInfo= newValue;
     });
 
-    ctrl.images = [
-        './../assets/img/product1.jpg',
-        './../assets/img/product2.jpg',
-        './../assets/img/product3.jpg',
-        './../assets/img/product4.jpg'
-      ];
-  
-    ctrl.index = 0;
+    jQuery('.collapse').collapse();
 }
 
 //Cart functions//

@@ -1,4 +1,4 @@
-var app = angular.module('webApp', ['ui.router']);
+var app = angular.module('webApp', ['ui.router', 'ngFileUpload', 'ngAnimate']);
 
 app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 	
@@ -18,11 +18,17 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider){
 		 .state ('admin', {
 	      url:'/admin',
 	      templateUrl: 'site/partials/admin.html',
-	      controller: 'adminCtrl as ctrl',
+	      controller: 'adminCtrl as ctrl'
     	})
-		.state('admin.order',{
-			url:'orders',
-			templateUrl: 'site/partials/orderDetails.html',
+		.state ('inventory', {
+			url:'/inventory',
+			templateUrl:'site/partials/inventory.html',
+			controller:'productCtrl as ctrl'
+		})
+		.state('orders',{
+			url:'/orders/:orderId',
+			templateUrl: 'site/partials/orderDetails.html', 
+			controller:'adminCtrl as ctrl'
 		})
     	.state('product', {
 			url: "/product",
