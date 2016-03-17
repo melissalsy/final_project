@@ -9,7 +9,8 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     ctrl.orders;
 
     ctrl.product = {
-        name: 'Portable Outlet',
+        name: 'MYSA',
+        description:'A hassle-free  power adaptor that gives your working space the ultimate freedom',
         qty: 1,
         cost: 100.00
     };
@@ -47,6 +48,7 @@ ShopCtrl.prototype.addToCart = function(){
     var ctrl = this;
     var product = {
         name:ctrl.product.name,
+        description:ctrl.product.description,
         qty: ctrl.product.qty,
         cost: ctrl.product.cost
     }
