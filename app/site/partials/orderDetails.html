@@ -2,6 +2,7 @@
 <button class="btn button" ui-sref="admin">&larr;</button>
 
 <h1>Order Details</h1>
+<hr>
 	<div class="top">
 		<div class="align-shopmain row title">
 		<table>
@@ -46,7 +47,7 @@
 					<h6 ng-hide ='ctrl.order.order_status'>INACTIVE<H6>
 				</td>
 				<td class="col-sm-3">
-					<button class="btn button" ng-click="ctrl.completeOrder(ctrl.order._id)">&#10003;</button>
+					<button class="btn button completeOrd" ng-click="ctrl.completeOrder(ctrl.order._id)">&#10003;</button>
 				</td>	
 			<tr>
 		</table>

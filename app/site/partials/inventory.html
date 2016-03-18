@@ -24,7 +24,7 @@
 	<div ng-repeat="product in ctrl.products">
 		<table>
 			<tr>
-				<th class="col-sm-3"> </th>
+				<th class="col-sm-3"></th>
 				<th class="col-sm-3">Name</th>
 				<th class="col-sm-3">Quantity</th>
 				<th> </th>
@@ -39,7 +39,7 @@
 				<td class="col-sm-3">
 					<input type="number" ng-model="product.quantity">
 				</td>
-				<td><button ng-click="ctrl.updateProduct(product)">update</button>
+				<td><button ng-click="ctrl.updateProduct(product) toggle=!toggle"><span ng-show="toggle">product updated!</span><span ng-hide="toggle">update</span></button>
 				<button ng-click="ctrl.deleteProduct(product._id)">delete</button>
 				</td>
 				

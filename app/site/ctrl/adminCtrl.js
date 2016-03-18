@@ -35,6 +35,15 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
 	}, function(newVal, oldVal) {
 		ctrl.products = newVal;
 	});
+
+    $scope.$watch(function(){
+        return productSrv.products;
+    }, function (newValue) {
+        if(productSrv.products.length > 0){
+            ctrl.products = productSrv.products;
+            ctrl.is_products = true;
+        }
+    });
 }
 
 AdminCtrl.prototype.updateProduct = function(product){

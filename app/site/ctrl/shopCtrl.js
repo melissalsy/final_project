@@ -34,15 +34,7 @@ function ShopCtrl($state, $scope, orderSrv, api) {
     if(ctrl.products.length > 0 ){
         ctrl.is_products = true;
     }
-
-    $scope.$watch(function(){
-        return productSrv.products;
-    }, function (newValue) {
-        if(productSrv.products.length > 0){
-            ctrl.products = productSrv.products;
-            ctrl.is_products = true;
-        }
-    });
+    
 }
 
 //Cart functions//
