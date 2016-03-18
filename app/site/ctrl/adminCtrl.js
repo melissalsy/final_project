@@ -97,5 +97,6 @@ AdminCtrl.prototype.deleteOrder= function(id){
 				ctrl.state.go('admin');
 			}
 		})
-	ctrl.state.go('admin', {}, {reload: true});
+	ctrl.state.reload();
+	// ctrl.state.go('admin', {}, {reload: true});
 }

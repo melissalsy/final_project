@@ -34,21 +34,46 @@
 
 <body ng-app="webApp">
 
-<div class="navbar col-xs-12">
-	<div class="nav-left col-xs-6" ui-sref="landing">
-	</div>
-	<div class="nav-right col-xs-5 col-xs-offset-1">
+<!-- <div class="navbar col-xs-12" role="navigation">
+		<div class="nav-left col-xs-6" ui-sref="landing">
+		</div>
+		<div class="nav-right col-xs-5 col-xs-offset-1">
 		 	<a ui-sref="landing">HOME</a>
 		 	<a ui-sref="product">SHOP</a>
 		 	<a ui-sref="about">ABOUT US</a>
 		 	<a ui-sref="login">LOGIN</a>
-	</div>
-</div>
+		</div>
+</div> -->
 
+<nav class = "navbar navbar-default col-xs-12" role = "navigation">
+   
+   <div class = "navbar-header">
+      	<button type = "button" class = "navbar-toggle" 
+         data-toggle = "collapse" data-target = "#example-navbar-collapse">
+			<span class = "sr-only">Toggle navigation</span>
+			<span class = "icon-bar"></span>
+			<span class = "icon-bar"></span>
+			<span class = "icon-bar"></span>
+     	</button>
+	
+		<div class="nav-left col-xs-6 navbar-brand" ui-sref="landing"></div>
+   </div>
+   
+   <div class = "collapse navbar-collapse nav-right col-xs-5 col-xs-offset-1" id = "example-navbar-collapse">
+   		<ul class = "nav navbar-nav">
+			<li><a ui-sref="landing">HOME</a></li>
+			<li><a ui-sref="product">SHOP</a></li>
+			<li><a ui-sref="about">ABOUT US</a></li>
+			<li><a ui-sref="login">LOGIN</a></li>
+      	</ul>
+   </div>
+   
+</nav>
 <div ui-view></div>
 <!-- how to set multi view  -->
-<!-- 	<div ui-view name='nav'></div>
-	<div ui-view name='content'></div> -->
+<!-- 	<div ui-view nam
+<div class = "collapse navbar-collapse">e='nav'></div>
+	<div ui-view name='cntent'></div> -->
 <br><br>
 
 <footer class="footer">

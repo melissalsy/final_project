@@ -55,7 +55,6 @@
 
 body {
 	font-size: 1.5em;
-	margin:10;
 }
 
 a {
@@ -177,6 +176,8 @@ a:focus {
 	font-size: 25px;
 	font-weight: 100;
 	padding:50px 50px;
+	background-color: white;
+	border: none;
 }
 
 .nav-left {
@@ -294,7 +295,7 @@ a:focus {
 /*FAQ*/
 
 .header.panel-group{
-	font-size: 30pt;
+	font-size: 30px;
 }
 .panel-group{
 	margin: 0 auto;
@@ -304,6 +305,7 @@ a:focus {
 	background: white;
 	text-align: left;
 	font-family: slabo;
+	font-size: 30px;
 }
 
 .panel-body {
@@ -313,7 +315,28 @@ a:focus {
 /*ADMIN*/
 
 .inventory .btn{
+	background-color:white;
+}
+
+.inventory.button.btn.btn-default.active {
 	background-color:#B2EBF2;
+}
+
+/*ORDER DETAILS*/
+.orderDetails{
+	padding-bottom: 10%;
+}
+
+.orderDetails table td {
+	padding-top: 20px;
+	 vertical-align: text-top;
+}
+
+.orderDetails table b {
+	margin-right: 20px;
+}
+.orderDetails .t1 {
+	margin-right: 40px;
 }
 
 /*Product Page*/

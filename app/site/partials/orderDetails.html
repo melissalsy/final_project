@@ -1,44 +1,57 @@
+<div class="container orderDetails">
+<button class="btn button" ui-sref="admin">&larr;</button>
+
 <h1>Order Details</h1>
-<div class="top">
-<div class="align-shopmain row title">
+	<div class="top">
+		<div class="align-shopmain row title">
+		<table>
+			<tr>
+				<th class="col-sm-2">Order ID</th>
+				<th class="col-sm-3">Customer Info</th>
+				<th class="col-sm-3">Order Info</th>
+				<th class="col-sm-2">Order Status</th>
+				<th class="col-sm-2">Order Complete</th>
+			</tr>
+			<tr>
+				<td class="col-sm-3"> {{ctrl.order._id}}</td>
+				<td class="col-sm-3">
+					<b>Name :</b>
+					<br><br> 
+					{{ctrl.order.customer_Info.lastName}}, {{ctrl.order.customer_Info.firstName}}
+					<br><br>
+					<b>Address :</b> 
+					<br><br>
+					{{ctrl.order.customer_Info.address}}
+					<br>
+					{{ctrl.order.customer_Info.city}},{{ctrl.order.customer_Info.province}}, 
+					<br>
+					{{ctrl.order.customer_Info.postal}}
+					<br><br>
+					<b>Email :</b>
+					<br><br>
+					{{ctrl.order.customer_Info.email}}
+				</td>
+				<td class="col-sm-3">
+					<b>Product :</b>
+					{{ctrl.order.cart[0].name}}
+					<br><br>
+					<b>Quantity :</b> 
+					{{ctrl.order.cart[0].qty}}
+					<br><br>
+					<b class="t1">Total :</b>
+					{{ctrl.order.cart[0].cost * ctrl.order.cart[0].qty}}
+				</td>
+				<td class="col-sm-3">
+					<h6 ng-show ='ctrl.order.order_status'>ACTIVE<H6>
+					<h6 ng-hide ='ctrl.order.order_status'>INACTIVE<H6>
+				</td>
+				<td class="col-sm-3">
+					<button class="btn button" ng-click="ctrl.completeOrder(ctrl.order._id)">&#10003;</button>
+				</td>	
+			<tr>
+		</table>
 
-<table>
-<tr>
-	<th class="col-sm-3">Order ID</th>
-	<th class="col-sm-3">Customer Info</th>
-	<th class="col-sm-3">Order Info</th>
-	<th class="col-sm-3">Order Status</th>
-</tr>
-
-<tr>
-	<td class="col-sm-3"> {{ctrl.order._id}}</td>
-	<td class="col-sm-3">
-		<b>Name</b>: {{ctrl.order.customer_Info.lastName}}, {{ctrl.order.customer_Info.firstName}}
-		<br>
-		<b>Address</b>: {{ctrl.order.customer_Info.address}}
-		<br>
-		{{ctrl.order.customer_Info.city}},{{ctrl.order.customer_Info.province}}, 
-		<br>
-		{{ctrl.order.customer_Info.postal}}
-		<br>
-		<b>Email</b>: {{ctrl.order.customer_Info.email}}
-	</td>
-	<td class="col-sm-3">
-		Product: {{ctrl.order.cart[0].name}}
-		<br>
-		Quantity: {{ctrl.order.cart[0].qty}}
-		<br>
-		Total: {{ctrl.order.cart[0].cost * ctrl.order.cart[0].qty}}
-	</td>
-	<td class="col-sm-3">
-		<h6 ng-show ='ctrl.order.order_status'>ACTIVE<H6>
-		<h6 ng-hide ='ctrl.order.order_status'>INACTIVE<H6>
-	</td>
-
-<tr>
-</table>
-
-<button ng-click="ctrl.completeOrder(ctrl.order._id)">Order Complete</button>
+		</div>
+	</div>
+		<div ui-view></div>
 </div>
-</div>
-<div ui-view></div>

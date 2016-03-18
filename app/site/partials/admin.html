@@ -1,5 +1,6 @@
 <body>
 <div class="inventory col-xs-offset-1 col-xs-10">
+	<button class="btn btn-default active" ui-sref="inventory">Manage Inventory</button>
 	<h1> Current Product</h1>
 		<table>
 			<tr>
@@ -21,7 +22,7 @@
 				<td><button ng-click="ctrl.updateProduct(product)">update</button></td>
 			</tr>
 		</table>
-	<button class="btn btn-default active" ui-sref="inventory">Manage Inventory</button>
+
 	<h1>View Orders</h1>
 	<button ng-click="ctrl.order_status=true" class="btn btn-default  active">Pending Orders</button>
 	<button ng-click="ctrl.order_status=false" class="btn btn-default active">Completed Orders</button>
@@ -48,6 +49,7 @@
 
 	</table>
 	<button class="btn btn-default active" ng-click="ctrl.logout()">Log Out</button>
-	<div ui-view=""></div>
+
 </div>
+
 </body>
