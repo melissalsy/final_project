@@ -1,10 +1,27 @@
 <body>
-<div class="inventory col-xs-offset-1 col-xs-10">
-	<button class="btn btn-default active" ui-sref="inventory">Manage Inventory</button>
-	<h1> Current Product</h1>
+
+<div class="admin row">
+
+<div class="vertBtns col-xs-2 col-xs-offset-1">
+	<div class="btn-group-vertical" role="group" aria-label="...">
+		<button class="btn btn-default active" ui-sref="inventory">Manage Inventory</button>
+		<button ng-click="ctrl.order_status=true" class="btn btn-default  active">Pending Orders</button>
+		<button ng-click="ctrl.order_status=false" class="btn btn-default active">Completed Orders</button>
+		<button class="btn btn-default active" ng-click="ctrl.logout()">Log Out</button>
+	</div>
+</div>
+
+<div class="currProd col-xs-8">
+	<h1>Current Product</h1>
+
+	<div ng-hide="ctrl.is_products">
+		<p>You have no products</p>
+	</div>
+
+	<div ng-show="ctrl.is_products">
 		<table>
 			<tr>
-				<th class="col-sm-3"> </th>
+				<th class="col-sm-3"></th>
 				<th class="col-sm-3">Name</th>
 				<th class="col-sm-3">Quantity</th>
 				<th> </th>
@@ -22,33 +39,36 @@
 				<td><button ng-click="ctrl.updateProduct(product)">update</button></td>
 			</tr>
 		</table>
+	</div>
+</div>
 
-	<h1>View Orders</h1>
-	<button ng-click="ctrl.order_status=true" class="btn btn-default  active">Pending Orders</button>
-	<button ng-click="ctrl.order_status=false" class="btn btn-default active">Completed Orders</button>
+<div class="col-xs-1"></div>
 
-	<table class="products-list table">
-		<tr>
-			<th>Customer</th>
-			<th>Product</th>
-			<th>Quantity</th>
-			<th>Total</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<tr ng-repeat="order in ctrl.orders| filter:ctrl.order_status">
-				<td>{{order.customer_Info.firstName}}</td>
-				<td>{{order.cart[0].name}}</td>
-				<td>{{order.cart[0].qty}}</td>
-				<td>{{order.cart[0].qty * order.cart[0].cost}}</td>
-				<td><button class="btn btn-sm" ng-click="ctrl.viewOrder(order._id)">View Order Details</button></td>
-				<td><button class="btn btn-sm" ng-click="ctrl.completeOrder(order)" ng-if="order.order_status">Order Complete</button></td>
-				<td><a href ng-click="ctrl.deleteOrder(order._id)">x</a></td>
-		</tr
-
-	</table>
-	<button class="btn btn-default active" ng-click="ctrl.logout()">Log Out</button>
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-3">
+		<h1>View Orders</h1>
+		<table class="products-list table">
+			<tr>
+				<th>Customer</th>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Total</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			<tr ng-repeat="order in ctrl.orders| filter:ctrl.order_status">
+					<td>{{order.customer_Info.firstName}}</td>
+					<td>{{order.cart[0].name}}</td>
+					<td>{{order.cart[0].qty}}</td>
+					<td>{{order.cart[0].qty * order.cart[0].cost}}</td>
+					<td><button class="btn btn-sm" ng-click="ctrl.viewOrder(order._id)">View Order Details</button></td>
+					<td><button class="btn btn-sm" ng-click="ctrl.completeOrder(order)" ng-if="order.order_status">Order Complete</button></td>
+					<td><a href ng-click="ctrl.deleteOrder(order._id)">x</a></td>
+			</tr
+		</table>
+	</div>
+</div>
 
 </div>
 

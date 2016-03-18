@@ -150,6 +150,10 @@ a:focus {
 	margin-right: 0;
 }
 
+#shippingInfo .btn{
+	margin: 0 auto;
+}
+
 .footer {
 	font-size: 20px;
 	margin-left: 45%;
@@ -288,9 +292,16 @@ a:focus {
 	/*background-repeat: no-repeat;*/
 }
 
-.contact{
-	margin-left:-40%;
+.about {
+	padding: 10% 5%;
 }
+
+#contact{
+	margin:0 auto;
+	text-align: left;
+	padding:10%;
+}
+
 
 /*FAQ*/
 
@@ -314,15 +325,28 @@ a:focus {
 
 /*ADMIN*/
 
-.inventory .btn{
+.admin {
+	padding-bottom: 10%;
+}
+
+.admin .btn{
 	background-color:white;
 }
 
-.inventory.button.btn.btn-default.active {
+/*.admin .button.btn.btn-default.active {
 	background-color:#B2EBF2;
+}*/
+
+.admin .vertBtns {
+	padding: 0px;
+	padding-top: 5%;
 }
 
+.admin .currProd {
+	padding: 0px;
+}
 /*ORDER DETAILS*/
+
 .orderDetails{
 	padding-bottom: 10%;
 }
@@ -339,7 +363,7 @@ a:focus {
 	margin-right: 40px;
 }
 
-/*Product Page*/
+/*PRODUCT PAGE*/
 
 .curr_amt {
 	font-size:18pt;
