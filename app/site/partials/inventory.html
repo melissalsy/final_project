@@ -1,49 +1,65 @@
-<div class="container">
-	<button class="btn btn-default active" ui-sref="admin">Go Back</button>
-	<button class="btn btn-default active" ng-click="showmyform = true">Add New Product</button>
-	<form class = "container"ng-show="showmyform">
-		<h5>Name:</h5>
-		<input type="text" name="name" ng-model="ctrl.name" required>
-		<br>
-		<h5>Description:</h5>
-		<textarea type="text" name="description" ng-model="ctrl.description"required></textarea>
-		<br>
-		<h5>Price:</h5>
-		<input type="text" name="price" ng-model="ctrl.price" required>
-		<br>
-		<h5>Quantity:</h5>
-		<input type="text" name="quantity" ng-model="ctrl.quantity" required>
-		<br><br>
-		<h5>Image:</h5><input ngf-select ngf-max-size="2MB" accept = "image/*" type="file" name="userPhoto" ng-model="ctrl.photo">
-		<button ng-click="ctrl.upload(ctrl.photo)">Upload File</button>
-		<br><br>
-		<button class="btn" ng-click="ctrl.addProduct()">Add to Inventory</button><button class="btn" ng-click="showmyform = false">Cancel</button>
-	</form>
+<div class="container inventory">
 
-	<h1>Your Products</h1>
-	<div ng-repeat="product in ctrl.products">
-		<table>
-			<tr>
-				<th class="col-sm-3"></th>
-				<th class="col-sm-3">Name</th>
-				<th class="col-sm-3">Quantity</th>
-				<th> </th>
-			</tr>
-			<tr ng-repeat="product in ctrl.products">
-				<td class="col-sm-3">
-					<img src="{{product.image}}" style="width:200px">
-				</td>
-				<td class="col-sm-3">
-					{{product.name}}
-				</td>
-				<td class="col-sm-3">
-					<input type="number" ng-model="product.quantity">
-				</td>
-				<td><button ng-click="ctrl.updateProduct(product) toggle=!toggle"><span ng-show="toggle">product updated!</span><span ng-hide="toggle">update</span></button>
-				<button ng-click="ctrl.deleteProduct(product._id)">delete</button>
-				</td>
-				
-			</tr>
-		</table>
+<button class="btn button" ui-sref="admin">&larr;</button>
+	<button class="btn button" ng-click="showmyform = true">Add New Product</button>
+	
+<!--  <button class="btn button" ng-click="showmyform = true; toggle=!toggle"><span ng-show="toggle" ng-click="showmyform = false">Cancel</span><span ng-hide="toggle">Add New Product</span></button> -->
+
+
+<div class="row">
+	<div class="col-xs-4 col-xs-offset-1">
+		<form class = "container" ng-show="showmyform">
+			<h5>Name:</h5>
+			<input type="text" name="name" ng-model="ctrl.name" required>
+			<br>
+			<h5>Description:</h5>
+			<textarea type="text" name="description" ng-model="ctrl.description"required></textarea>
+			<br>
+			<h5>Price:</h5>
+			<input type="number" name="price" ng-model="ctrl.price" required>
+			<br>
+			<h5>Quantity:</h5>
+			<input type="text" name="quantity" ng-model="ctrl.quantity" required>
+			<br><br>
+			<h5>Image:</h5><input ngf-select ngf-max-size="2MB" accept = "image/*" type="file" name="userPhoto" ng-model="ctrl.photo">
+			<button class="btn button btn-xs" ng-click="ctrl.upload(ctrl.photo)">Upload File</button>
+			<br><br>
+			<button class="btn button" ng-click="ctrl.addProduct(); toggle=!toggle"><span ng-show="toggle">Added!</span><span ng-hide="toggle">Add to Inventory</span></button>
+			<button class="btn button" ng-click="showmyform = false">Close</button>
+		</form>
 	</div>
+
+	<div class="col-xs-6">
+		<h1>Your Products</h1>
+		<div ng-repeat="product in ctrl.products">
+			<table>
+				<tr>
+					<th class="col-sm-3"></th>
+					<th class="col-sm-3">Name</th>
+					<th class="col-sm-2">Quantity</th>
+					<th></th>
+					<th> </th>
+				</tr>
+				<tr ng-repeat="product in ctrl.products">
+					<td class="col-sm-3">
+						<img src="{{product.image}}" style="width:200px">
+					</td>
+					<td class="col-sm-3">
+						{{product.name}}
+					</td>
+					<td class="col-sm-3">
+						<input class="input" type="number" ng-model="product.quantity">
+					</td>
+					<td><button class="btn button btn-xs" ng-click="ctrl.updateProduct(product)">update</button>
+					</td>
+					<td>
+					<button  class="btn button btn-xs" ng-click="ctrl.deleteProduct(product._id)">delete</button>
+					</td>
+					
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
 </div>

@@ -67,6 +67,7 @@ ProductCtrl.prototype.deleteProduct = function(id){
 	.then(function(res){
 		if (res.status ===200){
 			ctrl.state.reload();
+			ctrl.state.go('admin');
 		}
 	})
 }

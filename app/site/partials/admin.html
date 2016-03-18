@@ -15,7 +15,7 @@
 	<h1>Current Product</h1>
 
 	<div ng-hide="ctrl.is_products">
-		<p>You have no products</p>
+		<p><i>You have no products</i></p>
 	</div>
 
 	<div ng-show="ctrl.is_products">
@@ -36,7 +36,7 @@
 				<td class="col-sm-3">
 					<input type="number" ng-model="product.quantity">
 				</td>
-				<td><button ng-click="ctrl.updateProduct(product)">update</button></td>
+				<td><button class="btn button btn-xs" ng-click="ctrl.updateProduct(product)">update</button></td>
 			</tr>
 		</table>
 	</div>
@@ -46,27 +46,36 @@
 
 <div class="row">
 	<div class="col-xs-8 col-xs-offset-3">
+	
 		<h1>View Orders</h1>
-		<table class="products-list table">
-			<tr>
-				<th>Customer</th>
-				<th>Product</th>
-				<th>Quantity</th>
-				<th>Total</th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-			<tr ng-repeat="order in ctrl.orders| filter:ctrl.order_status">
-					<td>{{order.customer_Info.firstName}}</td>
-					<td>{{order.cart[0].name}}</td>
-					<td>{{order.cart[0].qty}}</td>
-					<td>{{order.cart[0].qty * order.cart[0].cost}}</td>
-					<td><button class="btn btn-sm" ng-click="ctrl.viewOrder(order._id)">View Order Details</button></td>
-					<td><button class="btn btn-sm" ng-click="ctrl.completeOrder(order)" ng-if="order.order_status">Order Complete</button></td>
-					<td><a href ng-click="ctrl.deleteOrder(order._id)">x</a></td>
-			</tr
-		</table>
+
+		<!-- <div ng-hide="ctrl.is_orders">
+			<p><i>You have no orders</i></p>
+		</div>
+ -->
+		<!-- <div ng-show="ctrl.is_orders"> -->
+			<table class="products-list table">
+				<tr>
+					<th>Customer</th>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Total</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr ng-repeat="order in ctrl.orders| filter:ctrl.order_status">
+						<td>{{order.customer_Info.firstName}}</td>
+						<td>{{order.cart[0].name}}</td>
+						<td>{{order.cart[0].qty}}</td>
+						<td>{{order.cart[0].qty * order.cart[0].cost}}</td>
+						<td><button class="btn btn-sm" ng-click="ctrl.viewOrder(order._id)">View Order Details</button></td>
+						<td><button class="btn btn-sm" ng-click="ctrl.completeOrder(order)" ng-if="order.order_status">Order Complete</button></td>
+						<td><a href ng-click="ctrl.deleteOrder(order._id) reload">x</a></td>
+				</tr
+			</table>
+		<!-- </div> -->
+
 	</div>
 </div>
 

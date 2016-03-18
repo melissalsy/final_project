@@ -44,6 +44,7 @@ function AdminCtrl($state,productSrv, orderSrv, $scope,$stateParams, api) {
             ctrl.is_products = true;
         }
     });
+
 }
 
 AdminCtrl.prototype.updateProduct = function(product){
@@ -106,6 +107,10 @@ AdminCtrl.prototype.deleteOrder= function(id){
 				ctrl.state.go('admin');
 			}
 		})
-	ctrl.state.reload();
+	// ctrl.state.reload();
 	// ctrl.state.go('admin', {}, {reload: true});
+}
+
+AdminCtrl.prototype.reload= function() {
+	ctrl.state.reload();
 }

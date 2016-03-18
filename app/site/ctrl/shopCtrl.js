@@ -97,16 +97,3 @@ ShopCtrl.prototype.submitOrder = function(){
     ctrl.orderSrv.addOrder(ctrl.order);
     //ctrl.$state.go('final');
 }
-
-// Carousel Front //
-
-ShopCtrl.prototype.next = function() {
-    var ctrl = this;    
-    ctrl.index++;
-}
-
-/*TODO #4: clicking previous should show the previous image*/
-ShopCtrl.prototype.previous = function() {
-    var ctrl = this;
-    ctrl.index--;
-}
